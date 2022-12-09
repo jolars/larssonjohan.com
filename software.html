@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Research and Coding">
+<meta name="description" content="Software that I have contributed to">
 
-<title>Johan Larsson - Blog</title>
+<title>Johan Larsson - Software</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -127,11 +127,11 @@ ga('send', {
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="Johan Larsson" href="blog.xml"><meta property="og:title" content="Johan Larsson - Blog">
-<meta property="og:description" content="Research and Coding">
+<meta property="og:title" content="Johan Larsson - Software">
+<meta property="og:description" content="Software that I have contributed to">
 <meta property="og:site-name" content="Johan Larsson">
-<meta name="twitter:title" content="Johan Larsson - Blog">
-<meta name="twitter:description" content="Research and Coding">
+<meta name="twitter:title" content="Johan Larsson - Software">
+<meta name="twitter:description" content="Software that I have contributed to">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -152,11 +152,11 @@ ga('send', {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" aria-current="page">
+    <a class="nav-link" href="./blog.html">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html">
+    <a class="nav-link active" href="./software.html" aria-current="page">
  <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
@@ -188,12 +188,12 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Software</h1>
 </div>
 
 <div>
   <div class="description">
-    Research and Coding
+    Software that I have contributed to
   </div>
 </div>
 
@@ -212,172 +212,29 @@ ga('send', {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="0.06">
+<a href="./software/eulerr/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./software/eulerr/eulerr.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+eulerr
+</h5>
+<div class="card-text listing-description">
+eulerr is an R package for constructing area-proportional Euler diagrams with ellipses.
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="r,regularization,SLOPE,statistics" data-listing-date-sort="1586822400000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="2.7">
-<div class="thumbnail">
-<p><a href="./posts/slope-0-2-0/index.html"> <img src="./posts/slope-0-2-0/slope.svg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/slope-0-2-0/index.html">
-<h3 class="no-anchor listing-title">
-SLOPE 0.2.0
-</h3>
-<div class="listing-subtitle">
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
 
 </div>
-<div class="listing-description">
-<p>A new update to the SLOPE package with many exciting features.</p>
+</div>
+</div>
 </div>
 </a>
-</div>
-<div class="metadata">
-<a href="./posts/slope-0-2-0/index.html">
-<div class="listing-date">
-14 April 2020
-</div>
-<div class="listing-author">
-Johan Larsson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="r,euler diagrams,polygon,labeling,eulerr,polylabelr,geometry" data-listing-date-sort="1540771200000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="2.79">
-<div class="thumbnail">
-<p><a href="./posts/polygon-labeling-with-polylabelr/index.html"> <img src="./posts/polygon-labeling-with-polylabelr/polylabelr.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/polygon-labeling-with-polylabelr/index.html">
-<h3 class="no-anchor listing-title">
-Polygon Labeling with polylabelr
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>A new package polylabelr can be used find visual centers of polygons and label Euler diagrams.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/polygon-labeling-with-polylabelr/index.html">
-<div class="listing-date">
-29 October 2018
-</div>
-<div class="listing-author">
-Johan Larsson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="r,qualpalr,data visualization" data-listing-date-sort="1477785600000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="4.175">
-<div class="thumbnail">
-<p><a href="./posts/farthest-points/index.html"> <img src="./posts/farthest-points/farthest-points.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/farthest-points/index.html">
-<h3 class="no-anchor listing-title">
-Finding the Farthest Points in a Point Cloud
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>An algorithm for finding the most separated points in a cloud of points.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/farthest-points/index.html">
-<div class="listing-date">
-30 October 2016
-</div>
-<div class="listing-author">
-Johan Larsson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="r,eulerr,euler diagrams,data visualization" data-listing-date-sort="1476835200000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="3.33">
-<div class="thumbnail">
-<p><a href="./posts/introducing-eulerr/index.html"> <img src="./posts/introducing-eulerr/eulerr.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/introducing-eulerr/index.html">
-<h3 class="no-anchor listing-title">
-Introducing eulerr
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>This is an introduction to my new package, eulerr, an R package that computes and plots eulerr diagrams of set relationships.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/introducing-eulerr/index.html">
-<div class="listing-date">
-19 October 2016
-</div>
-<div class="listing-author">
-Johan Larsson
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="r,data visualization,qualpalr" data-listing-date-sort="1476489600000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="4.985">
-<div class="thumbnail">
-<p><a href="./posts/introducing-qualpalr/index.html"> <img src="./posts/introducing-qualpalr/qualpalr.png" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/introducing-qualpalr/index.html">
-<h3 class="no-anchor listing-title">
-Introducing qualpalr
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/introducing-qualpalr/index.html">
-<div class="listing-date">
-15 October 2016
-</div>
-<div class="listing-author">
-Johan Larsson
-</div>
-</a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">

@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://larssonjohan.com/about.html</loc>
-    <lastmod>2022-12-09T11:26:44.234Z</lastmod>
-  </url>
-  <url>
     <loc>https://larssonjohan.com/blog.html</loc>
-    <lastmod>2022-12-09T11:26:45.026Z</lastmod>
+    <lastmod>2022-12-09T12:04:35.924Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/index.html</loc>
-    <lastmod>2022-12-09T11:26:45.350Z</lastmod>
+    <lastmod>2022-12-09T12:04:36.604Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/farthest-points/index.html</loc>
-    <lastmod>2022-12-09T11:26:45.990Z</lastmod>
+    <lastmod>2022-12-09T12:04:37.212Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/introducing-eulerr/index.html</loc>
-    <lastmod>2022-12-09T11:26:46.610Z</lastmod>
+    <lastmod>2022-12-09T12:04:37.832Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/introducing-qualpalr/index.html</loc>
-    <lastmod>2022-12-09T11:26:47.370Z</lastmod>
+    <lastmod>2022-12-09T12:04:38.548Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index.html</loc>
-    <lastmod>2022-12-09T11:26:48.034Z</lastmod>
+    <lastmod>2022-12-09T12:04:39.228Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/slope-0-2-0/index.html</loc>
-    <lastmod>2022-12-09T11:26:48.646Z</lastmod>
+    <lastmod>2022-12-09T12:04:39.884Z</lastmod>
   </url>
   <url>
-    <loc>https://larssonjohan.com/research.html</loc>
-    <lastmod>2022-12-09T11:26:48.954Z</lastmod>
+    <loc>https://larssonjohan.com/software.html</loc>
+    <lastmod>2022-12-09T12:04:40.204Z</lastmod>
+  </url>
+  <url>
+    <loc>https://larssonjohan.com/software/eulerr/index.html</loc>
+    <lastmod>2022-12-09T12:04:40.496Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/talks.html</loc>
-    <lastmod>2022-12-09T11:26:49.310Z</lastmod>
+    <lastmod>2022-12-09T12:04:40.844Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/talks/strong-screening-rule-for-slope/index.html</loc>
-    <lastmod>2022-12-09T11:26:49.638Z</lastmod>
+    <lastmod>2022-12-09T12:04:41.156Z</lastmod>
   </url>
 </urlset>

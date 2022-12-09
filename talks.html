@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -156,16 +156,12 @@ ga('send', {
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html">
- <span class="menu-text">Research</span></a>
+    <a class="nav-link" href="./software.html">
+ <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./talks.html" aria-current="page">
  <span class="menu-text">Talks</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -218,7 +214,7 @@ ga('send', {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1670585191458" data-listing-reading-time-sort="0.16">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1588896000000" data-listing-file-modified-sort="1670587462832" data-listing-reading-time-sort="0.16">
 <a href="./talks/strong-screening-rule-for-slope/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -231,9 +227,12 @@ The Strong Screening Rule for SLOPE
 <div class="card-text listing-description">
 This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.
 </div>
-<div class="card-attribution card-text-small start">
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 
+</div>
+<div class="listing-date">
+8 May 2020
 </div>
 </div>
 </div>

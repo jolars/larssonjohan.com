@@ -10,6 +10,12 @@
     ]
   },
   {
+    "listing": "/software.html",
+    "items": [
+      "/software/eulerr/index.html"
+    ]
+  },
+  {
     "listing": "/talks.html",
     "items": [
       "/talks/strong-screening-rule-for-slope/index.html"
