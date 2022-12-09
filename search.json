@@ -137,7 +137,7 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "R-Packages\nWrite a single markdown file and create output in a variety of formats.\n\n\n  \n    \n      \n    \n    \n      eulerr\n        Area-proportional Euler diagrams with ellipses.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n  \n    \n      \n    \n    \n      qualpalr\n        Automatic generation of color palettes for qualitative data\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n\n\nNo matching items"
+    "text": "R\n\n\n  \n    \n      \n    \n    \n      eulerr\n        Area-proportional Euler diagrams with ellipses.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n  \n    \n      \n    \n    \n      qualpalr\n        Automatic generation of color palettes for qualitative data\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n\nPython\n\n\n  \n    \n      \n    \n    \n      benchopt\n        BenchOpt is a benchmarking suite for optimization algorithms.\nIt is built for simplicity, transparency, and reproducibility.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n    \n  \n\n\nNo matching items"
   },
   {
     "objectID": "talks.html",

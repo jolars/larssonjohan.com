@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-category','listing-description','listing-tiles',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-category','listing-tiles',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-category","listing-description","listing-tiles"],
+      searchColumns: ["listing-category","listing-tiles"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -213,14 +213,13 @@ ga('send', {
 
 
 <div class="quarto-listing quarto-listing-container-custom" id="listing-gallery">
-<h2 class="anchored">R-Packages</h2>
-<p>Write a single markdown file and create output in a variety of formats.
-</p>
+<h2 class="anchored">R</h2>
+<p></p>
 <div class="list grid" style="column-gap: 10px;">
   <div class="quarto-grid-item card border-2 rounded-3 g-col-12 g-col-sm-6 g-col-md-4 mb-2" data-index="0">
     <a href="https://jolars.github.io/eulerr">
       <img src="./assets/images/eulerr.png" alt="Area-proportional Euler diagrams with ellipses.
-" class="thumbnail-image card-img-top" style="height:150px;">
+" class="thumbnail-image card-img-top" style="height:150px;object-fit:scale-down;">
     </a>
     <div class="card-body post-contents">
       <h5 class="card-title anchored">eulerr</h5>
@@ -248,7 +247,7 @@ ga('send', {
   <div class="quarto-grid-item card border-2 rounded-3 g-col-12 g-col-sm-6 g-col-md-4 mb-2" data-index="1">
     <a href="https://jolars.github.io/qualpalr">
       <img src="./assets/images/qualpalr.png" alt="Automatic generation of color palettes for qualitative data
-" class="thumbnail-image card-img-top" style="height:150px;">
+" class="thumbnail-image card-img-top" style="height:150px;object-fit:scale-down;">
     </a>
     <div class="card-body post-contents">
       <h5 class="card-title anchored">qualpalr</h5>
@@ -269,6 +268,35 @@ ga('send', {
       <div class="px-2">
       <a href="https://CRAN.R-project.org/package=qualpalr" title="CRAN package page">
         CRAN
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="anchored">Python</h2>
+<p></p>
+<div class="list grid" style="column-gap: 10px;">
+  <div class="quarto-grid-item card border-2 rounded-3 g-col-12 g-col-sm-6 g-col-md-4 mb-2" data-index="2">
+    <a href="https://benchopt.github.io">
+      <img src="software/thumbnails/benchopt.svg" alt="BenchOpt is a benchmarking suite for optimization algorithms.
+It is built for simplicity, transparency, and reproducibility.
+" class="thumbnail-image card-img-top" style="height:150px;object-fit:scale-down;">
+    </a>
+    <div class="card-body post-contents">
+      <h5 class="card-title anchored">benchopt</h5>
+        <p class="card-text listing-description">BenchOpt is a benchmarking suite for optimization algorithms.
+It is built for simplicity, transparency, and reproducibility.
+</p>
+    </div>
+    <div class="card-footer border-bottom border-1 bg-light justify-content-end d-flex">
+      <div class="px-2">
+      <a href="https://benchopt.github.io" title="View documentation">
+        <i class="bi bi-file-earmark-text"></i>
+      </a>
+      </div>
+      <div class="px-2">
+      <a href="https://github.com/benchopt/benchopt" title="View source code">
+        <i class="bi bi-code-slash"></i>
       </a>
       </div>
     </div>
