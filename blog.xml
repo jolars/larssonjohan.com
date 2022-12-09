@@ -9,8 +9,8 @@
 <link>https://larssonjohan.com/blog.html</link>
 <atom:link href="https://larssonjohan.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Research and Coding</description>
-<generator>quarto-99.9.9</generator>
-<lastBuildDate>Mon, 13 Apr 2020 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.2.269</generator>
+<lastBuildDate>Tue, 14 Apr 2020 00:00:00 GMT</lastBuildDate>
 <item>
   <title>SLOPE 0.2.0</title>
   <dc:creator>Johan Larsson</dc:creator>
@@ -140,7 +140,7 @@ Tibshirani, Robert, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jona
   <category>SLOPE</category>
   <category>statistics</category>
   <guid>https://larssonjohan.com/posts/slope-0-2-0/index.html</guid>
-  <pubDate>Mon, 13 Apr 2020 22:00:00 GMT</pubDate>
+  <pubDate>Tue, 14 Apr 2020 00:00:00 GMT</pubDate>
   <media:content url="https://larssonjohan.com/posts/slope-0-2-0/slope.svg" medium="image" type="image/svg+xml"/>
 </item>
 <item>
@@ -258,7 +258,7 @@ Johnson, Angus, and Adrian Baddeley. 2018. <em>Polyclip: Polygon Clipping</em> (
   <category>polylabelr</category>
   <category>geometry</category>
   <guid>https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index.html</guid>
-  <pubDate>Sun, 28 Oct 2018 23:00:00 GMT</pubDate>
+  <pubDate>Mon, 29 Oct 2018 00:00:00 GMT</pubDate>
   <media:content url="https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/polylabelr.png" medium="image" type="image/png" height="60" width="144"/>
 </item>
 <item>
@@ -411,7 +411,7 @@ Schlömer, Thomas, Daniel Heck, and Oliver Deussen. 2011. <span>“Farthest-Poin
   <category>qualpalr</category>
   <category>data visualization</category>
   <guid>https://larssonjohan.com/posts/farthest-points/index.html</guid>
-  <pubDate>Sat, 29 Oct 2016 22:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Oct 2016 00:00:00 GMT</pubDate>
   <media:content url="https://larssonjohan.com/posts/farthest-points/farthest-points.png" medium="image" type="image/png" height="141" width="144"/>
 </item>
 <item>
@@ -582,7 +582,7 @@ Wilkinson, L. 2012. <span>“Exact and <span>Approximate Area</span>-<span>Propo
   <category>euler diagrams</category>
   <category>data visualization</category>
   <guid>https://larssonjohan.com/posts/introducing-eulerr/index.html</guid>
-  <pubDate>Tue, 18 Oct 2016 22:00:00 GMT</pubDate>
+  <pubDate>Wed, 19 Oct 2016 00:00:00 GMT</pubDate>
   <media:content url="https://larssonjohan.com/posts/introducing-eulerr/eulerr.png" medium="image" type="image/png" height="142" width="144"/>
 </item>
 <item>
@@ -760,7 +760,7 @@ Huang, Min, Guihua Cui, Manuel Melgosa, Manuel Sánchez-Marañón, Changjun Li, 
   <category>data visualization</category>
   <category>qualpalr</category>
   <guid>https://larssonjohan.com/posts/introducing-qualpalr/index.html</guid>
-  <pubDate>Fri, 14 Oct 2016 22:00:00 GMT</pubDate>
+  <pubDate>Sat, 15 Oct 2016 00:00:00 GMT</pubDate>
   <media:content url="https://larssonjohan.com/posts/introducing-qualpalr/qualpalr.png" medium="image" type="image/png" height="148" width="144"/>
 </item>
 </channel>
