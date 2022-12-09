@@ -137,14 +137,7 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "eulerr\n\n\neulerr is an R package for constructing area-proportional Euler diagrams with ellipses.\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "software/eulerr/index.html",
-    "href": "software/eulerr/index.html",
-    "title": "eulerr",
-    "section": "",
-    "text": "Read more at jolars.github.io/eulerr. There is also a Shiny application available at eulerr.co."
+    "text": "R-Packages\nWrite a single markdown file and create output in a variety of formats.\n\n\n  \n    \n      \n    \n    \n      eulerr\n        Area-proportional Euler diagrams with ellipses.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n  \n    \n      \n    \n    \n      qualpalr\n        Automatic generation of color palettes for qualitative data\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n\n\nNo matching items"
   },
   {
     "objectID": "talks.html",
