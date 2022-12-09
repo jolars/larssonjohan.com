@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nSLOPE 0.2.0\n\n\n\n\n\nA new update to the SLOPE package with many exciting features.\n\n\n\n\n\n\n14 April 2020\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nPolygon Labeling with polylabelr\n\n\n\n\n\nA new package polylabelr can be used find visual centers of polygons and label Euler diagrams.\n\n\n\n\n\n\n29 October 2018\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nFinding the Farthest Points in a Point Cloud\n\n\n\n\n\nAn algorithm for finding the most separated points in a cloud of points.\n\n\n\n\n\n\n30 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing eulerr\n\n\n\n\n\nThis is an introduction to my new package, eulerr, an R package that computes and plots eulerr diagrams of set relationships.\n\n\n\n\n\n\n19 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing qualpalr\n\n\n\n\n\nLet me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.\n\n\n\n\n\n\n15 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Johan Larsson",
+    "section": "",
+    "text": "PhD Student in Statistics at the Department of Statistics at Lund University, Sweden."
+  },
+  {
+    "objectID": "posts/farthest-points/index.html",
+    "href": "posts/farthest-points/index.html",
+    "title": "Finding the Farthest Points in a Point Cloud",
+    "section": "",
+    "text": "My R package qualpalr selects qualitative colors by projecting a bunch of colors (as points) to the three-dimensional DIN99d color space wherein the distance between any pair colors approximate their differences in appearance. The package then tries to choose the n colors so that the minimal pairwise distance among them is maximized, that is, we want the most similar pair of colors to be as dissimilar as possible.\nBla\nThis turns out to be much less trivial that one would suspect, which posts on Computational Science, MATLAB Central, Stack Overflow, and and Computer Science can attest to.\nUp til now, qualpalr solved this problem with a greedy approach. If we, for instance, want to find n points we did the following.\nIn R, this code looked like this (in two dimensions):\nWhile this greedy procedure is fast and works well for large values of n it is quite inefficient in the example above. It is plain to see that there are other subsets of 3 points that would have a larger minimum distance but because we base our selection on the previous 2 points that were selected to be maximally distant, the algorithm has to pick a suboptimal third point. The minimum distance in our example is 0.7641338.\nThe solution I came up with is based on a solution from Schlomer et al. (Schlömer, Heck, and Deussen 2011) who devised of an algorithm to partition a sets of points into subsets whilst maximizing the minimal distance. They used delaunay triangulations but I decided to simply use the distance matrix instead. The algorithm works as follows.\nIteratively, we put one point from our candidate subset (S) back into the original se (M) and check all distances between the points in S to those in M to find the point with the highest minimum distance. Rinse and repeat until we are only putting back the same points we started the loop with, which always happens. Let’s see how this works on the same data set we used above.\nHere, we end up with a minimum distance of 0.8619587. In qualpalr, this means that we now achieve slightly more distinct colors."
+  },
+  {
+    "objectID": "posts/farthest-points/index.html#performance",
+    "href": "posts/farthest-points/index.html#performance",
+    "title": "Finding the Farthest Points in a Point Cloud",
+    "section": "Performance",
+    "text": "Performance\nThe new algorithm is slightly slower than the old, greedy approach and slightly more verbose\n\nf_greedy <- function(data, n) {\n  dmat <- as.matrix(stats::dist(data))\n  ind <- integer(n)\n  ind[1:2] <- as.vector(arrayInd(which.max(dmat), .dim = dim(dmat)))\n  for (i in 3:n) {\n    mm <- dmat[ind, -ind, drop = FALSE]\n    k <- which.max(mm[(1:ncol(mm) - 1) * nrow(mm) + max.col(t(-mm))])\n    ind[i] <- as.numeric(dimnames(mm)[[2]][k])\n  }\n  ind\n}\n\nf_new <- function(dat, n) {\n  dmat <- as.matrix(stats::dist(data))\n  r <- sample.int(nrow(dmat), n)\n  repeat {\n    r_old <- r\n    for (i in 1:n) {\n      mm <- dmat[r[-i], -r[-i], drop = FALSE]\n      k <- which.max(mm[(1:ncol(mm) - 1) * nrow(mm) + max.col(t(-mm))])\n      r[i] <- as.numeric(dimnames(mm)[[2]][k])\n    }\n    if (identical(r_old, r)) return(r)\n  }\n}\n\n\nn <- 5\ndata <- matrix(runif(900), ncol = 3)\nmicrobenchmark::microbenchmark(f_greedy(data, n), f_new(data, n), times = 1000L)\n\nUnit: milliseconds\n              expr      min       lq     mean   median       uq      max neval\n f_greedy(data, n) 1.311413 1.346007 1.692128 1.363831 1.407456 40.94923  1000\n    f_new(data, n) 1.621765 1.934945 2.420683 2.183483 2.489382 15.32823  1000\n cld\n  a \n   b\n\n\nThe newest development version of qualpalr now uses this updated algorithm which has also been generalized and included as a new function in my R package euclidr called farthest_points."
+  },
+  {
+    "objectID": "posts/introducing-eulerr/index.html",
+    "href": "posts/introducing-eulerr/index.html",
+    "title": "Introducing eulerr",
+    "section": "",
+    "text": "eulerr is an R package that generates area-proportional euler diagrams to display set relationships (intersections, unions, and disjoints) with circles. Euler diagrams are Venn diagrams without the requirement that all set interactions be present (whether they are empty or not). That is, depending on input, eulerr will sometimes produce Venn diagrams but sometimes not."
+  },
+  {
+    "objectID": "posts/introducing-eulerr/index.html#background",
+    "href": "posts/introducing-eulerr/index.html#background",
+    "title": "Introducing eulerr",
+    "section": "Background",
+    "text": "Background\nR features a number of packages that produce Euler and/or Venn diagrams; some of the more prominent ones (on CRAN) are\n\neVenn,\nVennDiagram,\nvenn,\ncolorfulVennPlot, and\nvenneuler.\n\nThe last of these (venneuler) serves as the primary inspiration for this package, along with the refinements that Ben Fredrickson has presented on his blog and made available in his javascript venn.js.\nvenneuler, however, is written in java, preventing R users from browsing the source code (unless they are also literate in java) or contributing. Furthermore, venneuler is known to produce imperfect output for set configurations that have perfect solutions. Consider, for instance, the following example in which the intersection between A and B is unwanted.\n\nlibrary(venneuler, quietly = TRUE)\nvenn_fit <- venneuler(c(A = 75, B = 50, \"A&B\" = 0))\nplot(venn_fit)\n\n\n\n\nvenneuler plot with unwanted overlap."
+  },
+  {
+    "objectID": "posts/introducing-eulerr/index.html#enter-eulerr",
+    "href": "posts/introducing-eulerr/index.html#enter-eulerr",
+    "title": "Introducing eulerr",
+    "section": "Enter eulerr",
+    "text": "Enter eulerr\neulerr is based on the improvements to venneuler that Ben Fredrickson introcued with venn.js but has been coded from scratch, uses different optimizers, and returns the residuals and stress statistic that venneuler features.\n\nInput\nCurrently, it is possible to provide input to eulerr as either\n\na named numeric vector or\na matrix of logicals with columns representing sets and rows the set relationships for each observation.\n\n\nlibrary(eulerr)\n\n# Input in the form of a named numeric vector\nfit1 <- euler(c(\"A\" = 25, \"B\" = 5, \"C\" = 5,\n                \"A&B\" = 5, \"A&C\" = 5, \"B&C\" = 3,\n                \"A&B&C\" = 3))\n\n# Input as a matrix of logicals\nset.seed(1)\nmat <-\n  cbind(\n    A = sample(c(TRUE, TRUE, FALSE), size = 50, replace = TRUE),\n    B = sample(c(TRUE, FALSE), size = 50, replace = TRUE),\n    C = sample(c(TRUE, FALSE, FALSE, FALSE), size = 50, replace = TRUE)\n  )\nfit2 <- euler(mat)\n\n\n\nFit\nWe inspect our results by printing the eulerr object\n\nfit2\n\n      original fitted residuals regionError\nA           13     13         0       0.008\nB            4      4         0       0.002\nC            0      0         0       0.000\nA&B         17     17         0       0.010\nA&C          5      5         0       0.003\nB&C          1      0         1       0.024\nA&B&C        2      2         0       0.001\n\ndiagError: 0.024 \nstress:    0.002 \n\n\nor directly access and plot the residuals.\n\n# Cleveland dot plot of the residuals\ndotchart(resid(fit2))\n\nabline(v = 0, lty = 3)\n\n\n\n\nResiduals for the eulerr fit.\n\n\n\n\nThis shows us that the A&B&C intersection is somewhat overrepresented in fit2. Given that these residuals are on the scale of the original values, however, the residuals are arguably of little concern.\nFor an overall measure of the fit of the solution, we use the same stress statistic that Leland Wilkinson presented in his academic paper on venneuler (Wilkinson 2012), which is given by the sums of squared residuals divided by the total sums of squares:\n\\frac{\\sum_{i=1}^n (f_i - y_i)^2}{\\sum_{i=1}^n (y_i - \\bar{y})^2}.\nWe fetch it from the stress attribute of the eulerr object.\n\nfit2$stress\n\n[1] 0.00198\n\n\nWe can now be confident that eulerr provides a reasonable representation of our input. Were it otherwise, we would do best to stop here and look for another way to visualize our data. (I suggest the excellent UpSetR package.)\n\n\nPlotting\nNo we get to the fun part: plotting our diagram. This is easy, as well as highly customizable, with eulerr.\n\nplot(fit2)\n\n# Change fill colors, border type (remove) and fontface.\nplot(\n  fit2,\n  fills = c(\"dodgerblue4\", \"plum2\", \"seashell2\"),\n  edges = list(lty = 1:3),\n  labels = list(font = 2)\n)\n\n\n\n\neulerr plots can be modified in many ways.\n\n\n\n\n\n\n\neulerr plots can be modified in many ways.\n\n\n\n\neulerr’s default color palette is taken from qualpalr – another package that I have developed – which uses color difference algorithms to generate distinct qualitative color palettes."
+  },
+  {
+    "objectID": "posts/introducing-eulerr/index.html#details",
+    "href": "posts/introducing-eulerr/index.html#details",
+    "title": "Introducing eulerr",
+    "section": "Details",
+    "text": "Details\nDetails of the implementation will be left for a future vignette but almost completely resemble the approach documented here."
+  },
+  {
+    "objectID": "posts/introducing-eulerr/index.html#thanks",
+    "href": "posts/introducing-eulerr/index.html#thanks",
+    "title": "Introducing eulerr",
+    "section": "Thanks",
+    "text": "Thanks\neulerr would not be possible without Ben Fredrickson’s work on venn.js or Leland Wilkinson’s venneuler."
+  },
+  {
+    "objectID": "posts/introducing-qualpalr/index.html",
+    "href": "posts/introducing-qualpalr/index.html",
+    "title": "Introducing qualpalr",
+    "section": "",
+    "text": "With the advent of colorbrewer there now exists good options to generate color palettes for sequential, diverging, and qualitative data. In R, these palettes can be accessed via the popular RColorBrewer package. Those palettes, however, are limited to a fixed number of colors. This isn’t much of a problem for sequential of diverging data since we can interpolate colors to any range we desire:\n\npal <- RColorBrewer::brewer.pal(4, \"PuBuGn\")\ncolor_ramp <- colorRampPalette(pal, space = \"Lab\") \n\nThere is not, however, an analogue for qualitative color palettes that will get you beyond the limits of 8–12 colors of colorbrewer’s qualitative color palettes. There is also no customization in colorbrewer. Other R packages, such as colorspace offer this, but they are primarily adapted to sequential and diverging data – not qualitative data.\nThis is where qualpalr comes in. qualpalr provides the user with a convenient way of generating distinct qualitative color palettes, primarily for use in R graphics. Given n (the number of colors to generate), along with a subset in the hsl color space (a cylindrical representation of the RGB color space) qualpalr attempts to find the n colors in the provided color subspace that maximize the smallest pairwise color difference. This is done by projecting the color subset from the HSL color space to the DIN99d space. DIN99d is (approximately) perceptually uniform, that is, the euclidean distance between two colors in the space is proportional to their perceived difference."
+  },
+  {
+    "objectID": "posts/introducing-qualpalr/index.html#examples",
+    "href": "posts/introducing-qualpalr/index.html#examples",
+    "title": "Introducing qualpalr",
+    "section": "Examples",
+    "text": "Examples\nqualpalr relies on one basic function, qualpal(), which takes as its input n (the number of colors to generate) and colorspace, which can be either\n\na list of numeric vectors h (hue from -360 to 360), s (saturation from 0 to 1), and l (lightness from 0 to 1), all of length 2, specifying a min and max, or\na character vector specifying one of the predefined color subspaces, which at the time of writing are pretty, pretty_dark, rainbow, and pastels.\n\n\nlibrary(qualpalr)\npal <- qualpal(\n  n = 5,\n  list(\n    h = c(0, 360),\n    s = c(0.4, 0.6),\n    l = c(0.5, 0.85)\n  )\n)\n\n# Adapt the color space to deuteranopia\npal <- qualpal(n = 5, colorspace = \"pretty\", cvd = \"deutan\")\n\nThe resulting object, pal, is a list with several color tables and a distance matrix based on the din99d color difference formula.\n\npal\n\n---------------------------------------- \nColors in the HSL color space \n\n        Hue Saturation Lightness\n#73CA6F 117       0.46      0.61\n#D37DAD 327       0.50      0.66\n#C6DBE8 203       0.42      0.84\n#6C7DCC 229       0.48      0.61\n#D0A373  31       0.50      0.63\n\n ---------------------------------------- \nDIN99d color difference distance matrix \n\n        #73CA6F #D37DAD #C6DBE8 #6C7DCC\n#D37DAD      28                        \n#C6DBE8      19      21                \n#6C7DCC      27      19      19        \n#D0A373      19      18      20      25\n\n\nMethods for pairs and plot have been written for qualpal objects to help visualize the results.\n\nplot(pal)\n\n\n\n\nFigure 1: Multidimensional scaling plot\n\n\n\n\n\npairs(pal, colorspace = \"DIN99d\", asp = 1)\n\n\n\n\nFigure 2: Pairs plot in the din99d color space\n\n\n\n\nThe colors are normally used in R by fetching the hex attribute of the palette. And so it is straightforward to use the output to, say, color the provinces of France (Figure 3\n\nlibrary(maps)\nmap(\"france\", fill = TRUE, col = pal$hex, mar = c(0, 0, 0, 0))\n\n\n\n\nFigure 3: A map of France colored via qualpalr"
+  },
+  {
+    "objectID": "posts/introducing-qualpalr/index.html#details",
+    "href": "posts/introducing-qualpalr/index.html#details",
+    "title": "Introducing qualpalr",
+    "section": "Details",
+    "text": "Details\nqualpal begins by generating a point cloud out of the HSL color subspace provided by the user, using a quasi-random torus sequence from randtoolbox. Here is the color subset in HSL with settings h = c(-200, 120), s = c(0.3, 0.8), l = c(0.4, 0.9).\n\n\n\n\n\nFigure 4: Points in the HSL space\n\n\n\nThe function then proceeds by projecting these colors into the sRGB space (Figure 5).\n\n\n\n\n\nFigure 5: The colors in the RGB space\n\n\n\nIt then continues by projecting the colors, first into the XYZ space, then CIELab (not shown here), and then finally the DIN99d space (Figure 6).\n\n\n\n\n\nFigure 6: Colors in DIN99d space\n\n\n\nThe DIN99d color space (Cui et al. 2002) is a euclidean, perceptually uniform color space. This means that the difference between two colors is equal to the euclidean distance between them. We take advantage of this by computing a distance matrix on all the colors in the subset, finding their pairwise color differences. We then apply a power transformation (Huang et al. 2015) to fine tune these differences.\nTo select the n colors that the user wanted, we proceed greedily: first, we find the two most distant points, then we find the third point that maximizes the minimum distance to the previously selected points. This is repeated until n points are selected. These points are then returned to the user; below is an example using n = 5.\n\n\n\n\n\nFigure 7: Final selected colors using the qualpalr algorithm\n\n\n\n\nColor specifications\nAt the time of writing, qualpalr only works in the sRGB color space with the CIE Standard Illuminant D65 reference white."
+  },
+  {
+    "objectID": "posts/introducing-qualpalr/index.html#future-directions",
+    "href": "posts/introducing-qualpalr/index.html#future-directions",
+    "title": "Introducing qualpalr",
+    "section": "Future directions",
+    "text": "Future directions\nThe greedy search to find distinct colors is crude. Particularly when searching for few colors, the greedy algorithm will lead to sub-optimal results. Other solutions to finding points that maximize the smallest pairwise distance among them are welcome."
+  },
+  {
+    "objectID": "posts/introducing-qualpalr/index.html#thanks",
+    "href": "posts/introducing-qualpalr/index.html#thanks",
+    "title": "Introducing qualpalr",
+    "section": "Thanks",
+    "text": "Thanks\nBruce Lindbloom’s webpage has been instrumental in making qualpalr. Also thanks to i want hue, which inspired me to make qualpalr."
+  },
+  {
+    "objectID": "posts/polygon-labeling-with-polylabelr/index.html",
+    "href": "posts/polygon-labeling-with-polylabelr/index.html",
+    "title": "Polygon Labeling with polylabelr",
+    "section": "",
+    "text": "The purpose of my R package eulerr is to fit and visualize Euler diagrams. Besides the various intricacies involved in fitting the diagrams, there are many interesting problems involved in their visualization. One of these is the labeling of the overlaps.\nNaturally, simply positioning the labels at the shapes’ centers fails more often than not. Nevertheless, this stategy is employed by venneuler, for instance, and the plots usually demand manual tuning.\n\n# an example set combination\ns <- c(\n  \"SE\" = 13,\n  \"Treat\" = 28,\n  \"Anti-CCP\" = 101,\n  \"DAS28\" = 91,\n  \"SE&Treat\" = 1,\n  \"SE&DAS28\" = 14,\n  \"Treat&Anti-CCP\" = 6,\n  \"SE&Anti-CCP&DAS28\" = 1\n)\n\nlibrary(venneuler, quietly = TRUE)\nfit_venneuler <- venneuler(s)\nplot(fit_venneuler)\n\n\n\n\nA plot from venneuler with suboptimal label placements.\n\n\n\n\nUp til now, I solved this in eulerr by, for each overlap, filling one of the involved shapes (circles or ellipses) with points and then numerically optimizing the location of the point using a Nelder–Mead optimizer. However, given that the solution to finding the distance between a point and an ellipse—at least one that is rotated—itself requires a numerical solution (Eberly 2013), this procedure turned out to be quite inefficient."
+  },
+  {
+    "objectID": "posts/polygon-labeling-with-polylabelr/index.html#the-promise-of-polygons",
+    "href": "posts/polygon-labeling-with-polylabelr/index.html#the-promise-of-polygons",
+    "title": "Polygon Labeling with polylabelr",
+    "section": "The promise of polygons",
+    "text": "The promise of polygons\nR has powerful functionality for plotting in general, but lacks capabilities for drawing ellipses using curves. High-resolution polygons are thankfully a readily available remedy for this and have since several version back been used also in eulerr.\nThe upside of using polygons, however, are that they are usually much easier, even if sometimes inefficient, to work with. For instance, they make constructing separate shapes for each overlap a breeze using the polyclip package (Johnson and Baddeley 2018).\nAnd because basically all shapes in digital maps are polygons, there happens to exist a multitude of other useful tools to deal with a wide variety of tasks related to polygons. One of these turned out to be precisely what I needed: polylabel (mapbox2018a?) from the Mapbox suite. Because the details of the library have already been explained elsewhere I will spare you the details, but briefly put it uses quadtree binning to divide the polygon into square bins, pruning away dead-ends. It is inefficient and will, according to the authors, find a point that is “guaranteed to be a global optimum within the given precision”.\nBecause it appeared to be such a valuable tool for R users, I decided to create a wrapper for the c++ header for polylabel and bundle it as a package for R users.\n\n# install.packages(\"polylabelr\")\nlibrary(polylabelr)\n\n# a concave polygon with a hole\nx <- c(0, 6, 3, 9, 10, 12, 4, 0, NA, 2, 5, 3)\ny <- c(0, 0, 1, 3, 1, 5, 3, 0, NA, 1, 2, 2)\n\n# locate the pole of inaccessibility\np <- poi(x, y, precision = 0.01)\n\nplot.new()\nplot.window(\n  range(x, na.rm = TRUE),\n  range(y, na.rm = TRUE),\n  asp = 1\n)\npolypath(x, y, col = \"grey90\", rule = \"evenodd\")\npoints(p, cex = 2, pch = 16)\n\n\n\n\nLocating poles of inaccessibility with polylabel.\n\n\n\n\nThe package is availabe on cran, the source code is located at https://github.com/jolars/polylabelr and is documented at https://jolars.github.io/polylabelr/."
+  },
+  {
+    "objectID": "posts/polygon-labeling-with-polylabelr/index.html#euler-diagrams",
+    "href": "posts/polygon-labeling-with-polylabelr/index.html#euler-diagrams",
+    "title": "Polygon Labeling with polylabelr",
+    "section": "Euler diagrams",
+    "text": "Euler diagrams\nTo come back around to where we started at, polylabelr has now been employed in the development branch of eulerr where it is used to quickly and appropriately figure out locations for the labels of the diagram.\n\nlibrary(eulerr)\n\nplot(euler(s))\n\n\n\n\nAn Euler diagram with appropriate label placement."
+  },
+  {
+    "objectID": "posts/slope-0-2-0/index.html",
+    "href": "posts/slope-0-2-0/index.html",
+    "title": "SLOPE 0.2.0",
+    "section": "",
+    "text": "SLOPE (Bogdan et al. 2015) stands for sorted L1 penalized estimation and is a generalization of OSCAR (Bondell and Reich 2008). As the name suggests, SLOPE is a type of \\ell_1-regularization. More specifically, SLOPE fits generalized linear models regularized with the sorted \\ell_1 norm. The objective in SLOPE is\n\n\\operatorname{minimize}\\left\\{ f(\\beta) + J(\\beta \\mid \\lambda)\\right\\},\n\nwhere f(\\beta) is typically the log-likelihood of some model in the family of generalized linear models and\nJ(\\beta\\mid \\lambda) = \\sum_{i=1}^p \\lambda_i|\\beta|_{(i)}\nis the sorted \\ell_1 norm.\nSome people will note that this penalty is a generalization of the standard \\ell_1 norm penalty1. As such, SLOPE is a type of sparse regression—just like the lasso. Unlike the lasso, however, SLOPE gracefully handles correlated features. Whereas the lasso often discards all but a few among a set of correlated features (Jia and Yu 2010), SLOPE instead clusters such features together by setting such clusters to have the same coefficient in absolut value."
+  },
+  {
+    "objectID": "posts/slope-0-2-0/index.html#slope-0.2.0",
+    "href": "posts/slope-0-2-0/index.html#slope-0.2.0",
+    "title": "SLOPE 0.2.0",
+    "section": "SLOPE 0.2.0",
+    "text": "SLOPE 0.2.0\nSLOPE 0.2.0 is a new verison of the R package SLOPE featuring a range of improvements over the previous package. If you are completely new to the package, please start with the introductory vignette.\n\nMore model families\nPreviously, SLOPE only features ordinary least-squares regression. Now the package features logistic, Poisson, and multinomial regression on top of that. Just as in other similar packages, this is enabled simply by setting family = \"binomial\" for logistic regression, for instance.\n\nlibrary(SLOPE)\nfit <- SLOPE(wine$x, wine$y, family = \"multinomial\")\n\n\n\nRegularization path fitting\nBy default, SLOPE now fits a full regularization path instead of only a single penalty sequence at once. This behavior is now analogous with the default behavior in glmnet.\n\nplot(fit)\n\n\n\n\nCoefficients from the regularization path for a multinomial model.\n\n\n\n\n\n\nPredictor screening rules\nThe package now uses predictor screening rules to vastly improve performance in the p \\gg n domain. Screening rules are part of what makes other related packages such as glmnet so efficient. In SLOPE, we use a variant of the strong screening rules for the lasso (Tibshirani et al. 2012).\n\nxy <- SLOPE:::randomProblem(100, 1000)\nsystem.time({SLOPE(xy$x, xy$y, screen = TRUE)})\n\n   user  system elapsed \n  1.888   0.005   0.294 \n\nsystem.time({SLOPE(xy$x, xy$y, screen = FALSE)})\n\n   user  system elapsed \n  7.848   0.017   1.257 \n\n\n\n\nCross-validation and caret\nThere is now a function trainSLOPE(), which can be used to run cross-validation for optimal selection of sigma and q. Here, we run 8-fold cross-validation repeated 5 times.\n\n# 8-fold cross-validation repeated 5 times\ntune <- trainSLOPE(\n  subset(mtcars, select = c(\"mpg\", \"drat\", \"wt\")),\n  mtcars$hp,\n  q = c(0.1, 0.2),\n  number = 8,\n  repeats = 5\n)\nplot(tune)\n\n\n\n\nCross-validation with SLOPE.\n\n\n\n\nIn addition, the package now also features a function caretSLOPE() that can be used via the excellent caret package, which enables a swath of resampling methods and comparisons.\n\n\nC++ and ADMM\nAll of the performance-critical code for SLOPE has been rewritten in C++. In addition, the package now features an ADMM solver for family = \"gaussian\", enabled by setting solver = \"admm\" in the call to SLOPE(). Preliminary testing shows that this solver is faster for many designs, particularly when there is high correlation among predictors.\n\n\nSparse design matrices\nSLOPE now also allows sparse design matrcies of classes from the Matrix package.\n\n\nAnd much more…\nFor a full list of changes, please see the changelog."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "Blabla"
+  },
+  {
+    "objectID": "talks.html",
+    "href": "talks.html",
+    "title": "Talks",
+    "section": "",
+    "text": "The Strong Screening Rule for SLOPE\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talks/strong-screening-rule-for-slope/index.html",
+    "href": "talks/strong-screening-rule-for-slope/index.html",
+    "title": "The Strong Screening Rule for SLOPE",
+    "section": "",
+    "text": "This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.\n\n Slides  Paper"
+  }
+]

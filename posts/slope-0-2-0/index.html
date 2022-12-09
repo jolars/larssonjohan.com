@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-99.9.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Johan Larsson">
+<meta name="dcterms.date" content="2020-04-14">
+<meta name="description" content="A new update to the SLOPE package with many exciting features.">
+
+<title>Johan Larsson - SLOPE 0.2.0</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script type="text/javascript">
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-85513662-1', 'auto');
+
+ga('send', {
+  hitType: 'pageview',
+  'anonymizeIp': true,
+});
+</script>
+<!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather' rel='stylesheet'> -->
+<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Johan Larsson - SLOPE 0.2.0">
+<meta property="og:description" content="A new update to the SLOPE package with many exciting features.">
+<meta property="og:image" content="https://larssonjohan.com/posts/slope-0-2-0/slope.svg">
+<meta property="og:site-name" content="Johan Larsson">
+<meta name="twitter:title" content="Johan Larsson - SLOPE 0.2.0">
+<meta name="twitter:description" content="A new update to the SLOPE package with many exciting features.">
+<meta name="twitter:image" content="https://larssonjohan.com/posts/slope-0-2-0/slope.svg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Johan Larsson</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html">
+ <span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-slope" id="toc-introduction-to-slope" class="nav-link active" data-scroll-target="#introduction-to-slope">Introduction to SLOPE</a></li>
+  <li><a href="#slope-0.2.0" id="toc-slope-0.2.0" class="nav-link" data-scroll-target="#slope-0.2.0">SLOPE 0.2.0</a>
+  <ul class="collapse">
+  <li><a href="#more-model-families" id="toc-more-model-families" class="nav-link" data-scroll-target="#more-model-families">More model families</a></li>
+  <li><a href="#regularization-path-fitting" id="toc-regularization-path-fitting" class="nav-link" data-scroll-target="#regularization-path-fitting">Regularization path fitting</a></li>
+  <li><a href="#predictor-screening-rules" id="toc-predictor-screening-rules" class="nav-link" data-scroll-target="#predictor-screening-rules">Predictor screening rules</a></li>
+  <li><a href="#cross-validation-and-caret" id="toc-cross-validation-and-caret" class="nav-link" data-scroll-target="#cross-validation-and-caret">Cross-validation and caret</a></li>
+  <li><a href="#c-and-admm" id="toc-c-and-admm" class="nav-link" data-scroll-target="#c-and-admm">C++ and ADMM</a></li>
+  <li><a href="#sparse-design-matrices" id="toc-sparse-design-matrices" class="nav-link" data-scroll-target="#sparse-design-matrices">Sparse design matrices</a></li>
+  <li><a href="#and-much-more" id="toc-and-much-more" class="nav-link" data-scroll-target="#and-much-more">And much more…</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">SLOPE 0.2.0</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">r</div>
+    <div class="quarto-category">regularization</div>
+    <div class="quarto-category">SLOPE</div>
+    <div class="quarto-category">statistics</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A new update to the SLOPE package with many exciting features.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Johan Larsson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 April 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction-to-slope" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-slope">Introduction to SLOPE</h2>
+<p>SLOPE <span class="citation" data-cites="bogdan2015">(<a href="#ref-bogdan2015" role="doc-biblioref">Bogdan et al. 2015</a>)</span> stands for sorted L1 penalized estimation and is a generalization of OSCAR <span class="citation" data-cites="bondell2008">(<a href="#ref-bondell2008" role="doc-biblioref">Bondell and Reich 2008</a>)</span>. As the name suggests, SLOPE is a type of <span class="math inline">\ell_1</span>-regularization. More specifically, SLOPE fits generalized linear models regularized with the sorted <span class="math inline">\ell_1</span> norm. The objective in SLOPE is</p>
+<p><span class="math display">
+\operatorname{minimize}\left\{ f(\beta) + J(\beta \mid \lambda)\right\},
+</span></p>
+<p>where <span class="math inline">f(\beta)</span> is typically the log-likelihood of some model in the family of generalized linear models and</p>
+<p><span class="math display">J(\beta\mid \lambda) = \sum_{i=1}^p \lambda_i|\beta|_{(i)}</span></p>
+<p>is the sorted <span class="math inline">\ell_1</span> norm.</p>
+<p>Some people will note that this penalty is a generalization of the standard <span class="math inline">\ell_1</span> norm penalty<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. As such, SLOPE is a type of sparse regression—just like the lasso. Unlike the lasso, however, SLOPE gracefully handles correlated features. Whereas the lasso often discards all but a few among a set of correlated features <span class="citation" data-cites="jia2010">(<a href="#ref-jia2010" role="doc-biblioref">Jia and Yu 2010</a>)</span>, SLOPE instead <em>clusters</em> such features together by setting such clusters to have the same coefficient in absolut value.</p>
+</section>
+<section id="slope-0.2.0" class="level2">
+<h2 class="anchored" data-anchor-id="slope-0.2.0">SLOPE 0.2.0</h2>
+<p>SLOPE 0.2.0 is a new verison of the R package <a href="https://CRAN.R-project.org/package=SLOPE">SLOPE</a> featuring a range of improvements over the previous package. If you are completely new to the package, please start with the <a href="https://jolars.github.io/SLOPE/articles/introduction.html">introductory vignette</a>.</p>
+<section id="more-model-families" class="level3">
+<h3 class="anchored" data-anchor-id="more-model-families">More model families</h3>
+<p>Previously, SLOPE only features ordinary least-squares regression. Now the package features logistic, Poisson, and multinomial regression on top of that. Just as in other similar packages, this is enabled simply by setting <code>family = "binomial"</code> for logistic regression, for instance.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SLOPE)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">SLOPE</span>(wine<span class="sc">$</span>x, wine<span class="sc">$</span>y, <span class="at">family =</span> <span class="st">"multinomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="regularization-path-fitting" class="level3">
+<h3 class="anchored" data-anchor-id="regularization-path-fitting">Regularization path fitting</h3>
+<p>By default, SLOPE now fits a full regularization path instead of only a single penalty sequence at once. This behavior is now analogous with the default behavior in glmnet.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Coefficients from the regularization path for a multinomial model.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="predictor-screening-rules" class="level3">
+<h3 class="anchored" data-anchor-id="predictor-screening-rules">Predictor screening rules</h3>
+<p>The package now uses predictor screening rules to vastly improve performance in the <span class="math inline">p \gg n</span> domain. Screening rules are part of what makes other related packages such as glmnet so efficient. In SLOPE, we use a variant of the strong screening rules for the lasso <span class="citation" data-cites="tibshirani2012">(<a href="#ref-tibshirani2012" role="doc-biblioref">Tibshirani et al. 2012</a>)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xy <span class="ot">&lt;-</span> SLOPE<span class="sc">:::</span><span class="fu">randomProblem</span>(<span class="dv">100</span>, <span class="dv">1000</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({<span class="fu">SLOPE</span>(xy<span class="sc">$</span>x, xy<span class="sc">$</span>y, <span class="at">screen =</span> <span class="cn">TRUE</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  1.888   0.005   0.294 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>({<span class="fu">SLOPE</span>(xy<span class="sc">$</span>x, xy<span class="sc">$</span>y, <span class="at">screen =</span> <span class="cn">FALSE</span>)})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  7.848   0.017   1.257 </code></pre>
+</div>
+</div>
+</section>
+<section id="cross-validation-and-caret" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-and-caret">Cross-validation and caret</h3>
+<p>There is now a function <code>trainSLOPE()</code>, which can be used to run cross-validation for optimal selection of <code>sigma</code> and <code>q</code>. Here, we run 8-fold cross-validation repeated 5 times.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 8-fold cross-validation repeated 5 times</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tune <span class="ot">&lt;-</span> <span class="fu">trainSLOPE</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(mtcars, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"mpg"</span>, <span class="st">"drat"</span>, <span class="st">"wt"</span>)),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  mtcars<span class="sc">$</span>hp,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">q =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>),</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">number =</span> <span class="dv">8</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">repeats =</span> <span class="dv">5</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tune)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Cross-validation with SLOPE.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In addition, the package now also features a function <code>caretSLOPE()</code> that can be used via the excellent caret package, which enables a swath of resampling methods and comparisons.</p>
+</section>
+<section id="c-and-admm" class="level3">
+<h3 class="anchored" data-anchor-id="c-and-admm">C++ and ADMM</h3>
+<p>All of the performance-critical code for SLOPE has been rewritten in C++. In addition, the package now features an ADMM solver for <code>family = "gaussian"</code>, enabled by setting <code>solver = "admm"</code> in the call to <code>SLOPE()</code>. Preliminary testing shows that this solver is faster for many designs, particularly when there is high correlation among predictors.</p>
+</section>
+<section id="sparse-design-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="sparse-design-matrices">Sparse design matrices</h3>
+<p>SLOPE now also allows sparse design matrcies of classes from the Matrix package.</p>
+</section>
+<section id="and-much-more" class="level3">
+<h3 class="anchored" data-anchor-id="and-much-more">And much more…</h3>
+<p>For a full list of changes, please see <a href="https://jolars.github.io/SLOPE/news/index.html#slope-0-2-0-unreleased">the changelog</a>.</p>
+</section>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bogdan2015" class="csl-entry" role="doc-biblioentry">
+Bogdan, Małgorzata, Ewout van den Berg, Chiara Sabatti, Weijie Su, and Emmanuel J. Candès. 2015. <span>“<span>SLOPE</span> – Adaptive Variable Selection via Convex Optimization.”</span> <em>The Annals of Applied Statistics</em> 9 (3): 1103–40. <a href="https://doi.org/10.1214/15-AOAS842">https://doi.org/10.1214/15-AOAS842</a>.
+</div>
+<div id="ref-bondell2008" class="csl-entry" role="doc-biblioentry">
+Bondell, Howard D., and Brian J. Reich. 2008. <span>“Simultaneous Regression Shrinkage, Variable Selection, and Supervised Clustering of Predictors with <span>OSCAR</span>.”</span> <em>Biometrics</em> 64 (1): 115–23. <a href="https://doi.org/10.1111/j.1541-0420.2007.00843.x">https://doi.org/10.1111/j.1541-0420.2007.00843.x</a>.
+</div>
+<div id="ref-jia2010" class="csl-entry" role="doc-biblioentry">
+Jia, J., and B. Yu. 2010. <span>“On Model Selection Consistency of the Elastic Net When p <span><span class="math inline">&gt;&gt;</span></span> n.”</span> <em>Statistica Sinica</em> 20 (2): 595–611.
+</div>
+<div id="ref-tibshirani2012" class="csl-entry" role="doc-biblioentry">
+Tibshirani, Robert, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jonathan Taylor, and Ryan J. Tibshirani. 2012. <span>“Strong Rules for Discarding Predictors in Lasso-Type Problems.”</span> <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em> 74 (2): 245–66. <a href="https://doi.org/c4bb85">https://doi.org/c4bb85</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Simply set <span class="math inline">\lambda_i = \lambda_j</span> for all <span class="math inline">i,j \in \{1,\dots,p\}</span> and you get the lasso penalty.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="jolars/larssonjohan.com" data-repo-id="MDEwOlJlcG9zaXRvcnkxNDgxODc2NjY=" data-category="Announcements" data-category-id="DIC_kwDOCNUqEs4CS_Ma" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light_protanopia" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Copyright 2022, Johan Larsson</div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jolars">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://fediscience.org/@jolars">
+      <i class="bi bi-mastodon" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

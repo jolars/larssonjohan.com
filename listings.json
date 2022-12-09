@@ -1,0 +1,18 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/slope-0-2-0/index.html",
+      "/posts/polygon-labeling-with-polylabelr/index.html",
+      "/posts/farthest-points/index.html",
+      "/posts/introducing-eulerr/index.html",
+      "/posts/introducing-qualpalr/index.html"
+    ]
+  },
+  {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/strong-screening-rule-for-slope/index.html"
+    ]
+  }
+]
