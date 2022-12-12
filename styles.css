@@ -1,86 +1,13 @@
+.katex { font-size: 1em; }
+
 /* Badges */
 
 a {
   text-decoration: none;
 }
 
-a.badge.badge-red {
-  color: #fff;
-}
-
-a.badge.badge-blue {
-  color: #fff;
-}
-
-a.badge.badge-green {
-  color: #fff;
-}
-
-.badge-large {
-  padding: 5px 5px 3px 5px;
-}
-
-.label,
-.badge {
-  background: #e0e3e5;
-  padding: 0.2rem 0.6rem 0.2rem 0.6rem;
-  color: #0f0f0f;
-}
-
-.label-outline {
-  padding: 3px 6px 2px 6px;
-}
-
-.badge-small {
-  padding: 5px 5px 3px 5px;
-}
-
-.badge:hover {
-  opacity: 1;
-}
-
-.label-black,
-.label-blue,
-.label-red,
-.label-green,
-.badge-black,
-.badge-blue,
-.badge-red,
-.badge-green {
-  color: #ffffff !important;
-}
-
-.label-black,
-.badge-black {
-  background: #0f0f0f;
-}
-
-.label-blue,
-.badge-blue {
-  background: #4673B8;
-}
-
-.label-red,
-.badge-red {
-  background: #BD666D;
-}
-
-.label-green,
-.badge-green {
-  background: #2c9f42;
-}
-
-.label-yellow,
-.badge-yellow {
-  background: #ffc800;
-}
-
-.label-white,
-.badge-white {
-  background: #ffffff;
-}
-
-.label-grey,
-.badge-grey {
-  background: #cccccc;
-}
+.quarto-title-meta-contents
+.quarto-title-meta-buttons
+a {
+  color: white !important;
+} 

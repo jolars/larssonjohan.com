@@ -122,13 +122,6 @@ ga('send', {
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -139,13 +132,7 @@ ga('send', {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jolars/larssonjohan.com/edit/main/publications/contents/case-study-eulerr/index.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jolars/larssonjohan.com/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -153,7 +140,12 @@ ga('send', {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Data Visualization</div>
+    <div class="quarto-category">Euler Diagrams</div>
+  </div>
+  </div>
 
 
 
@@ -174,35 +166,46 @@ ga('send', {
     </div>
   </div>
   
-  
+  <div>
+    <div class="quarto-title-meta-heading">Publication details</div>
+    <div class="quarto-title-meta-contents">
+      <p>
+        
+      </p>
+    </div>
+  </div>
+
   <div>
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-                                          <a href="http://github.com/jolars/LookAheadScreening" class="badge badge badge-green"><i class="fa fa-github"></i>&nbsp;code</a>
-      
-      
-      </p>
+      <p class="quarto-title-meta-buttons">
+                          <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="badge badge-blue"><i class="fa-solid fa-file-pdf"></i>&nbsp;PDF</a>
+                          <a href="http://github.com/jolars/LookAheadScreening" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+                          <a href="https://CRAN.R-project.org/package=eulerr" class="btn btn-info btn-sm">
+          <i class="fab fa-r-project"></i>&nbsp;CRAN
+        </a>
+                  </p>
     </div>
 
   </div>
 </div>
 
-
-
-
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>The lasso is a popular method to induce shrinkage and sparsity in the solution vector (coefficients) of regression problems, particularly when there are many predictors relative to the number of observations. Solving the lasso in this high-dimensional setting can, however, be computationally demanding. Fortunately, this demand can be alleviated via the use of screening rules that discard predictors prior to fitting the model, leading to a reduced problem to be solved. In this paper, we present a new screening strategy: look-ahead screening. Our method uses safe screening rules to find a range of penalty values for which a given predictor cannot enter the model, thereby screening predictors along the remainder of the path. In experiments we show that these look-ahead screening rules outperform the active warm-start version of the Gap Safe rules.</p>
+  </div>
+</div>
 
 
 
 <p>&nbsp;</p>
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>The lasso is a popular method to induce shrinkage and sparsity in the solution vector (coefficients) of regression problems, particularly when there are many predictors relative to the number of observations. Solving the lasso in this high-dimensional setting can, however, be computationally demanding. Fortunately, this demand can be alleviated via the use of screening rules that discard predictors prior to fitting the model, leading to a reduced problem to be solved. In this paper, we present a new screening strategy: look-ahead screening. Our method uses safe screening rules to find a range of penalty values for which a given predictor cannot enter the model, thereby screening predictors along the remainder of the path. In experiments we show that these look-ahead screening rules outperform the active warm-start version of the Gap Safe rules.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -345,19 +348,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
     <a class="nav-link" href="https://fediscience.org/@jolars">
       <i class="bi bi-mastodon" role="img">
 </i> 
     </a>
   </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
   </li>  
 </ul>
     </div>

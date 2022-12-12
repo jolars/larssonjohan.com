@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://larssonjohan.com/index.html</loc>
-    <lastmod>2022-12-12T08:37:24.393Z</lastmod>
+    <lastmod>2022-12-12T12:57:09.679Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/farthest-points/index.html</loc>
-    <lastmod>2022-12-12T08:37:25.373Z</lastmod>
+    <lastmod>2022-12-12T12:57:11.011Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/index.html</loc>
-    <lastmod>2022-12-12T08:37:25.801Z</lastmod>
+    <lastmod>2022-12-12T12:57:11.639Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/introducing-eulerr/index.html</loc>
-    <lastmod>2022-12-12T08:37:26.393Z</lastmod>
+    <lastmod>2022-12-12T12:57:12.367Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/introducing-qualpalr/index.html</loc>
-    <lastmod>2022-12-12T08:37:27.113Z</lastmod>
+    <lastmod>2022-12-12T12:57:13.271Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index.html</loc>
-    <lastmod>2022-12-12T08:37:27.753Z</lastmod>
+    <lastmod>2022-12-12T12:57:14.043Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/posts/slope-0-2-0/index.html</loc>
-    <lastmod>2022-12-12T08:37:28.365Z</lastmod>
-  </url>
-  <url>
-    <loc>https://larssonjohan.com/publications/index.html</loc>
-    <lastmod>2022-12-12T08:37:28.717Z</lastmod>
-  </url>
-  <url>
-    <loc>https://larssonjohan.com/software/index.html</loc>
-    <lastmod>2022-12-12T08:37:29.017Z</lastmod>
-  </url>
-  <url>
-    <loc>https://larssonjohan.com/talks/index.html</loc>
-    <lastmod>2022-12-12T08:37:29.321Z</lastmod>
-  </url>
-  <url>
-    <loc>https://larssonjohan.com/talks/strong-screening-rule-for-slope/index.html</loc>
-    <lastmod>2022-12-12T08:37:29.621Z</lastmod>
+    <lastmod>2022-12-12T12:57:14.852Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/benchopt/index.html</loc>
-    <lastmod>2022-12-12T08:37:29.965Z</lastmod>
+    <lastmod>2022-12-12T12:57:15.228Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/case-study-eulerr/index.html</loc>
-    <lastmod>2022-12-12T08:37:30.301Z</lastmod>
+    <lastmod>2022-12-12T12:57:15.600Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/coordinate-descent-for-slope/index.html</loc>
-    <lastmod>2022-12-12T08:37:30.609Z</lastmod>
+    <lastmod>2022-12-12T12:57:16.032Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/look-ahead-screening/index.html</loc>
-    <lastmod>2022-12-12T08:37:30.945Z</lastmod>
+    <lastmod>2022-12-12T12:57:16.420Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/the-hessian-screening-rule/index.html</loc>
-    <lastmod>2022-12-12T08:37:31.281Z</lastmod>
+    <lastmod>2022-12-12T12:57:16.812Z</lastmod>
   </url>
   <url>
     <loc>https://larssonjohan.com/publications/contents/the-strong-screening-rule-for-slope/index.html</loc>
-    <lastmod>2022-12-12T08:37:31.605Z</lastmod>
+    <lastmod>2022-12-12T12:57:17.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://larssonjohan.com/publications/index.html</loc>
+    <lastmod>2022-12-12T12:57:17.656Z</lastmod>
+  </url>
+  <url>
+    <loc>https://larssonjohan.com/software/index.html</loc>
+    <lastmod>2022-12-12T12:57:18.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://larssonjohan.com/talks/index.html</loc>
+    <lastmod>2022-12-12T12:57:18.436Z</lastmod>
+  </url>
+  <url>
+    <loc>https://larssonjohan.com/talks/strong-screening-rule-for-slope/index.html</loc>
+    <lastmod>2022-12-12T12:57:18.804Z</lastmod>
   </url>
 </urlset>

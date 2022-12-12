@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-format','listing-sidebar','listing-author-title','listing-author','listing-date','listing-title','listing-type','listing-place','listing-publication','listing-volume','listing-pages','listing-arxiv','listing-pypi','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-pdf','listing-github','listing-cran','listing-repository','listing-doi','listing-link',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-format','listing-sidebar','listing-author-title','listing-author','listing-date','listing-title','listing-type','listing-place','listing-publication','listing-volume','listing-pages','listing-arxiv','listing-pypi','listing-categories','listing-abstract','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-pdf','listing-github','listing-cran','listing-repository','listing-doi','listing-link',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-details"],
     };
@@ -165,13 +165,6 @@ ga('send', {
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -181,11 +174,11 @@ ga('send', {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Data Visualization">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Euler Diagrams">Euler Diagrams <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Lasso">Lasso <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Optimization">Optimization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SLOPE">SLOPE <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Screening Rules">Screening Rules <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -196,28 +189,12 @@ ga('send', {
 
 <div class="quarto-title-meta">
 
+    
   
-  
-  
-  <div>
-    <div class="quarto-title-meta-heading">Links</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-                                          
-      
-      </p>
-    </div>
-
+    
   </div>
-</div>
+  
 
-
-
-
-
-
-
-<p>&nbsp;</p>
 </header>
 
 
@@ -250,85 +227,133 @@ ga('send', {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<ol class="list" reversed="">
-    <li data-index="0" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1670834232665" data-listing-reading-time-sort="0.965">
-      <a href="../publications/contents/benchopt/index.html">
-        <span class="listing-author">Thomas Moreau, Mathurin Massias, Alexandre Gramfort, et al.</span>.
-        <span class="listing-title"><q>Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks</q></span>.
-          In <span class="listing-details"><em>Advances in Neural Information Processing Systems</em></span>,
+<ul class="list publication-list" reversed="">
+    <li data-index="0" data-categories="Optimization,Python" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks</span><br>
+      <p><span class="listing-author">Thomas Moreau, Mathurin Massias, Alexandre Gramfort, et al.</span><br>
+          In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems</span>,
           <span class="listing-details">New Orleans, US</span>,
         <span class="listing-date">Nov. 2022</span>,
           <span class="listing-publication-volume">vol.&nbsp;35</span>,
           <span class="listing-publication-pages">pp.&nbsp;TBA</span>.
+      <br>
+      <a href="../publications/contents/benchopt/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-        <a href="https://arxiv.org/abs/https://arxiv.org/abs/2206.13424" class="badge badge-red"><i class="ai ai-arxiv"></i>&nbsp;arXiv</a>
-        <a href="https://pypi.org/project/benchopt" class="badge badge-green"><i class="fa-brands fa-python"></i>&nbsp;pypi</a>
+        <a href="https://arxiv.org/abs/2206.13424" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+        <a href="https://pypi.com/project/benchopt" class="btn btn-info btn-sm">
+          <i class="fa-brands fa-python"></i>&nbsp;pypi
+        </a>
+      </p>
     </li>
-    <li data-index="1" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1670834232669" data-listing-reading-time-sort="0.605">
-      <a href="../publications/contents/the-hessian-screening-rule/index.html">
-        <span class="listing-author">Johan Larsson, Jonas Wallin</span>.
-        <span class="listing-title"><q>The Hessian Screening Rule</q></span>.
-          In <span class="listing-details"><em>Advances in Neural Information Processing Systems</em></span>,
+    <li data-index="1" data-categories="Lasso,Screening Rules" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">The Hessian Screening Rule</span><br>
+      <p><span class="listing-author">Johan Larsson, Jonas Wallin</span><br>
+          In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems</span>,
           <span class="listing-details">New Orleans, US</span>,
         <span class="listing-date">Nov. 2022</span>,
           <span class="listing-publication-volume">vol.&nbsp;35</span>,
           <span class="listing-publication-pages">pp.&nbsp;TBA</span>.
+      <br>
+      <a href="../publications/contents/the-hessian-screening-rule/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-        <a href="https://arxiv.org/abs/https://arxiv.org/abs/2104.13026" class="badge badge-red"><i class="ai ai-arxiv"></i>&nbsp;arXiv</a>
-        <a href="https://github.com/jolars/HessianScreening" class="badge badge-black"><i class="fa fa-github"></i>&nbsp;code</a>
+        <a href="https://arxiv.org/abs/2104.13026" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+        <a href="https://github.com/jolars/HessianScreening" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+      </p>
     </li>
-    <li data-index="2" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1670834232669" data-listing-reading-time-sort="0.76">
-      <a href="../publications/contents/coordinate-descent-for-slope/index.html">
-        <span class="listing-author">Johan Larsson, Quentin Klopfenstein, Mathurin Massias, Jonas Wallin</span>.
-        <span class="listing-title"><q>Coordinate Descent for SLOPE</q></span>.
+    <li data-index="2" data-categories="SLOPE,Optimization" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">Coordinate Descent for SLOPE</span><br>
+      <p><span class="listing-author">Johan Larsson, Quentin Klopfenstein, Mathurin Massias, Jonas Wallin</span><br>
         <span class="listing-date">Oct. 2022</span>.
+      <br>
+      <a href="../publications/contents/coordinate-descent-for-slope/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-        <a href="https://doi.org/10.48550/arXiv.2210.14780" class="badge badge-blue">DOI</a>
-        <a href="https://arxiv.org/abs/https://arxiv.org/abs/2210.14780" class="badge badge-red"><i class="ai ai-arxiv"></i>&nbsp;arXiv</a>
-        <a href="https://github.com/jolars/slopecd" class="badge badge-black"><i class="fa fa-github"></i>&nbsp;code</a>
+        <a href="https://doi.org/10.48550/arXiv.2210.14780" class="btn btn-success btn-sm">
+          <i class="fa-solid fa-link"></i>&nbsp;DOI
+        </a>
+        <a href="https://arxiv.org/abs/2210.1478" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+        <a href="https://github.com/jolars/slopecd" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+      </p>
     </li>
-    <li data-index="3" data-listing-date-sort="1624924800000" data-listing-file-modified-sort="1670834232669" data-listing-reading-time-sort="0.66">
-      <a href="../publications/contents/look-ahead-screening/index.html">
-        <span class="listing-author">Johan Larsson</span>.
-        <span class="listing-title"><q>Look-Ahead Screening Rules for the Lasso</q></span>.
-          In <span class="listing-details"><em>22nd European Young Statisticians Meeting - Proceedings</em></span>,
+    <li data-index="3" data-categories="Lasso,Screening Rules" data-listing-date-sort="1624924800000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">Look-Ahead Screening Rules for the Lasso</span><br>
+      <p><span class="listing-author">Johan Larsson</span><br>
+          In <span class="listing-publication fst-italic">22nd European Young Statisticians Meeting - Proceedings</span>,
           <span class="listing-details">Athens, Greece (Virtual)</span>,
         <span class="listing-date">Jun. 2021</span>,
           <span class="listing-publication-volume">vol.&nbsp;35</span>,
           <span class="listing-publication-pages">pp.&nbsp;61-65</span>.
+      <br>
+      <a href="../publications/contents/look-ahead-screening/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-      <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="badge badge-red"><i class="fa-solid fa-file-pdf"></i>&nbsp;PDF</a>
-        <a href="https://github.com/jolars/LookAheadScreening" class="badge badge-black"><i class="fa fa-github"></i>&nbsp;code</a>
+        <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="btn btn-warning btn-sm">
+          <i class="fa-solid fa-file-pdf"></i>&nbsp;PDF
+        </a>
+        <a href="https://github.com/jolars/LookAheadScreening" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+      </p>
     </li>
-    <li data-index="4" data-listing-date-sort="1607212800000" data-listing-file-modified-sort="1670834232669" data-listing-reading-time-sort="1.02">
-      <a href="../publications/contents/the-strong-screening-rule-for-slope/index.html">
-        <span class="listing-author">Johan Larsson, Małgorzata Bogdan, Jonas Wallin</span>.
-        <span class="listing-title"><q>The Strong Screening Rule for SLOPE</q></span>.
-          In <span class="listing-details"><em>Advances in Neural Information Processing Systems</em></span>,
+    <li data-index="4" data-categories="SLOPE,Screening Rules" data-listing-date-sort="1607212800000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">The Strong Screening Rule for SLOPE</span><br>
+      <p><span class="listing-author">Johan Larsson, Małgorzata Bogdan, Jonas Wallin</span><br>
+          In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems</span>,
           <span class="listing-details">Virtual</span>,
         <span class="listing-date">Dec. 2020</span>,
           <span class="listing-publication-volume">vol.&nbsp;33</span>,
           <span class="listing-publication-pages">pp.&nbsp;14592-14603</span>.
+      <br>
+      <a href="../publications/contents/the-strong-screening-rule-for-slope/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-        <a href="https://proceedings.neurips.cc/paper/2020/hash/a7d8ae4569120b5bec12e7b6e9648b86-Abstract.html" class="badge badge-blue"><i class="fa-solid fa-link"></i>&nbsp;link</a>
-      <a href="https://proceedings.neurips.cc/paper/2020/file/a7d8ae4569120b5bec12e7b6e9648b86-Paper.pdf" class="badge badge-red"><i class="fa-solid fa-file-pdf"></i>&nbsp;PDF</a>
-        <a href="https://github.com/jolars/slope-screening-code" class="badge badge-black"><i class="fa fa-github"></i>&nbsp;code</a>
+        <a href="https://proceedings.neurips.cc/paper/2020/hash/a7d8ae4569120b5bec12e7b6e9648b86-Abstract.html" class="btn btn-success btn-sm">
+          <i class="fa-solid fa-link"></i>&nbsp;URL
+        </a>
+        <a href="https://proceedings.neurips.cc/paper/2020/file/a7d8ae4569120b5bec12e7b6e9648b86-Paper.pdf" class="btn btn-warning btn-sm">
+          <i class="fa-solid fa-file-pdf"></i>&nbsp;PDF
+        </a>
+        <a href="https://github.com/jolars/slope-screening-code" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+      </p>
     </li>
-    <li data-index="5" data-listing-date-sort="1529280000000" data-listing-file-modified-sort="1670834232669" data-listing-reading-time-sort="0.66">
-      <a href="../publications/contents/case-study-eulerr/index.html">
-        <span class="listing-author">Johan Larsson</span>.
-        <span class="listing-title"><q>A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr</q></span>.
-          In <span class="listing-details"><em>Proceedings of International Workshop on Set Visualization and Reasoning</em></span>,
+    <li data-index="5" data-categories="R,Data Visualization,Euler Diagrams" data-listing-date-sort="1529280000000" data-listing-file-modified-sort="1670849815271" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr</span><br>
+      <p><span class="listing-author">Johan Larsson</span><br>
+          In <span class="listing-publication fst-italic">Proceedings of International Workshop on Set Visualization and Reasoning</span>,
           <span class="listing-details">Athens, Greece (Virtual)</span>,
         <span class="listing-date">Jun. 2018</span>,
           <span class="listing-publication-volume">vol.&nbsp;2116</span>,
           <span class="listing-publication-pages">pp.&nbsp;84-91</span>.
+      <br>
+      <a href="../publications/contents/case-study-eulerr/index.html" class="btn btn-primary btn-sm">
+        Details
       </a>
-      <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="badge badge-red"><i class="fa-solid fa-file-pdf"></i>&nbsp;PDF</a>
-        <a href="https://CRAN.R-project.org/package=eulerr" class="badge badge-green"><i class="fab fa-r-project"></i>&nbsp;CRAN</a>
-        <a href="https://github.com/jolars/LookAheadScreening" class="badge badge-black"><i class="fa fa-github"></i>&nbsp;code</a>
+        <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="btn btn-warning btn-sm">
+          <i class="fa-solid fa-file-pdf"></i>&nbsp;PDF
+        </a>
+        <a href="https://github.com/jolars/LookAheadScreening" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+        <a href="https://CRAN.R-project.org/package=eulerr" class="btn btn-info btn-sm">
+          <i class="fab fa-r-project"></i>&nbsp;CRAN
+        </a>
+      </p>
     </li>
-</ol>
+</ul>
 
 <div class="listing-no-matching d-none">
 No matching items
@@ -474,25 +499,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
     <a class="nav-link" href="https://fediscience.org/@jolars">
       <i class="bi bi-mastodon" role="img">
 </i> 
     </a>
   </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
-
 
 
 

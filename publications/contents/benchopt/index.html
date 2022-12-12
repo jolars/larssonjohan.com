@@ -141,13 +141,6 @@ ga('send', {
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -158,13 +151,7 @@ ga('send', {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jolars/larssonjohan.com/edit/main/publications/contents/benchopt/index.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jolars/larssonjohan.com/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -172,7 +159,11 @@ ga('send', {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Optimization</div>
+    <div class="quarto-category">Python</div>
+  </div>
+  </div>
 
 
 
@@ -199,35 +190,43 @@ ga('send', {
     </div>
   </div>
   
-  
+  <div>
+    <div class="quarto-title-meta-heading">Publication details</div>
+    <div class="quarto-title-meta-contents">
+      <p>
+        
+      </p>
+    </div>
+  </div>
+
   <div>
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-                              <a href="https://arxiv.org/abs/https://arxiv.org/abs/2206.13424" class="badge badge badge-red">arXiv</a>
-                        
-      
-      </p>
+      <p class="quarto-title-meta-buttons">
+                                <a href="https://arxiv.org/abs/2206.13424" class="btn btn-primary btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+                                      <a href="https://pypi.org/project/benchopt" class="btn btn-info btn-sm"><i class="fa-brands fa-python"></i>&nbsp;pypi</a>
+            </p>
     </div>
 
   </div>
 </div>
 
-
-
-
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Numerical validation is at the core of machine learning research as it allows to assess the actual impact of new methods, and to confirm the agreement between theory and practice. Yet, the rapid development of the field poses several challenges: researchers are confronted with a profusion of methods to compare, limited transparency and consensus on best practices, as well as tedious re-implementation work. As a result, validation is often very partial, which can lead to wrong conclusions that slow down the progress of research. We propose Benchopt, a collaborative framework to automate, reproduce and publish optimization benchmarks in machine learning across programming languages and hardware architectures. Benchopt simplifies benchmarking for the community by providing an off-the-shelf tool for running, sharing and extending experiments. To demonstrate its broad usability, we showcase benchmarks on three standard learning tasks: <span class="math inline">\ell_2</span>-regularized logistic regression, Lasso, and ResNet18 training for image classification. These benchmarks highlight key practical findings that give a more nuanced view of the state-of-the-art for these problems, showing that for practical evaluation, the devil is in the details. We hope that Benchopt will foster collaborative work in the community hence improving the reproducibility of research findings.</p>
+  </div>
+</div>
 
 
 
 <p>&nbsp;</p>
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Numerical validation is at the core of machine learning research as it allows to assess the actual impact of new methods, and to confirm the agreement between theory and practice. Yet, the rapid development of the field poses several challenges: researchers are confronted with a profusion of methods to compare, limited transparency and consensus on best practices, as well as tedious re-implementation work. As a result, validation is often very partial, which can lead to wrong conclusions that slow down the progress of research. We propose Benchopt, a collaborative framework to automate, reproduce and publish optimization benchmarks in machine learning across programming languages and hardware architectures. Benchopt simplifies benchmarking for the community by providing an off-the-shelf tool for running, sharing and extending experiments. To demonstrate its broad usability, we showcase benchmarks on three standard learning tasks: <span class="math inline">\ell_2</span>-regularized logistic regression, Lasso, and ResNet18 training for image classification. These benchmarks highlight key practical findings that give a more nuanced view of the state-of-the-art for these problems, showing that for practical evaluation, the devil is in the details. We hope that Benchopt will foster collaborative work in the community hence improving the reproducibility of research findings.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -370,19 +369,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
     <a class="nav-link" href="https://fediscience.org/@jolars">
       <i class="bi bi-mastodon" role="img">
 </i> 
     </a>
   </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
   </li>  
 </ul>
     </div>

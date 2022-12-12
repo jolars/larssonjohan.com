@@ -123,13 +123,6 @@ ga('send', {
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -140,13 +133,7 @@ ga('send', {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jolars/larssonjohan.com/edit/main/publications/contents/the-hessian-screening-rule/index.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jolars/larssonjohan.com/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -154,7 +141,11 @@ ga('send', {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The Hessian Screening Rule</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Lasso</div>
+    <div class="quarto-category">Screening Rules</div>
+  </div>
+  </div>
 
 
 
@@ -177,36 +168,45 @@ ga('send', {
     </div>
   </div>
   
-  
+  <div>
+    <div class="quarto-title-meta-heading">Publication details</div>
+    <div class="quarto-title-meta-contents">
+      <p>
+        
+      </p>
+    </div>
+  </div>
+
   <div>
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-                              <a href="https://arxiv.org/abs/https://arxiv.org/abs/2104.13026" class="badge badge badge-red">arXiv</a>
-                        <a href="http://github.com/jolars/HessianScreening" class="badge badge badge-green"><i class="fa fa-github"></i>&nbsp;code</a>
-      
-      
-      </p>
+      <p class="quarto-title-meta-buttons">
+                                <a href="https://arxiv.org/abs/2104.13026" class="btn btn-primary btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+                    <a href="http://github.com/jolars/HessianScreening" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+                              </p>
     </div>
 
   </div>
 </div>
 
-
-
-
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Predictor screening rules, which discard predictors from the design matrix before fitting a model, have had considerable impact on the speed with which l1-regularized regression problems, such as the lasso, can be solved. Current state-of-the-art screening rules, however, have difficulties in dealing with highly-correlated predictors, often becoming too conservative. In this paper, we present a new screening rule to deal with this issue: the Hessian Screening Rule. The rule uses second-order information from the model to provide more accurate screening as well as higher-quality warm starts. The proposed rule outperforms all studied alternatives on data sets with high correlation for both l1-regularized least-squares (the lasso) and logistic regression. It also performs best overall on the real data sets that we examine.</p>
+  </div>
+</div>
 
 
 
 <p>&nbsp;</p>
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Predictor screening rules, which discard predictors from the design matrix before fitting a model, have had considerable impact on the speed with which l1-regularized regression problems, such as the lasso, can be solved. Current state-of-the-art screening rules, however, have difficulties in dealing with highly-correlated predictors, often becoming too conservative. In this paper, we present a new screening rule to deal with this issue: the Hessian Screening Rule. The rule uses second-order information from the model to provide more accurate screening as well as higher-quality warm starts. The proposed rule outperforms all studied alternatives on data sets with high correlation for both l1-regularized least-squares (the lasso) and logistic regression. It also performs best overall on the real data sets that we examine.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -349,19 +349,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
     <a class="nav-link" href="https://fediscience.org/@jolars">
       <i class="bi bi-mastodon" role="img">
 </i> 
     </a>
   </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
   </li>  
 </ul>
     </div>

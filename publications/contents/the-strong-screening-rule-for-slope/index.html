@@ -81,13 +81,33 @@ ga('send', {
 <script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="Johan Larsson - The Strong Screening Rule for SLOPE">
-<meta property="og:description" content="Extracting relevant features from data sets where the number of observations (n) is much smaller then the number of predictors (p) is a major challenge in modern statistics.">
+<meta property="og:description" content="Extracting relevant features from data sets where the number of observations
+($n$) is much smaller then the number of predictors ($p$) is a major challenge in
+modern statistics.">
 <meta property="og:site-name" content="Johan Larsson">
 <meta name="twitter:title" content="Johan Larsson - The Strong Screening Rule for SLOPE">
-<meta name="twitter:description" content="Extracting relevant features from data sets where the number of observations (n) is much smaller then the number of predictors (p) is a major challenge in modern statistics.">
+<meta name="twitter:description" content="Extracting relevant features from data sets where the number of observations
+($n$) is much smaller then the number of predictors ($p$) is a major challenge in
+modern statistics.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -124,13 +144,6 @@ ga('send', {
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../../../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -141,13 +154,7 @@ ga('send', {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jolars/larssonjohan.com/edit/main/publications/contents/the-strong-screening-rule-for-slope/index.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jolars/larssonjohan.com/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -155,7 +162,11 @@ ga('send', {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The Strong Screening Rule for SLOPE</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">SLOPE</div>
+    <div class="quarto-category">Screening Rules</div>
+  </div>
+  </div>
 
 
 
@@ -180,36 +191,46 @@ ga('send', {
     </div>
   </div>
   
-  
+  <div>
+    <div class="quarto-title-meta-heading">Publication details</div>
+    <div class="quarto-title-meta-contents">
+      <p>
+        
+      </p>
+    </div>
+  </div>
+
   <div>
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
-      <p class="date" style="color: #fff !important;">
-                                    <a href="https://proceedings.neurips.cc/paper/2020/hash/a7d8ae4569120b5bec12e7b6e9648b86-Abstract.html" class="badge badge badge-red"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-                  <a href="http://github.com/jolars/slope-screening-code" class="badge badge badge-green"><i class="fa fa-github"></i>&nbsp;code</a>
-      
-      
-      </p>
+      <p class="quarto-title-meta-buttons">
+                    <a href="https://proceedings.neurips.cc/paper/2020/hash/a7d8ae4569120b5bec12e7b6e9648b86-Abstract.html" class="btn btn-success btn-sm">
+          <i class="fa-solid fa-link"></i>&nbsp;URL
+        </a>
+                    <a href="https://proceedings.neurips.cc/paper/2020/file/a7d8ae4569120b5bec12e7b6e9648b86-Paper.pdf" class="badge badge-blue"><i class="fa-solid fa-file-pdf"></i>&nbsp;PDF</a>
+                          <a href="http://github.com/jolars/slope-screening-code" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+                              </p>
     </div>
 
   </div>
 </div>
 
-
-
-
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Extracting relevant features from data sets where the number of observations (<span class="math inline">n</span>) is much smaller then the number of predictors (<span class="math inline">p</span>) is a major challenge in modern statistics. Sorted L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is a promising method within this setting. Current numerical procedures for SLOPE, however, lack the efficiency that respective tools for the lasso enjoy, particularly in the context of estimating a complete regularization path. A key component in the efficiency of the lasso is predictor screening rules: rules that allow predictors to be discarded before estimating the model. This is the first paper to establish such a rule for SLOPE. We develop a screening rule for SLOPE by examining its subdifferential and show that this rule is a generalization of the strong rule for the lasso. Our rule is heuristic, which means that it may discard predictors erroneously. In our paper, however, we show that such situations are rare and easily safeguarded against by a simple check of the optimality conditions. Our numerical experiments show that the rule performs well in practice, leading to improvements by orders of magnitude for data in the (<span class="math inline">p \gg n</span>) domain, as well as incurring no additional computational overhead when (<span class="math inline">n &gt; p</span>).</p>
+  </div>
+</div>
 
 
 
 <p>&nbsp;</p>
 </header>
 
-<section id="abstract" class="level2">
-<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Extracting relevant features from data sets where the number of observations (n) is much smaller then the number of predictors (p) is a major challenge in modern statistics. Sorted L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is a promising method within this setting. Current numerical procedures for SLOPE, however, lack the efficiency that respective tools for the lasso enjoy, particularly in the context of estimating a complete regularization path. A key component in the efficiency of the lasso is predictor screening rules: rules that allow predictors to be discarded before estimating the model. This is the first paper to establish such a rule for SLOPE. We develop a screening rule for SLOPE by examining its subdifferential and show that this rule is a generalization of the strong rule for the lasso. Our rule is heuristic, which means that it may discard predictors erroneously. In our paper, however, we show that such situations are rare and easily safeguarded against by a simple check of the optimality conditions. Our numerical experiments show that the rule performs well in practice, leading to improvements by orders of magnitude for data in the (p &gt;&gt; n) domain, as well as incurring no additional computational overhead when (n &gt; p).</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -352,19 +373,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
     <a class="nav-link" href="https://fediscience.org/@jolars">
       <i class="bi bi-mastodon" role="img">
 </i> 
     </a>
   </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
   </li>  
 </ul>
     </div>
