@@ -1,5 +1,9 @@
 /* Badges */
 
+a {
+  text-decoration: none;
+}
+
 a.badge.badge-red {
   color: #fff;
 }
@@ -13,43 +17,21 @@ a.badge.badge-green {
 }
 
 .badge-large {
-  font-size: 18px !important;
-  text-transform: none !important;
   padding: 5px 5px 3px 5px;
-  text-transform: none;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.badge {
-  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .label,
 .badge {
   background: #e0e3e5;
-  font-size: 12.75px;
-  display: inline-block;
-  line-height: 1;
-  padding: 4px 7px 3px 7px;
+  padding: 0.2rem 0.6rem 0.2rem 0.6rem;
   color: #0f0f0f;
-  text-align: center;
-  font-weight: normal;
-  text-transform: uppercase;
 }
 
 .label-outline {
-  background: none;
-  border: 1px solid #0f0f0f;
   padding: 3px 6px 2px 6px;
 }
 
-.badge {
-  border-radius: 15px;
-  opacity: .75;
-}
-
 .badge-small {
-  font-size: 11.25px;
   padding: 5px 5px 3px 5px;
 }
 

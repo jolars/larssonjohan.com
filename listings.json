@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/slope-0-2-0/index.html",
       "/posts/polygon-labeling-with-polylabelr/index.html",
@@ -10,11 +10,22 @@
     ]
   },
   {
-    "listing": "/software.html",
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/contents/benchopt/index.html",
+      "/publications/contents/the-hessian-screening-rule/index.html",
+      "/publications/contents/coordinate-descent-for-slope/index.html",
+      "/publications/contents/look-ahead-screening/index.html",
+      "/publications/contents/the-strong-screening-rule-for-slope/index.html",
+      "/publications/contents/case-study-eulerr/index.html"
+    ]
+  },
+  {
+    "listing": "/software/index.html",
     "items": []
   },
   {
-    "listing": "/talks.html",
+    "listing": "/talks/index.html",
     "items": [
       "/talks/strong-screening-rule-for-slope/index.html"
     ]

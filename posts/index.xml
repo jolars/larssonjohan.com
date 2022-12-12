@@ -1,656 +1,604 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Johan Larsson">
-<meta name="dcterms.date" content="2016-10-15">
-<meta name="description" content="Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.">
-
-<title>Johan Larsson - Introducing qualpalr</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Johan Larsson</title>
+<link>https://larssonjohan.com/posts/index.html</link>
+<atom:link href="https://larssonjohan.com/posts/index.xml" rel="self" type="application/rss+xml"/>
+<description>Research and Coding</description>
+<generator>quarto-1.2.269</generator>
+<lastBuildDate>Tue, 14 Apr 2020 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>SLOPE 0.2.0</title>
+  <dc:creator>Johan Larsson</dc:creator>
+  <link>https://larssonjohan.com/posts/slope-0-2-0/index.html</link>
+  <description><![CDATA[ 
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../assets/images/favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
-  }
-}</script>
 
-<script type="text/javascript">
-
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-ga('create', 'UA-85513662-1', 'auto');
-
-ga('send', {
-  hitType: 'pageview',
-  'anonymizeIp': true,
-});
-</script>
-<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="../../site_libs/rglWebGL-binding-0.110.2/rglWebGL.js"></script>
-<link href="../../site_libs/rglwidgetClass-0.110.2/rgl.css" rel="stylesheet">
-<script src="../../site_libs/rglwidgetClass-0.110.2/rglClass.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/utils.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/buffer.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/subscenes.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/shaders.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/textures.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/projection.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/mouse.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/init.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/pieces.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/draw.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/controls.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/selection.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/rglTimer.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/pretty.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/axes.src.js"></script>
-<script src="../../site_libs/rglwidgetClass-0.110.2/animation.src.js"></script>
-<!--html_preserve--><script type="text/plain" id="rgl-vertex-shader">
-#line 2 1
-// File 1 is the vertex shader
-#ifdef GL_ES
-#ifdef GL_FRAGMENT_PRECISION_HIGH
-precision highp float;
-#else
-precision mediump float;
-#endif
-#endif
-
-attribute vec3 aPos;
-attribute vec4 aCol;
-uniform mat4 mvMatrix;
-uniform mat4 prMatrix;
-varying vec4 vCol;
-varying vec4 vPosition;
-
-#ifdef NEEDS_VNORMAL
-attribute vec3 aNorm;
-uniform mat4 normMatrix;
-varying vec4 vNormal;
-#endif
-
-#if defined(HAS_TEXTURE) || defined (IS_TEXT)
-attribute vec2 aTexcoord;
-varying vec2 vTexcoord;
-#endif
-
-#ifdef FIXED_SIZE
-uniform vec3 textScale;
-#endif
-
-#ifdef FIXED_QUADS
-attribute vec3 aOfs;
-#endif
-
-#ifdef IS_TWOSIDED
-#ifdef HAS_NORMALS
-varying float normz;
-uniform mat4 invPrMatrix;
-#else
-attribute vec3 aPos1;
-attribute vec3 aPos2;
-varying float normz;
-#endif
-#endif // IS_TWOSIDED
-
-#ifdef FAT_LINES
-attribute vec3 aNext;
-attribute vec2 aPoint;
-varying vec2 vPoint;
-varying float vLength;
-uniform float uAspect;
-uniform float uLwd;
-#endif
-
-
-void main(void) {
-  
-#ifndef IS_BRUSH
-#if defined(NCLIPPLANES) || !defined(FIXED_QUADS) || defined(HAS_FOG)
-  vPosition = mvMatrix * vec4(aPos, 1.);
-#endif
-  
-#ifndef FIXED_QUADS
-  gl_Position = prMatrix * vPosition;
-#endif
-#endif // !IS_BRUSH
-  
-#ifdef IS_POINTS
-  gl_PointSize = POINTSIZE;
-#endif
-  
-  vCol = aCol;
-  
-#ifdef NEEDS_VNORMAL
-  vNormal = normMatrix * vec4(-aNorm, dot(aNorm, aPos));
-#endif
-  
-#ifdef IS_TWOSIDED
-#ifdef HAS_NORMALS
-  /* normz should be calculated *after* projection */
-  normz = (invPrMatrix*vNormal).z;
-#else
-  vec4 pos1 = prMatrix*(mvMatrix*vec4(aPos1, 1.));
-  pos1 = pos1/pos1.w - gl_Position/gl_Position.w;
-  vec4 pos2 = prMatrix*(mvMatrix*vec4(aPos2, 1.));
-  pos2 = pos2/pos2.w - gl_Position/gl_Position.w;
-  normz = pos1.x*pos2.y - pos1.y*pos2.x;
-#endif
-#endif // IS_TWOSIDED
-  
-#ifdef NEEDS_VNORMAL
-  vNormal = vec4(normalize(vNormal.xyz/vNormal.w), 1);
-#endif
-  
-#if defined(HAS_TEXTURE) || defined(IS_TEXT)
-  vTexcoord = aTexcoord;
-#endif
-  
-#if defined(FIXED_SIZE) && !defined(ROTATING)
-  vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);
-  pos = pos/pos.w;
-  gl_Position = pos + vec4(aOfs*textScale, 0.);
-#endif
-  
-#if defined(IS_SPRITES) && !defined(FIXED_SIZE)
-  vec4 pos = mvMatrix * vec4(aPos, 1.);
-  pos = pos/pos.w + vec4(aOfs,  0.);
-  gl_Position = prMatrix*pos;
-#endif
-  
-#ifdef FAT_LINES
-  /* This code was inspired by Matt Deslauriers' code in 
-   https://mattdesl.svbtle.com/drawing-lines-is-hard */
-  vec2 aspectVec = vec2(uAspect, 1.0);
-  mat4 projViewModel = prMatrix * mvMatrix;
-  vec4 currentProjected = projViewModel * vec4(aPos, 1.0);
-  currentProjected = currentProjected/currentProjected.w;
-  vec4 nextProjected = projViewModel * vec4(aNext, 1.0);
-  vec2 currentScreen = currentProjected.xy * aspectVec;
-  vec2 nextScreen = (nextProjected.xy / nextProjected.w) * aspectVec;
-  float len = uLwd;
-  vec2 dir = vec2(1.0, 0.0);
-  vPoint = aPoint;
-  vLength = length(nextScreen - currentScreen)/2.0;
-  vLength = vLength/(vLength + len);
-  if (vLength > 0.0) {
-    dir = normalize(nextScreen - currentScreen);
-  }
-  vec2 normal = vec2(-dir.y, dir.x);
-  dir.x /= uAspect;
-  normal.x /= uAspect;
-  vec4 offset = vec4(len*(normal*aPoint.x*aPoint.y - dir), 0.0, 0.0);
-  gl_Position = currentProjected + offset;
-#endif
-  
-#ifdef IS_BRUSH
-  gl_Position = vec4(aPos, 1.);
-#endif
-}
-</script>
-<script type="text/plain" id="rgl-fragment-shader">
-#line 2 2
-// File 2 is the fragment shader
-#ifdef GL_ES
-#ifdef GL_FRAGMENT_PRECISION_HIGH
-precision highp float;
-#else
-precision mediump float;
-#endif
-#endif
-varying vec4 vCol; // carries alpha
-varying vec4 vPosition;
-#if defined(HAS_TEXTURE) || defined (IS_TEXT)
-varying vec2 vTexcoord;
-uniform sampler2D uSampler;
-#endif
-
-#ifdef HAS_FOG
-uniform int uFogMode;
-uniform vec3 uFogColor;
-uniform vec4 uFogParms;
-#endif
-
-#if defined(IS_LIT) && !defined(FIXED_QUADS)
-varying vec4 vNormal;
-#endif
-
-#if NCLIPPLANES > 0
-uniform vec4 vClipplane[NCLIPPLANES];
-#endif
-
-#if NLIGHTS > 0
-uniform mat4 mvMatrix;
-#endif
-
-#ifdef IS_LIT
-uniform vec3 emission;
-uniform float shininess;
-#if NLIGHTS > 0
-uniform vec3 ambient[NLIGHTS];
-uniform vec3 specular[NLIGHTS]; // light*material
-uniform vec3 diffuse[NLIGHTS];
-uniform vec3 lightDir[NLIGHTS];
-uniform bool viewpoint[NLIGHTS];
-uniform bool finite[NLIGHTS];
-#endif
-#endif // IS_LIT
-
-#ifdef IS_TWOSIDED
-uniform bool front;
-varying float normz;
-#endif
-
-#ifdef FAT_LINES
-varying vec2 vPoint;
-varying float vLength;
-#endif
-
-void main(void) {
-  vec4 fragColor;
-#ifdef FAT_LINES
-  vec2 point = vPoint;
-  bool neg = point.y < 0.0;
-  point.y = neg ? (point.y + vLength)/(1.0 - vLength) :
-                 -(point.y - vLength)/(1.0 - vLength);
-#if defined(IS_TRANSPARENT) && defined(IS_LINESTRIP)
-  if (neg && length(point) <= 1.0) discard;
-#endif
-  point.y = min(point.y, 0.0);
-  if (length(point) > 1.0) discard;
-#endif // FAT_LINES
-  
-#ifdef ROUND_POINTS
-  vec2 coord = gl_PointCoord - vec2(0.5);
-  if (length(coord) > 0.5) discard;
-#endif
-  
-#if NCLIPPLANES > 0
-  for (int i = 0; i < NCLIPPLANES; i++)
-    if (dot(vPosition, vClipplane[i]) < 0.0) discard;
-#endif
-    
-#ifdef FIXED_QUADS
-    vec3 n = vec3(0., 0., 1.);
-#elif defined(IS_LIT)
-    vec3 n = normalize(vNormal.xyz);
-#endif
-    
-#ifdef IS_TWOSIDED
-    if ((normz <= 0.) != front) discard;
-#endif
-    
-#ifdef IS_LIT
-    vec3 eye = normalize(-vPosition.xyz/vPosition.w);
-    vec3 lightdir;
-    vec4 colDiff;
-    vec3 halfVec;
-    vec4 lighteffect = vec4(emission, 0.);
-    vec3 col;
-    float nDotL;
-#ifdef FIXED_QUADS
-    n = -faceforward(n, n, eye);
-#endif
-    
-#if NLIGHTS > 0
-    for (int i=0;i<NLIGHTS;i++) {
-      colDiff = vec4(vCol.rgb * diffuse[i], vCol.a);
-      lightdir = lightDir[i];
-      if (!viewpoint[i])
-        lightdir = (mvMatrix * vec4(lightdir, 1.)).xyz;
-      if (!finite[i]) {
-        halfVec = normalize(lightdir + eye);
-      } else {
-        lightdir = normalize(lightdir - vPosition.xyz/vPosition.w);
-        halfVec = normalize(lightdir + eye);
-      }
-      col = ambient[i];
-      nDotL = dot(n, lightdir);
-      col = col + max(nDotL, 0.) * colDiff.rgb;
-      col = col + pow(max(dot(halfVec, n), 0.), shininess) * specular[i];
-      lighteffect = lighteffect + vec4(col, colDiff.a);
-    }
-#endif
-    
-#else // not IS_LIT
-    vec4 colDiff = vCol;
-    vec4 lighteffect = colDiff;
-#endif
-    
-#ifdef IS_TEXT
-    vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
-#endif
-    
-#ifdef HAS_TEXTURE
-#ifdef TEXTURE_rgb
-    vec4 textureColor = lighteffect*vec4(texture2D(uSampler, vTexcoord).rgb, 1.);
-#endif
-    
-#ifdef TEXTURE_rgba
-    vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);
-#endif
-    
-#ifdef TEXTURE_alpha
-    vec4 textureColor = texture2D(uSampler, vTexcoord);
-    float luminance = dot(vec3(1.,1.,1.), textureColor.rgb)/3.;
-    textureColor =  vec4(lighteffect.rgb, lighteffect.a*luminance);
-#endif
-    
-#ifdef TEXTURE_luminance
-    vec4 textureColor = vec4(lighteffect.rgb*dot(texture2D(uSampler, vTexcoord).rgb, vec3(1.,1.,1.))/3., lighteffect.a);
-#endif
-    
-#ifdef TEXTURE_luminance_alpha
-    vec4 textureColor = texture2D(uSampler, vTexcoord);
-    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;
-    textureColor = vec4(lighteffect.rgb*luminance, lighteffect.a*textureColor.a);
-#endif
-    
-    fragColor = textureColor;
-
-#elif defined(IS_TEXT)
-    if (textureColor.a < 0.1)
-      discard;
-    else
-      fragColor = textureColor;
-#else
-    fragColor = lighteffect;
-#endif // HAS_TEXTURE
-    
-#ifdef HAS_FOG
-    // uFogParms elements: x = near, y = far, z = fogscale, w = (1-sin(FOV/2))/(1+sin(FOV/2))
-    // In Exp and Exp2: use density = density/far
-    // fogF will be the proportion of fog
-    // Initialize it to the linear value
-    float fogF;
-    if (uFogMode > 0) {
-      fogF = (uFogParms.y - vPosition.z/vPosition.w)/(uFogParms.y - uFogParms.x);
-      if (uFogMode > 1)
-        fogF = mix(uFogParms.w, 1.0, fogF);
-      fogF = fogF*uFogParms.z;
-      if (uFogMode == 2)
-        fogF = 1.0 - exp(-fogF);
-      // Docs are wrong: use (density*c)^2, not density*c^2
-      // https://gitlab.freedesktop.org/mesa/mesa/-/blob/master/src/mesa/swrast/s_fog.c#L58
-      else if (uFogMode == 3)
-        fogF = 1.0 - exp(-fogF*fogF);
-      fogF = clamp(fogF, 0.0, 1.0);
-      gl_FragColor = vec4(mix(fragColor.rgb, uFogColor, fogF), fragColor.a);
-    } else gl_FragColor = fragColor;
-#else
-    gl_FragColor = fragColor;
-#endif // HAS_FOG
-    
-}
-</script><!--/html_preserve-->
-<script src="../../site_libs/CanvasMatrix4-0.110.2/CanvasMatrix.src.js"></script>
-<!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather' rel='stylesheet'> -->
-<script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
-
-<link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Johan Larsson - Introducing qualpalr">
-<meta property="og:description" content="Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.">
-<meta property="og:image" content="https://larssonjohan.com/posts/introducing-qualpalr/qualpalr.png">
-<meta property="og:site-name" content="Johan Larsson">
-<meta property="og:image:height" content="572">
-<meta property="og:image:width" content="558">
-<meta name="twitter:title" content="Johan Larsson - Introducing qualpalr">
-<meta name="twitter:description" content="Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.">
-<meta name="twitter:image" content="https://larssonjohan.com/posts/introducing-qualpalr/qualpalr.png">
-<meta name="twitter:image-height" content="572">
-<meta name="twitter:image-width" content="558">
-<meta name="twitter:card" content="summary_large_image">
-</head>
-
-<body class="nav-fixed">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Johan Larsson</span>
-    </a>
-  </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../posts/index.html">
- <span class="menu-text">Posts</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../software/index.html">
- <span class="menu-text">Software</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../publications/index.html">
- <span class="menu-text">Publications</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../talks/index.html">
- <span class="menu-text">Talks</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="../../blog.xml"><i class="bi bi-rss" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
-              <div id="quarto-search" class="" title="Search"></div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
-  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a>
-  <ul class="collapse">
-  <li><a href="#color-specifications" id="toc-color-specifications" class="nav-link" data-scroll-target="#color-specifications">Color specifications</a></li>
-  </ul></li>
-  <li><a href="#future-directions" id="toc-future-directions" class="nav-link" data-scroll-target="#future-directions">Future directions</a></li>
-  <li><a href="#thanks" id="toc-thanks" class="nav-link" data-scroll-target="#thanks">Thanks</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jolars/larssonjohan.com/edit/main/posts/introducing-qualpalr/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jolars/larssonjohan.com/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Introducing qualpalr</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">r</div>
-    <div class="quarto-category">data visualization</div>
-    <div class="quarto-category">qualpalr</div>
-  </div>
-  </div>
-
-<div>
-  <div class="description">
-    Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.
-  </div>
+<section id="introduction-to-slope" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-slope">Introduction to SLOPE</h2>
+<p>SLOPE <span class="citation" data-cites="bogdan2015">(Bogdan et al. 2015)</span> stands for sorted L1 penalized estimation and is a generalization of OSCAR <span class="citation" data-cites="bondell2008">(Bondell and Reich 2008)</span>. As the name suggests, SLOPE is a type of <img src="https://latex.codecogs.com/png.latex?%5Cell_1">-regularization. More specifically, SLOPE fits generalized linear models regularized with the sorted <img src="https://latex.codecogs.com/png.latex?%5Cell_1"> norm. The objective in SLOPE is</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7Bminimize%7D%5Cleft%5C%7B%20f(%5Cbeta)%20+%20J(%5Cbeta%20%5Cmid%20%5Clambda)%5Cright%5C%7D,%0A"></p>
+<p>where <img src="https://latex.codecogs.com/png.latex?f(%5Cbeta)"> is typically the log-likelihood of some model in the family of generalized linear models and</p>
+<p><img src="https://latex.codecogs.com/png.latex?J(%5Cbeta%5Cmid%20%5Clambda)%20=%20%5Csum_%7Bi=1%7D%5Ep%20%5Clambda_i%7C%5Cbeta%7C_%7B(i)%7D"></p>
+<p>is the sorted <img src="https://latex.codecogs.com/png.latex?%5Cell_1"> norm.</p>
+<p>Some people will note that this penalty is a generalization of the standard <img src="https://latex.codecogs.com/png.latex?%5Cell_1"> norm penalty<sup>1</sup>. As such, SLOPE is a type of sparse regression—just like the lasso. Unlike the lasso, however, SLOPE gracefully handles correlated features. Whereas the lasso often discards all but a few among a set of correlated features <span class="citation" data-cites="jia2010">(Jia and Yu 2010)</span>, SLOPE instead <em>clusters</em> such features together by setting such clusters to have the same coefficient in absolut value.</p>
+</section>
+<section id="slope-0.2.0" class="level2">
+<h2 class="anchored" data-anchor-id="slope-0.2.0">SLOPE 0.2.0</h2>
+<p>SLOPE 0.2.0 is a new verison of the R package <a href="https://CRAN.R-project.org/package=SLOPE">SLOPE</a> featuring a range of improvements over the previous package. If you are completely new to the package, please start with the <a href="https://jolars.github.io/SLOPE/articles/introduction.html">introductory vignette</a>.</p>
+<section id="more-model-families" class="level3">
+<h3 class="anchored" data-anchor-id="more-model-families">More model families</h3>
+<p>Previously, SLOPE only features ordinary least-squares regression. Now the package features logistic, Poisson, and multinomial regression on top of that. Just as in other similar packages, this is enabled simply by setting <code>family = "binomial"</code> for logistic regression, for instance.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(SLOPE)</span>
+<span id="cb1-2">fit <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">SLOPE</span>(wine<span class="sc" style="color: #5E5E5E;">$</span>x, wine<span class="sc" style="color: #5E5E5E;">$</span>y, <span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"multinomial"</span>)</span></code></pre></div>
 </div>
+</section>
+<section id="regularization-path-fitting" class="level3">
+<h3 class="anchored" data-anchor-id="regularization-path-fitting">Regularization path fitting</h3>
+<p>By default, SLOPE now fits a full regularization path instead of only a single penalty sequence at once. This behavior is now analogous with the default behavior in glmnet.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">plot</span>(fit)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/slope-0-2-0/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+<p></p><figcaption class="figure-caption">Coefficients from the regularization path for a multinomial model.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="predictor-screening-rules" class="level3">
+<h3 class="anchored" data-anchor-id="predictor-screening-rules">Predictor screening rules</h3>
+<p>The package now uses predictor screening rules to vastly improve performance in the <img src="https://latex.codecogs.com/png.latex?p%20%5Cgg%20n"> domain. Screening rules are part of what makes other related packages such as glmnet so efficient. In SLOPE, we use a variant of the strong screening rules for the lasso <span class="citation" data-cites="tibshirani2012">(Tibshirani et al. 2012)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">xy <span class="ot" style="color: #003B4F;">&lt;-</span> SLOPE<span class="sc" style="color: #5E5E5E;">:::</span><span class="fu" style="color: #4758AB;">randomProblem</span>(<span class="dv" style="color: #AD0000;">100</span>, <span class="dv" style="color: #AD0000;">1000</span>)</span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;">system.time</span>({<span class="fu" style="color: #4758AB;">SLOPE</span>(xy<span class="sc" style="color: #5E5E5E;">$</span>x, xy<span class="sc" style="color: #5E5E5E;">$</span>y, <span class="at" style="color: #657422;">screen =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)})</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  1.888   0.005   0.294 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">system.time</span>({<span class="fu" style="color: #4758AB;">SLOPE</span>(xy<span class="sc" style="color: #5E5E5E;">$</span>x, xy<span class="sc" style="color: #5E5E5E;">$</span>y, <span class="at" style="color: #657422;">screen =</span> <span class="cn" style="color: #8f5902;">FALSE</span>)})</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  7.848   0.017   1.257 </code></pre>
+</div>
+</div>
+</section>
+<section id="cross-validation-and-caret" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-and-caret">Cross-validation and caret</h3>
+<p>There is now a function <code>trainSLOPE()</code>, which can be used to run cross-validation for optimal selection of <code>sigma</code> and <code>q</code>. Here, we run 8-fold cross-validation repeated 5 times.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="co" style="color: #5E5E5E;"># 8-fold cross-validation repeated 5 times</span></span>
+<span id="cb7-2">tune <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">trainSLOPE</span>(</span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;">subset</span>(mtcars, <span class="at" style="color: #657422;">select =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"mpg"</span>, <span class="st" style="color: #20794D;">"drat"</span>, <span class="st" style="color: #20794D;">"wt"</span>)),</span>
+<span id="cb7-4">  mtcars<span class="sc" style="color: #5E5E5E;">$</span>hp,</span>
+<span id="cb7-5">  <span class="at" style="color: #657422;">q =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.1</span>, <span class="fl" style="color: #AD0000;">0.2</span>),</span>
+<span id="cb7-6">  <span class="at" style="color: #657422;">number =</span> <span class="dv" style="color: #AD0000;">8</span>,</span>
+<span id="cb7-7">  <span class="at" style="color: #657422;">repeats =</span> <span class="dv" style="color: #AD0000;">5</span></span>
+<span id="cb7-8">)</span>
+<span id="cb7-9"><span class="fu" style="color: #4758AB;">plot</span>(tune)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/slope-0-2-0/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Cross-validation with SLOPE.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In addition, the package now also features a function <code>caretSLOPE()</code> that can be used via the excellent caret package, which enables a swath of resampling methods and comparisons.</p>
+</section>
+<section id="c-and-admm" class="level3">
+<h3 class="anchored" data-anchor-id="c-and-admm">C++ and ADMM</h3>
+<p>All of the performance-critical code for SLOPE has been rewritten in C++. In addition, the package now features an ADMM solver for <code>family = "gaussian"</code>, enabled by setting <code>solver = "admm"</code> in the call to <code>SLOPE()</code>. Preliminary testing shows that this solver is faster for many designs, particularly when there is high correlation among predictors.</p>
+</section>
+<section id="sparse-design-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="sparse-design-matrices">Sparse design matrices</h3>
+<p>SLOPE now also allows sparse design matrcies of classes from the Matrix package.</p>
+</section>
+<section id="and-much-more" class="level3">
+<h3 class="anchored" data-anchor-id="and-much-more">And much more…</h3>
+<p>For a full list of changes, please see <a href="https://jolars.github.io/SLOPE/news/index.html#slope-0-2-0-unreleased">the changelog</a>.</p>
+</section>
+</section>
+<section id="references" class="level2">
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Johan Larsson </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">15 October 2016</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
 
-</header>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bogdan2015" class="csl-entry">
+Bogdan, Małgorzata, Ewout van den Berg, Chiara Sabatti, Weijie Su, and Emmanuel J. Candès. 2015. <span>“<span>SLOPE</span> – Adaptive Variable Selection via Convex Optimization.”</span> <em>The Annals of Applied Statistics</em> 9 (3): 1103–40. <a href="https://doi.org/10.1214/15-AOAS842">https://doi.org/10.1214/15-AOAS842</a>.
+</div>
+<div id="ref-bondell2008" class="csl-entry">
+Bondell, Howard D., and Brian J. Reich. 2008. <span>“Simultaneous Regression Shrinkage, Variable Selection, and Supervised Clustering of Predictors with <span>OSCAR</span>.”</span> <em>Biometrics</em> 64 (1): 115–23. <a href="https://doi.org/10.1111/j.1541-0420.2007.00843.x">https://doi.org/10.1111/j.1541-0420.2007.00843.x</a>.
+</div>
+<div id="ref-jia2010" class="csl-entry">
+Jia, J., and B. Yu. 2010. <span>“On Model Selection Consistency of the Elastic Net When p <span><img src="https://latex.codecogs.com/png.latex?%3E%3E"></span> n.”</span> <em>Statistica Sinica</em> 20 (2): 595–611.
+</div>
+<div id="ref-tibshirani2012" class="csl-entry">
+Tibshirani, Robert, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jonathan Taylor, and Ryan J. Tibshirani. 2012. <span>“Strong Rules for Discarding Predictors in Lasso-Type Problems.”</span> <em>Journal of the Royal Statistical Society. Series B: Statistical Methodology</em> 74 (2): 245–66. <a href="https://doi.org/c4bb85">https://doi.org/c4bb85</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Simply set <img src="https://latex.codecogs.com/png.latex?%5Clambda_i%20=%20%5Clambda_j"> for all <img src="https://latex.codecogs.com/png.latex?i,j%20%5Cin%20%5C%7B1,%5Cdots,p%5C%7D"> and you get the lasso penalty.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>r</category>
+  <category>regularization</category>
+  <category>SLOPE</category>
+  <category>statistics</category>
+  <guid>https://larssonjohan.com/posts/slope-0-2-0/index.html</guid>
+  <pubDate>Tue, 14 Apr 2020 00:00:00 GMT</pubDate>
+  <media:content url="https://larssonjohan.com/posts/slope-0-2-0/slope.svg" medium="image" type="image/svg+xml"/>
+</item>
+<item>
+  <title>Polygon Labeling with polylabelr</title>
+  <dc:creator>Johan Larsson</dc:creator>
+  <link>https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="labeling-euler-diagram-overlaps" class="level2">
+<h2 class="anchored" data-anchor-id="labeling-euler-diagram-overlaps">Labeling Euler diagram overlaps</h2>
+<p>The purpose of my R package <a href="https://github.com/jolars/eulerr">eulerr</a> is to fit and <em>visualize</em> Euler diagrams. Besides the various intricacies involved in fitting the diagrams, there are many interesting problems involved in their visualization. One of these is the labeling of the overlaps.</p>
+<p>Naturally, simply positioning the labels at the shapes’ centers fails more often than not. Nevertheless, this stategy is employed by <strong>venneuler</strong>, for instance, and the plots usually demand manual tuning.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># an example set combination</span></span>
+<span id="cb1-2">s <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(</span>
+<span id="cb1-3">  <span class="st" style="color: #20794D;">"SE"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">13</span>,</span>
+<span id="cb1-4">  <span class="st" style="color: #20794D;">"Treat"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">28</span>,</span>
+<span id="cb1-5">  <span class="st" style="color: #20794D;">"Anti-CCP"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">101</span>,</span>
+<span id="cb1-6">  <span class="st" style="color: #20794D;">"DAS28"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">91</span>,</span>
+<span id="cb1-7">  <span class="st" style="color: #20794D;">"SE&amp;Treat"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">1</span>,</span>
+<span id="cb1-8">  <span class="st" style="color: #20794D;">"SE&amp;DAS28"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">14</span>,</span>
+<span id="cb1-9">  <span class="st" style="color: #20794D;">"Treat&amp;Anti-CCP"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">6</span>,</span>
+<span id="cb1-10">  <span class="st" style="color: #20794D;">"SE&amp;Anti-CCP&amp;DAS28"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">1</span></span>
+<span id="cb1-11">)</span>
+<span id="cb1-12"></span>
+<span id="cb1-13"><span class="fu" style="color: #4758AB;">library</span>(venneuler, <span class="at" style="color: #657422;">quietly =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb1-14">fit_venneuler <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">venneuler</span>(s)</span>
+<span id="cb1-15"><span class="fu" style="color: #4758AB;">plot</span>(fit_venneuler)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="336"></p>
+<p></p><figcaption class="figure-caption">A plot from venneuler with suboptimal label placements.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Up til now, I solved this in <strong>eulerr</strong> by, for each overlap, filling one of the involved shapes (circles or ellipses) with points and then numerically optimizing the location of the point using a Nelder–Mead optimizer. However, given that the solution to finding the distance between a point and an ellipse—at least one that is rotated—itself requires a numerical solution <span class="citation" data-cites="eberly2013">(Eberly 2013)</span>, this procedure turned out to be quite inefficient.</p>
+</section>
+<section id="the-promise-of-polygons" class="level2">
+<h2 class="anchored" data-anchor-id="the-promise-of-polygons">The promise of polygons</h2>
+<p>R has powerful functionality for plotting in general, but lacks capabilities for drawing ellipses using curves. High-resolution polygons are thankfully a readily available remedy for this and have since several version back been used also in <strong>eulerr</strong>.</p>
+<p>The upside of using polygons, however, are that they are usually much easier, even if sometimes inefficient, to work with. For instance, they make constructing separate shapes for each overlap a breeze using the polyclip package <span class="citation" data-cites="johnson2018">(Johnson and Baddeley 2018)</span>.</p>
+<p>And because basically all shapes in digital maps are polygons, there happens to exist a multitude of other useful tools to deal with a wide variety of tasks related to polygons. One of these turned out to be precisely what I needed: polylabel <span class="citation" data-cites="mapbox2018a">(<strong>mapbox2018a?</strong>)</span> from the Mapbox suite. Because the details of the library <a href="https://blog.mapbox.com/a-new-algorithm-for-finding-a-visual-center-of-a-polygon-7c77e6492fbc">have already been explained elsewhere</a> I will spare you the details, but briefly put it uses quadtree binning to divide the polygon into square bins, pruning away dead-ends. It is inefficient and will, according to the authors, find a point that is “guaranteed to be a global optimum within the given precision”.</p>
+<p>Because it appeared to be such a valuable tool for R users, I decided to create a wrapper for the c++ header for polylabel and bundle it as a package for R users.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;"># install.packages("polylabelr")</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">library</span>(polylabelr)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;"># a concave polygon with a hole</span></span>
+<span id="cb2-5">x <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">6</span>, <span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">9</span>, <span class="dv" style="color: #AD0000;">10</span>, <span class="dv" style="color: #AD0000;">12</span>, <span class="dv" style="color: #AD0000;">4</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="cn" style="color: #8f5902;">NA</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">5</span>, <span class="dv" style="color: #AD0000;">3</span>)</span>
+<span id="cb2-6">y <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">5</span>, <span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="cn" style="color: #8f5902;">NA</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;"># locate the pole of inaccessibility</span></span>
+<span id="cb2-9">p <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">poi</span>(x, y, <span class="at" style="color: #657422;">precision =</span> <span class="fl" style="color: #AD0000;">0.01</span>)</span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="fu" style="color: #4758AB;">plot.new</span>()</span>
+<span id="cb2-12"><span class="fu" style="color: #4758AB;">plot.window</span>(</span>
+<span id="cb2-13">  <span class="fu" style="color: #4758AB;">range</span>(x, <span class="at" style="color: #657422;">na.rm =</span> <span class="cn" style="color: #8f5902;">TRUE</span>),</span>
+<span id="cb2-14">  <span class="fu" style="color: #4758AB;">range</span>(y, <span class="at" style="color: #657422;">na.rm =</span> <span class="cn" style="color: #8f5902;">TRUE</span>),</span>
+<span id="cb2-15">  <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span></span>
+<span id="cb2-16">)</span>
+<span id="cb2-17"><span class="fu" style="color: #4758AB;">polypath</span>(x, y, <span class="at" style="color: #657422;">col =</span> <span class="st" style="color: #20794D;">"grey90"</span>, <span class="at" style="color: #657422;">rule =</span> <span class="st" style="color: #20794D;">"evenodd"</span>)</span>
+<span id="cb2-18"><span class="fu" style="color: #4758AB;">points</span>(p, <span class="at" style="color: #657422;">cex =</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="at" style="color: #657422;">pch =</span> <span class="dv" style="color: #AD0000;">16</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="336"></p>
+<p></p><figcaption class="figure-caption">Locating poles of inaccessibility with polylabel.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The package <a href="https://CRAN.R-project.org/package=polylabelr">is availabe on cran</a>, the source code is located at <a href="https://github.com/jolars/polylabelr" class="uri">https://github.com/jolars/polylabelr</a> and is documented at <a href="https://jolars.github.io/polylabelr/" class="uri">https://jolars.github.io/polylabelr/</a>.</p>
+</section>
+<section id="euler-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="euler-diagrams">Euler diagrams</h2>
+<p>To come back around to where we started at, <strong>polylabelr</strong> has now been employed in the development branch of <strong>eulerr</strong> where it is used to quickly and appropriately figure out locations for the labels of the diagram.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;">library</span>(eulerr)</span>
+<span id="cb3-2"></span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;">plot</span>(<span class="fu" style="color: #4758AB;">euler</span>(s))</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="336"></p>
+<p></p><figcaption class="figure-caption">An Euler diagram with appropriate label placement.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-eberly2013" class="csl-entry">
+Eberly, David. 2013. <span>“Distance from a Point to an Ellipse, an Ellipsoid, or a Hyperellipsoid.”</span> <span>Geometric Tools</span>. June 28, 2013. <a href="https://www.geometrictools.com/Documentation/DistancePointEllipseEllipsoid.pdf">https://www.geometrictools.com/Documentation/DistancePointEllipseEllipsoid.pdf</a>.
+</div>
+<div id="ref-johnson2018" class="csl-entry">
+Johnson, Angus, and Adrian Baddeley. 2018. <em>Polyclip: Polygon Clipping</em> (version 1.9-1). <a href="https://CRAN.R-project.org/package=polyclip">https://CRAN.R-project.org/package=polyclip</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>r</category>
+  <category>euler diagrams</category>
+  <category>polygon</category>
+  <category>labeling</category>
+  <category>eulerr</category>
+  <category>polylabelr</category>
+  <category>geometry</category>
+  <guid>https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/index.html</guid>
+  <pubDate>Mon, 29 Oct 2018 00:00:00 GMT</pubDate>
+  <media:content url="https://larssonjohan.com/posts/polygon-labeling-with-polylabelr/polylabelr.png" medium="image" type="image/png" height="60" width="144"/>
+</item>
+<item>
+  <title>Finding the Farthest Points in a Point Cloud</title>
+  <dc:creator>Johan Larsson</dc:creator>
+  <link>https://larssonjohan.com/posts/farthest-points/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>My R package <a href="https://github.com/jolars/qualpalr">qualpalr</a> selects qualitative colors by projecting a bunch of colors (as points) to the three-dimensional DIN99d color space wherein the distance between any pair colors approximate their differences in appearance. The package then tries to choose the <code>n</code> colors so that the minimal pairwise distance among them is maximized, that is, we want the most similar pair of colors to be as dissimilar as possible.</p>
+<p>Bla</p>
+<p>This turns out to be much less trivial that one would suspect, which posts on <a href="http://scicomp.stackexchange.com/questions/20030/selecting-most-scattered-points-from-a-set-of-points">Computational Science</a>, <a href="https://se.mathworks.com/matlabcentral/answers/42622-how-can-i-choose-a-subset-of-k-points-the-farthest-apart">MATLAB Central</a>, <a href="http://stackoverflow.com/questions/27971223/finding-largest-minimum-distance-among-k-objects-in-n-possible-distinct-position">Stack Overflow</a>, and and <a href="http://cs.stackexchange.com/questions/22767/choosing-a-subset-to-maximize-the-minimum-distance-between-points">Computer Science</a> can attest to.</p>
+<p>Up til now, qualpalr solved this problem with a greedy approach. If we, for instance, want to find <code>n</code> points we did the following.</p>
+<pre><code>M &lt;- Compute a distance matrix of all points in the sample
+X &lt;- Select the two most distant points from M
+for i = 3:n
+    X(i) &lt;- Select point in M that maximize the
+            mindistance to all points in X</code></pre>
+<p>In R, this code looked like this (in two dimensions):</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">set.seed</span>(<span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;"># find n points</span></span>
+<span id="cb2-3">n <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">3</span></span>
+<span id="cb2-4">mat  <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">matrix</span>(<span class="fu" style="color: #4758AB;">runif</span>(<span class="dv" style="color: #AD0000;">100</span>), <span class="at" style="color: #657422;">ncol =</span> <span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb2-5"></span>
+<span id="cb2-6">dmat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.matrix</span>(stats<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">dist</span>(mat))</span>
+<span id="cb2-7">ind <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">integer</span>(n)</span>
+<span id="cb2-8">ind[<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">2</span>] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.vector</span>(<span class="fu" style="color: #4758AB;">arrayInd</span>(<span class="fu" style="color: #4758AB;">which.max</span>(dmat), <span class="at" style="color: #657422;">.dim =</span> <span class="fu" style="color: #4758AB;">dim</span>(dmat)))</span>
+<span id="cb2-9"></span>
+<span id="cb2-10"><span class="cf" style="color: #003B4F;">for</span> (i <span class="cf" style="color: #003B4F;">in</span> <span class="dv" style="color: #AD0000;">3</span><span class="sc" style="color: #5E5E5E;">:</span>n) {</span>
+<span id="cb2-11">  mm <span class="ot" style="color: #003B4F;">&lt;-</span> dmat[ind, <span class="sc" style="color: #5E5E5E;">-</span>ind, drop <span class="ot" style="color: #003B4F;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>]</span>
+<span id="cb2-12">  k <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">which.max</span>(mm[(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">ncol</span>(mm) <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">*</span> <span class="fu" style="color: #4758AB;">nrow</span>(mm) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">max.col</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="sc" style="color: #5E5E5E;">-</span>mm))])</span>
+<span id="cb2-13">  ind[i] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(<span class="fu" style="color: #4758AB;">dimnames</span>(mm)[[<span class="dv" style="color: #AD0000;">2</span>]][k])</span>
+<span id="cb2-14">}</span>
+<span id="cb2-15"></span>
+<span id="cb2-16"><span class="fu" style="color: #4758AB;">par</span>(<span class="at" style="color: #657422;">mfrow =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>), <span class="at" style="color: #657422;">mai=</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.1</span>, <span class="fl" style="color: #AD0000;">0.1</span>))</span>
+<span id="cb2-17"><span class="fu" style="color: #4758AB;">plot</span>(mat, <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">""</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-18"><span class="fu" style="color: #4758AB;">plot</span>(mat, <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">""</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb2-19"></span>
+<span id="cb2-20"><span class="fu" style="color: #4758AB;">points</span>(mat[ind, ], <span class="at" style="color: #657422;">pch =</span> <span class="dv" style="color: #AD0000;">19</span>)</span>
+<span id="cb2-21"></span>
+<span id="cb2-22"><span class="fu" style="color: #4758AB;">text</span>(mat[ind, ], <span class="at" style="color: #657422;">adj =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1.5</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/farthest-points/index_files/figure-html/greedy_approach-1.png" class="img-fluid figure-img" width="576"></p>
+<p></p><figcaption class="figure-caption">Numbers note the order the points were picked in.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>While this greedy procedure is fast and works well for large values of <code>n</code> it is quite inefficient in the example above. It is plain to see that there are other subsets of 3 points that would have a larger minimum distance but because we base our selection on the previous 2 points that were selected to be maximally distant, the algorithm has to pick a suboptimal third point. The minimum distance in our example is 0.7641338.</p>
+<p>The solution I came up with is based on a solution from Schlomer et al. <span class="citation" data-cites="schlomer2011">(Schlömer, Heck, and Deussen 2011)</span> who devised of an algorithm to partition a sets of points into subsets whilst maximizing the minimal distance. They used <a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">delaunay triangulations</a> but I decided to simply use the distance matrix instead. The algorithm works as follows.</p>
+<pre><code>M &lt;- Compute a distance matrix of all points in the sample
+S &lt;- Sample n points randomly from M
+repeat
+    for i = 1:n
+        M    &lt;- Add S(i) back into M
+        S(i) &lt;- Find point in M\S with max mindistance to any point in S
+                until M did not change</code></pre>
+<p>Iteratively, we put one point from our candidate subset (S) back into the original se (M) and check all distances between the points in S to those in M to find the point with the highest minimum distance. Rinse and repeat until we are only putting back the same points we started the loop with, which always happens. Let’s see how this works on the same data set we used above.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">r <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sample.int</span>(<span class="fu" style="color: #4758AB;">nrow</span>(dmat), n)</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="cf" style="color: #003B4F;">repeat</span> {</span>
+<span id="cb4-4">  r_old <span class="ot" style="color: #003B4F;">&lt;-</span> r</span>
+<span id="cb4-5">  <span class="cf" style="color: #003B4F;">for</span> (i <span class="cf" style="color: #003B4F;">in</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span>n) {</span>
+<span id="cb4-6">    mm <span class="ot" style="color: #003B4F;">&lt;-</span> dmat[r[<span class="sc" style="color: #5E5E5E;">-</span>i], <span class="sc" style="color: #5E5E5E;">-</span>r[<span class="sc" style="color: #5E5E5E;">-</span>i], drop <span class="ot" style="color: #003B4F;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>]</span>
+<span id="cb4-7">    k <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">which.max</span>(mm[(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">ncol</span>(mm) <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">*</span> <span class="fu" style="color: #4758AB;">nrow</span>(mm) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">max.col</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="sc" style="color: #5E5E5E;">-</span>mm))])</span>
+<span id="cb4-8">    r[i] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(<span class="fu" style="color: #4758AB;">dimnames</span>(mm)[[<span class="dv" style="color: #AD0000;">2</span>]][k])</span>
+<span id="cb4-9">  }</span>
+<span id="cb4-10">  <span class="cf" style="color: #003B4F;">if</span> (<span class="fu" style="color: #4758AB;">identical</span>(r_old, r)) <span class="cf" style="color: #003B4F;">break</span></span>
+<span id="cb4-11">}</span>
+<span id="cb4-12"></span>
+<span id="cb4-13"><span class="fu" style="color: #4758AB;">par</span>(<span class="at" style="color: #657422;">mfrow =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>), <span class="at" style="color: #657422;">mai=</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.1</span>, <span class="fl" style="color: #AD0000;">0.1</span>))</span>
+<span id="cb4-14"><span class="fu" style="color: #4758AB;">plot</span>(mat, <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">""</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb4-15"><span class="fu" style="color: #4758AB;">plot</span>(mat, <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">xlab =</span> <span class="st" style="color: #20794D;">""</span>, <span class="at" style="color: #657422;">ylab =</span> <span class="st" style="color: #20794D;">""</span>)</span>
+<span id="cb4-16"><span class="fu" style="color: #4758AB;">points</span>(mat[r, ], <span class="at" style="color: #657422;">pch =</span> <span class="dv" style="color: #AD0000;">19</span>)</span>
+<span id="cb4-17"><span class="fu" style="color: #4758AB;">text</span>(mat[r, ], <span class="at" style="color: #657422;">adj =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">1.5</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/farthest-points/index_files/figure-html/new_approach-1.png" class="img-fluid figure-img" width="576"></p>
+<p></p><figcaption class="figure-caption">The new algorithm for picking points.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, we end up with a minimum distance of 0.8619587. In qualpalr, this means that we now achieve slightly more distinct colors.</p>
+<section id="performance" class="level2">
+<h2 class="anchored" data-anchor-id="performance">Performance</h2>
+<p>The new algorithm is slightly slower than the old, greedy approach and slightly more verbose</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">f_greedy <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(data, n) {</span>
+<span id="cb5-2">  dmat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.matrix</span>(stats<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">dist</span>(data))</span>
+<span id="cb5-3">  ind <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">integer</span>(n)</span>
+<span id="cb5-4">  ind[<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">2</span>] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.vector</span>(<span class="fu" style="color: #4758AB;">arrayInd</span>(<span class="fu" style="color: #4758AB;">which.max</span>(dmat), <span class="at" style="color: #657422;">.dim =</span> <span class="fu" style="color: #4758AB;">dim</span>(dmat)))</span>
+<span id="cb5-5">  <span class="cf" style="color: #003B4F;">for</span> (i <span class="cf" style="color: #003B4F;">in</span> <span class="dv" style="color: #AD0000;">3</span><span class="sc" style="color: #5E5E5E;">:</span>n) {</span>
+<span id="cb5-6">    mm <span class="ot" style="color: #003B4F;">&lt;-</span> dmat[ind, <span class="sc" style="color: #5E5E5E;">-</span>ind, drop <span class="ot" style="color: #003B4F;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>]</span>
+<span id="cb5-7">    k <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">which.max</span>(mm[(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">ncol</span>(mm) <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">*</span> <span class="fu" style="color: #4758AB;">nrow</span>(mm) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">max.col</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="sc" style="color: #5E5E5E;">-</span>mm))])</span>
+<span id="cb5-8">    ind[i] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(<span class="fu" style="color: #4758AB;">dimnames</span>(mm)[[<span class="dv" style="color: #AD0000;">2</span>]][k])</span>
+<span id="cb5-9">  }</span>
+<span id="cb5-10">  ind</span>
+<span id="cb5-11">}</span>
+<span id="cb5-12"></span>
+<span id="cb5-13">f_new <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(dat, n) {</span>
+<span id="cb5-14">  dmat <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.matrix</span>(stats<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">dist</span>(data))</span>
+<span id="cb5-15">  r <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sample.int</span>(<span class="fu" style="color: #4758AB;">nrow</span>(dmat), n)</span>
+<span id="cb5-16">  <span class="cf" style="color: #003B4F;">repeat</span> {</span>
+<span id="cb5-17">    r_old <span class="ot" style="color: #003B4F;">&lt;-</span> r</span>
+<span id="cb5-18">    <span class="cf" style="color: #003B4F;">for</span> (i <span class="cf" style="color: #003B4F;">in</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span>n) {</span>
+<span id="cb5-19">      mm <span class="ot" style="color: #003B4F;">&lt;-</span> dmat[r[<span class="sc" style="color: #5E5E5E;">-</span>i], <span class="sc" style="color: #5E5E5E;">-</span>r[<span class="sc" style="color: #5E5E5E;">-</span>i], drop <span class="ot" style="color: #003B4F;">=</span> <span class="cn" style="color: #8f5902;">FALSE</span>]</span>
+<span id="cb5-20">      k <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">which.max</span>(mm[(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">ncol</span>(mm) <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">1</span>) <span class="sc" style="color: #5E5E5E;">*</span> <span class="fu" style="color: #4758AB;">nrow</span>(mm) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">max.col</span>(<span class="fu" style="color: #4758AB;">t</span>(<span class="sc" style="color: #5E5E5E;">-</span>mm))])</span>
+<span id="cb5-21">      r[i] <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(<span class="fu" style="color: #4758AB;">dimnames</span>(mm)[[<span class="dv" style="color: #AD0000;">2</span>]][k])</span>
+<span id="cb5-22">    }</span>
+<span id="cb5-23">    <span class="cf" style="color: #003B4F;">if</span> (<span class="fu" style="color: #4758AB;">identical</span>(r_old, r)) <span class="fu" style="color: #4758AB;">return</span>(r)</span>
+<span id="cb5-24">  }</span>
+<span id="cb5-25">}</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">n <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">5</span></span>
+<span id="cb6-2">data <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">matrix</span>(<span class="fu" style="color: #4758AB;">runif</span>(<span class="dv" style="color: #AD0000;">900</span>), <span class="at" style="color: #657422;">ncol =</span> <span class="dv" style="color: #AD0000;">3</span>)</span>
+<span id="cb6-3">microbenchmark<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">microbenchmark</span>(<span class="fu" style="color: #4758AB;">f_greedy</span>(data, n), <span class="fu" style="color: #4758AB;">f_new</span>(data, n), <span class="at" style="color: #657422;">times =</span> 1000L)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unit: milliseconds
+              expr      min       lq     mean   median       uq      max neval
+ f_greedy(data, n) 1.311413 1.346007 1.692128 1.363831 1.407456 40.94923  1000
+    f_new(data, n) 1.621765 1.934945 2.420683 2.183483 2.489382 15.32823  1000
+ cld
+  a 
+   b</code></pre>
+</div>
+</div>
+<p>The newest development version of qualpalr now uses this updated algorithm which has also been generalized and included as a new function in my R package <a href="https://github.com/jolars/euclidr">euclidr</a> called <code>farthest_points</code>.</p>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-schlomer2011" class="csl-entry">
+Schlömer, Thomas, Daniel Heck, and Oliver Deussen. 2011. <span>“Farthest-Point Optimized Point Sets with Maximized Minimum Distance.”</span> In, 135. <span>ACM Press</span>. <a href="https://doi.org/bpmnsh">https://doi.org/bpmnsh</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>r</category>
+  <category>qualpalr</category>
+  <category>data visualization</category>
+  <guid>https://larssonjohan.com/posts/farthest-points/index.html</guid>
+  <pubDate>Sun, 30 Oct 2016 00:00:00 GMT</pubDate>
+  <media:content url="https://larssonjohan.com/posts/farthest-points/farthest-points.png" medium="image" type="image/png" height="141" width="144"/>
+</item>
+<item>
+  <title>Introducing eulerr</title>
+  <dc:creator>Johan Larsson</dc:creator>
+  <link>https://larssonjohan.com/posts/introducing-eulerr/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><strong>eulerr</strong> is an <a href="https://www.r-project.org">R</a> package that generates area-proportional euler diagrams to display set relationships (intersections, unions, and disjoints) with circles. <a href="https://en.wikipedia.org/wiki/Euler_diagram">Euler diagrams</a> are Venn diagrams without the requirement that all set interactions be present (whether they are empty or not). That is, depending on input, eulerr will sometimes produce Venn diagrams but sometimes not.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p>R features a number of packages that produce Euler and/or Venn diagrams; some of the more prominent ones (on CRAN) are</p>
+<ul>
+<li><a href="https://cran.r-project.org/package=eVenn">eVenn</a>,</li>
+<li><a href="https://cran.r-project.org/package=VennDiagram">VennDiagram</a>,</li>
+<li><a href="https://cran.r-project.org/package=venn">venn</a>,</li>
+<li><a href="https://cran.r-project.org/package=colorfulVennPlot">colorfulVennPlot</a>, and</li>
+<li><a href="https://cran.r-project.org/package=venneuler">venneuler</a>.</li>
+</ul>
+<p>The last of these (venneuler) serves as the primary inspiration for this package, along with the refinements that Ben Fredrickson has presented on his <a href="http://www.benfrederickson.com/">blog</a> and made available in his javascript <a href="https://github.com/benfred/venn.js">venn.js</a>.</p>
+<p>venneuler, however, is written in java, preventing R users from browsing the source code (unless they are also literate in java) or contributing. Furthermore, venneuler is known to produce imperfect output for set configurations that have perfect solutions. Consider, for instance, the following example in which the intersection between <code>A</code> and <code>B</code> is unwanted.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(venneuler, <span class="at" style="color: #657422;">quietly =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb1-2">venn_fit <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">venneuler</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="at" style="color: #657422;">A =</span> <span class="dv" style="color: #AD0000;">75</span>, <span class="at" style="color: #657422;">B =</span> <span class="dv" style="color: #AD0000;">50</span>, <span class="st" style="color: #20794D;">"A&amp;B"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">0</span>))</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;">plot</span>(venn_fit)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/introducing-eulerr/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="384"></p>
+<p></p><figcaption class="figure-caption">venneuler plot with unwanted overlap.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="enter-eulerr" class="level2">
+<h2 class="anchored" data-anchor-id="enter-eulerr">Enter eulerr</h2>
+<p>eulerr is based on the improvements to <strong>venneuler</strong> that Ben Fredrickson introcued with <strong>venn.js</strong> but has been coded from scratch, uses different optimizers, and returns the residuals and stress statistic that venneuler features.</p>
+<section id="input" class="level3">
+<h3 class="anchored" data-anchor-id="input">Input</h3>
+<p>Currently, it is possible to provide input to <code>eulerr</code> as either</p>
+<ul>
+<li>a named numeric vector or</li>
+<li>a matrix of logicals with columns representing sets and rows the set relationships for each observation.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(eulerr)</span>
+<span id="cb2-2"></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;"># Input in the form of a named numeric vector</span></span>
+<span id="cb2-4">fit1 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">euler</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"A"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">25</span>, <span class="st" style="color: #20794D;">"B"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">5</span>, <span class="st" style="color: #20794D;">"C"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">5</span>,</span>
+<span id="cb2-5">                <span class="st" style="color: #20794D;">"A&amp;B"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">5</span>, <span class="st" style="color: #20794D;">"A&amp;C"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">5</span>, <span class="st" style="color: #20794D;">"B&amp;C"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">3</span>,</span>
+<span id="cb2-6">                <span class="st" style="color: #20794D;">"A&amp;B&amp;C"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">3</span>))</span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="co" style="color: #5E5E5E;"># Input as a matrix of logicals</span></span>
+<span id="cb2-9"><span class="fu" style="color: #4758AB;">set.seed</span>(<span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb2-10">mat <span class="ot" style="color: #003B4F;">&lt;-</span></span>
+<span id="cb2-11">  <span class="fu" style="color: #4758AB;">cbind</span>(</span>
+<span id="cb2-12">    <span class="at" style="color: #657422;">A =</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="cn" style="color: #8f5902;">TRUE</span>, <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="cn" style="color: #8f5902;">FALSE</span>), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">50</span>, <span class="at" style="color: #657422;">replace =</span> <span class="cn" style="color: #8f5902;">TRUE</span>),</span>
+<span id="cb2-13">    <span class="at" style="color: #657422;">B =</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="cn" style="color: #8f5902;">TRUE</span>, <span class="cn" style="color: #8f5902;">FALSE</span>), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">50</span>, <span class="at" style="color: #657422;">replace =</span> <span class="cn" style="color: #8f5902;">TRUE</span>),</span>
+<span id="cb2-14">    <span class="at" style="color: #657422;">C =</span> <span class="fu" style="color: #4758AB;">sample</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="cn" style="color: #8f5902;">TRUE</span>, <span class="cn" style="color: #8f5902;">FALSE</span>, <span class="cn" style="color: #8f5902;">FALSE</span>, <span class="cn" style="color: #8f5902;">FALSE</span>), <span class="at" style="color: #657422;">size =</span> <span class="dv" style="color: #AD0000;">50</span>, <span class="at" style="color: #657422;">replace =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb2-15">  )</span>
+<span id="cb2-16">fit2 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">euler</span>(mat)</span></code></pre></div>
+</div>
+</section>
+<section id="fit" class="level3">
+<h3 class="anchored" data-anchor-id="fit">Fit</h3>
+<p>We inspect our results by printing the eulerr object</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">fit2</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      original fitted residuals regionError
+A           13     13         0       0.008
+B            4      4         0       0.002
+C            0      0         0       0.000
+A&amp;B         17     17         0       0.010
+A&amp;C          5      5         0       0.003
+B&amp;C          1      0         1       0.024
+A&amp;B&amp;C        2      2         0       0.001
+
+diagError: 0.024 
+stress:    0.002 </code></pre>
+</div>
+</div>
+<p>or directly access and plot the residuals.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;"># Cleveland dot plot of the residuals</span></span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;">dotchart</span>(<span class="fu" style="color: #4758AB;">resid</span>(fit2))</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="fu" style="color: #4758AB;">abline</span>(<span class="at" style="color: #657422;">v =</span> <span class="dv" style="color: #AD0000;">0</span>, <span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">3</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/introducing-eulerr/index_files/figure-html/residual_plot-1.png" class="img-fluid figure-img" width="384"></p>
+<p></p><figcaption class="figure-caption">Residuals for the eulerr fit.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This shows us that the <code>A&amp;B&amp;C</code> intersection is somewhat overrepresented in <code>fit2</code>. Given that these residuals are on the scale of the original values, however, the residuals are arguably of little concern.</p>
+<p>For an overall measure of the fit of the solution, we use the same stress statistic that Leland Wilkinson presented in his academic paper on venneuler <span class="citation" data-cites="wilkinson2012">(Wilkinson 2012)</span>, which is given by the sums of squared residuals divided by the total sums of squares:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Csum_%7Bi=1%7D%5En%20(f_i%20-%20y_i)%5E2%7D%7B%5Csum_%7Bi=1%7D%5En%20(y_i%20-%20%5Cbar%7By%7D)%5E2%7D."></p>
+<p>We fetch it from the <code>stress</code> attribute of the <code>eulerr</code> object.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">fit2<span class="sc" style="color: #5E5E5E;">$</span>stress</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.00198</code></pre>
+</div>
+</div>
+<p>We can now be confident that eulerr provides a reasonable representation of our input. Were it otherwise, we would do best to stop here and look for another way to visualize our data. (I suggest the excellent <a href="https://cran.r-project.org/package=UpSetR">UpSetR</a> package.)</p>
+</section>
+<section id="plotting" class="level3">
+<h3 class="anchored" data-anchor-id="plotting">Plotting</h3>
+<p>No we get to the fun part: plotting our diagram. This is easy, as well as highly customizable, with eulerr.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;">plot</span>(fit2)</span>
+<span id="cb8-2"></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;"># Change fill colors, border type (remove) and fontface.</span></span>
+<span id="cb8-4"><span class="fu" style="color: #4758AB;">plot</span>(</span>
+<span id="cb8-5">  fit2,</span>
+<span id="cb8-6">  <span class="at" style="color: #657422;">fills =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"dodgerblue4"</span>, <span class="st" style="color: #20794D;">"plum2"</span>, <span class="st" style="color: #20794D;">"seashell2"</span>),</span>
+<span id="cb8-7">  <span class="at" style="color: #657422;">edges =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">lty =</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">3</span>),</span>
+<span id="cb8-8">  <span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">font =</span> <span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb8-9">)</span></code></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/introducing-eulerr/index_files/figure-html/eulerr_plot-1.png" class="img-fluid figure-img" width="240"></p>
+<p></p><figcaption class="figure-caption">eulerr plots can be modified in many ways.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://larssonjohan.com/posts/introducing-eulerr/index_files/figure-html/eulerr_plot-2.png" class="img-fluid figure-img" width="240"></p>
+<p></p><figcaption class="figure-caption">eulerr plots can be modified in many ways.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>eulerr’s default color palette is taken from <a href="https://cran.r-project.org/package=qualpalr">qualpalr</a> – another package that I have developed – which uses color difference algorithms to generate distinct qualitative color palettes.</p>
+</section>
+</section>
+<section id="details" class="level2">
+<h2 class="anchored" data-anchor-id="details">Details</h2>
+<p>Details of the implementation will be left for a future vignette but almost completely resemble the approach documented <a href="http://www.benfrederickson.com/better-venn-diagrams/">here</a>.</p>
+</section>
+<section id="thanks" class="level2">
+<h2 class="anchored" data-anchor-id="thanks">Thanks</h2>
+<p>eulerr would not be possible without Ben Fredrickson’s work on <a href="http://www.benfrederickson.com">venn.js</a> or Leland Wilkinson’s <a href="https://cran.r-project.org/package=venneuler">venneuler</a>.</p>
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-wilkinson2012" class="csl-entry">
+Wilkinson, L. 2012. <span>“Exact and <span>Approximate Area</span>-<span>Proportional Circular Venn</span> and <span>Euler Diagrams</span>.”</span> <em>IEEE Transactions on Visualization and Computer Graphics</em> 18 (2): 321–31. <a href="https://doi.org/10.1109/TVCG.2011.56">https://doi.org/10.1109/TVCG.2011.56</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>r</category>
+  <category>eulerr</category>
+  <category>euler diagrams</category>
+  <category>data visualization</category>
+  <guid>https://larssonjohan.com/posts/introducing-eulerr/index.html</guid>
+  <pubDate>Wed, 19 Oct 2016 00:00:00 GMT</pubDate>
+  <media:content url="https://larssonjohan.com/posts/introducing-eulerr/eulerr.png" medium="image" type="image/png" height="142" width="144"/>
+</item>
+<item>
+  <title>Introducing qualpalr</title>
+  <dc:creator>Johan Larsson</dc:creator>
+  <link>https://larssonjohan.com/posts/introducing-qualpalr/index.html</link>
+  <description><![CDATA[ 
+
+
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>With the advent of <a href="http://colorbrewer2.org/">colorbrewer</a> there now exists good options to generate color palettes for sequential, diverging, and qualitative data. In R, these palettes can be accessed via the popular <a href="https://cran.r-project.org/package=RColorBrewer">RColorBrewer</a> package. Those palettes, however, are limited to a fixed number of colors. This isn’t much of a problem for sequential of diverging data since we can interpolate colors to any range we desire:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">4</span>, <span class="st">"PuBuGn"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>color_ramp <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(pal, <span class="at">space =</span> <span class="st">"Lab"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">pal <span class="ot" style="color: #003B4F;">&lt;-</span> RColorBrewer<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">brewer.pal</span>(<span class="dv" style="color: #AD0000;">4</span>, <span class="st" style="color: #20794D;">"PuBuGn"</span>)</span>
+<span id="cb1-2">color_ramp <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">colorRampPalette</span>(pal, <span class="at" style="color: #657422;">space =</span> <span class="st" style="color: #20794D;">"Lab"</span>) </span></code></pre></div>
 </div>
 <p>There is not, however, an analogue for qualitative color palettes that will get you beyond the limits of 8–12 colors of colorbrewer’s qualitative color palettes. There is also no customization in colorbrewer. Other R packages, such as <a href="https://cran.r-project.org/package=colorspace">colorspace</a> offer this, but they are primarily adapted to sequential and diverging data – not qualitative data.</p>
 <p>This is where qualpalr comes in. qualpalr provides the user with a convenient way of generating distinct qualitative color palettes, primarily for use in R graphics. Given <code>n</code> (the number of colors to generate), along with a subset in the <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">hsl color space</a> (a cylindrical representation of the RGB color space) <code>qualpalr</code> attempts to find the <code>n</code> colors in the provided color subspace that <em>maximize the smallest pairwise color difference</em>. This is done by projecting the color subset from the HSL color space to the DIN99d space. DIN99d is (approximately) perceptually uniform, that is, the euclidean distance between two colors in the space is proportional to their perceived difference.</p>
@@ -663,22 +611,22 @@ void main(void) {
 <li>a character vector specifying one of the predefined color subspaces, which at the time of writing are <em>pretty</em>, <em>pretty_dark</em>, <em>rainbow</em>, and <em>pastels</em>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualpalr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">qualpal</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">5</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">h =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">360</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">s =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.6</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">l =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.85</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Adapt the color space to deuteranopia</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">qualpal</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">colorspace =</span> <span class="st">"pretty"</span>, <span class="at">cvd =</span> <span class="st">"deutan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(qualpalr)</span>
+<span id="cb2-2">pal <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">qualpal</span>(</span>
+<span id="cb2-3">  <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">5</span>,</span>
+<span id="cb2-4">  <span class="fu" style="color: #4758AB;">list</span>(</span>
+<span id="cb2-5">    <span class="at" style="color: #657422;">h =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">360</span>),</span>
+<span id="cb2-6">    <span class="at" style="color: #657422;">s =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.4</span>, <span class="fl" style="color: #AD0000;">0.6</span>),</span>
+<span id="cb2-7">    <span class="at" style="color: #657422;">l =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, <span class="fl" style="color: #AD0000;">0.85</span>)</span>
+<span id="cb2-8">  )</span>
+<span id="cb2-9">)</span>
+<span id="cb2-10"></span>
+<span id="cb2-11"><span class="co" style="color: #5E5E5E;"># Adapt the color space to deuteranopia</span></span>
+<span id="cb2-12">pal <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">qualpal</span>(<span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">5</span>, <span class="at" style="color: #657422;">colorspace =</span> <span class="st" style="color: #20794D;">"pretty"</span>, <span class="at" style="color: #657422;">cvd =</span> <span class="st" style="color: #20794D;">"deutan"</span>)</span></code></pre></div>
 </div>
 <p>The resulting object, <code>pal</code>, is a list with several color tables and a distance matrix based on the din99d color difference formula.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">pal</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>---------------------------------------- 
 Colors in the HSL color space 
@@ -702,35 +650,35 @@ DIN99d color difference distance matrix
 </div>
 <p>Methods for <code>pairs</code> and <code>plot</code> have been written for <code>qualpal</code> objects to help visualize the results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;">plot</span>(pal)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-multidim" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-multidim-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="https://larssonjohan.com/posts/introducing-qualpalr/index_files/figure-html/fig-multidim-1.png" class="img-fluid figure-img" width="480"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;1: Multidimensional scaling plot</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(pal, <span class="at">colorspace =</span> <span class="st">"DIN99d"</span>, <span class="at">asp =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;">pairs</span>(pal, <span class="at" style="color: #657422;">colorspace =</span> <span class="st" style="color: #20794D;">"DIN99d"</span>, <span class="at" style="color: #657422;">asp =</span> <span class="dv" style="color: #AD0000;">1</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-pairs" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-pairs-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="https://larssonjohan.com/posts/introducing-qualpalr/index_files/figure-html/fig-pairs-1.png" class="img-fluid figure-img" width="480"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2: Pairs plot in the din99d color space</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The colors are normally used in R by fetching the <code>hex</code> attribute of the palette. And so it is straightforward to use the output to, say, color the provinces of France (<a href="#fig-france">Figure&nbsp;3</a></p>
+<p>The colors are normally used in R by fetching the <code>hex</code> attribute of the palette. And so it is straightforward to use the output to, say, color the provinces of France (Figure&nbsp;3</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="st">"france"</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> pal<span class="sc">$</span>hex, <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;">library</span>(maps)</span>
+<span id="cb7-2"><span class="fu" style="color: #4758AB;">map</span>(<span class="st" style="color: #20794D;">"france"</span>, <span class="at" style="color: #657422;">fill =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">col =</span> pal<span class="sc" style="color: #5E5E5E;">$</span>hex, <span class="at" style="color: #657422;">mar =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">0</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-france" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="index_files/figure-html/fig-france-1.png" class="img-fluid figure-img" width="480"></p>
+<p><img src="https://larssonjohan.com/posts/introducing-qualpalr/index_files/figure-html/fig-france-1.png" class="img-fluid figure-img" width="480"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;3: A map of France colored via qualpalr</figcaption><p></p>
 </figure>
 </div>
@@ -749,7 +697,7 @@ DIN99d color difference distance matrix
 </figure>
 </div>
 </div>
-<p>The function then proceeds by projecting these colors into the sRGB space (<a href="#fig-rgb-space">Figure&nbsp;5</a>).</p>
+<p>The function then proceeds by projecting these colors into the sRGB space (Figure&nbsp;5).</p>
 <div class="cell">
 <div id="fig-rgb-space" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -759,7 +707,7 @@ DIN99d color difference distance matrix
 </figure>
 </div>
 </div>
-<p>It then continues by projecting the colors, first into the XYZ space, then CIELab (not shown here), and then finally the DIN99d space (<a href="#fig-din99d-space">Figure&nbsp;6</a>).</p>
+<p>It then continues by projecting the colors, first into the XYZ space, then CIELab (not shown here), and then finally the DIN99d space (Figure&nbsp;6).</p>
 <div class="cell">
 <div id="fig-din99d-space" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -769,7 +717,7 @@ DIN99d color difference distance matrix
 </figure>
 </div>
 </div>
-<p>The DIN99d color space <span class="citation" data-cites="cui2002">(<a href="#ref-cui2002" role="doc-biblioref">Cui et al. 2002</a>)</span> is a euclidean, perceptually uniform color space. This means that the difference between two colors is equal to the euclidean distance between them. We take advantage of this by computing a distance matrix on all the colors in the subset, finding their pairwise color differences. We then apply a power transformation <span class="citation" data-cites="huang2015">(<a href="#ref-huang2015" role="doc-biblioref">Huang et al. 2015</a>)</span> to fine tune these differences.</p>
+<p>The DIN99d color space <span class="citation" data-cites="cui2002">(Cui et al. 2002)</span> is a euclidean, perceptually uniform color space. This means that the difference between two colors is equal to the euclidean distance between them. We take advantage of this by computing a distance matrix on all the colors in the subset, finding their pairwise color differences. We then apply a power transformation <span class="citation" data-cites="huang2015">(Huang et al. 2015)</span> to fine tune these differences.</p>
 <p>To select the <code>n</code> colors that the user wanted, we proceed greedily: first, we find the two most distant points, then we find the third point that maximizes the minimum distance to the previously selected points. This is repeated until <code>n</code> points are selected. These points are then returned to the user; below is an example using <code>n = 5.</code></p>
 <div class="cell">
 <div id="fig-selected" class="quarto-figure quarto-figure-center anchored">
@@ -800,175 +748,20 @@ DIN99d color difference distance matrix
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-cui2002" class="csl-entry" role="doc-biblioentry">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cui2002" class="csl-entry">
 Cui, G., M. R. Luo, B. Rigg, G. Roesler, and K. Witt. 2002. <span>“Uniform Colour Spaces Based on the <span>DIN99</span> Colour-Difference Formula.”</span> <em>Color Research &amp; Application</em> 27 (4): 282–90. <a href="https://doi.org/cz7764">https://doi.org/cz7764</a>.
 </div>
-<div id="ref-huang2015" class="csl-entry" role="doc-biblioentry">
+<div id="ref-huang2015" class="csl-entry">
 Huang, Min, Guihua Cui, Manuel Melgosa, Manuel Sánchez-Marañón, Changjun Li, M. Ronnier Luo, and Haoxue Liu. 2015. <span>“Power Functions Improving the Performance of Color-Difference Formulas.”</span> <em>Optics Express</em> 23 (1): 597. <a href="https://doi.org/gcsk6f">https://doi.org/gcsk6f</a>.
 </div>
-</div></section></div></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
-      });
-    }
-  }
-});
-</script>
-<script src="https://giscus.app/client.js" data-repo="jolars/larssonjohan.com" data-repo-id="MDEwOlJlcG9zaXRvcnkxNDgxODc2NjY=" data-category="Announcements" data-category-id="DIC_kwDOCNUqEs4CS_Ma" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="light_protanopia" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
-</script>
-</div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2022, Johan Larsson</div>   
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jolars">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://fediscience.org/@jolars">
-      <i class="bi bi-mastodon" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=DCJvywYAAAAJ"><i class="ai ai-google-scholar"></i></a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
-
-
-
-</body></html>
+</div></section></div> ]]></description>
+  <category>r</category>
+  <category>data visualization</category>
+  <category>qualpalr</category>
+  <guid>https://larssonjohan.com/posts/introducing-qualpalr/index.html</guid>
+  <pubDate>Sat, 15 Oct 2016 00:00:00 GMT</pubDate>
+  <media:content url="https://larssonjohan.com/posts/introducing-qualpalr/qualpalr.png" medium="image" type="image/png" height="148" width="144"/>
+</item>
+</channel>
+</rss>

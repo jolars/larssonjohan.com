@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nSLOPE 0.2.0\n\n\n\n\n\nA new update to the SLOPE package with many exciting features.\n\n\n\n\n\n\n14 April 2020\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nPolygon Labeling with polylabelr\n\n\n\n\n\nA new package polylabelr can be used find visual centers of polygons and label Euler diagrams.\n\n\n\n\n\n\n29 October 2018\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nFinding the Farthest Points in a Point Cloud\n\n\n\n\n\nAn algorithm for finding the most separated points in a cloud of points.\n\n\n\n\n\n\n30 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing eulerr\n\n\n\n\n\nThis is an introduction to my new package, eulerr, an R package that computes and plots eulerr diagrams of set relationships.\n\n\n\n\n\n\n19 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing qualpalr\n\n\n\n\n\nLet me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.\n\n\n\n\n\n\n15 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Johan Larsson",
@@ -26,6 +19,13 @@
     "title": "Finding the Farthest Points in a Point Cloud",
     "section": "Performance",
     "text": "Performance\nThe new algorithm is slightly slower than the old, greedy approach and slightly more verbose\n\nf_greedy <- function(data, n) {\n  dmat <- as.matrix(stats::dist(data))\n  ind <- integer(n)\n  ind[1:2] <- as.vector(arrayInd(which.max(dmat), .dim = dim(dmat)))\n  for (i in 3:n) {\n    mm <- dmat[ind, -ind, drop = FALSE]\n    k <- which.max(mm[(1:ncol(mm) - 1) * nrow(mm) + max.col(t(-mm))])\n    ind[i] <- as.numeric(dimnames(mm)[[2]][k])\n  }\n  ind\n}\n\nf_new <- function(dat, n) {\n  dmat <- as.matrix(stats::dist(data))\n  r <- sample.int(nrow(dmat), n)\n  repeat {\n    r_old <- r\n    for (i in 1:n) {\n      mm <- dmat[r[-i], -r[-i], drop = FALSE]\n      k <- which.max(mm[(1:ncol(mm) - 1) * nrow(mm) + max.col(t(-mm))])\n      r[i] <- as.numeric(dimnames(mm)[[2]][k])\n    }\n    if (identical(r_old, r)) return(r)\n  }\n}\n\n\nn <- 5\ndata <- matrix(runif(900), ncol = 3)\nmicrobenchmark::microbenchmark(f_greedy(data, n), f_new(data, n), times = 1000L)\n\nUnit: milliseconds\n              expr      min       lq     mean   median       uq      max neval\n f_greedy(data, n) 1.311413 1.346007 1.692128 1.363831 1.407456 40.94923  1000\n    f_new(data, n) 1.621765 1.934945 2.420683 2.183483 2.489382 15.32823  1000\n cld\n  a \n   b\n\n\nThe newest development version of qualpalr now uses this updated algorithm which has also been generalized and included as a new function in my R package euclidr called farthest_points."
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nSLOPE 0.2.0\n\n\n\n\n\nA new update to the SLOPE package with many exciting features.\n\n\n\n\n\n\n14 April 2020\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nPolygon Labeling with polylabelr\n\n\n\n\n\nA new package polylabelr can be used find visual centers of polygons and label Euler diagrams.\n\n\n\n\n\n\n29 October 2018\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nFinding the Farthest Points in a Point Cloud\n\n\n\n\n\nAn algorithm for finding the most separated points in a cloud of points.\n\n\n\n\n\n\n30 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing eulerr\n\n\n\n\n\nThis is an introduction to my new package, eulerr, an R package that computes and plots eulerr diagrams of set relationships.\n\n\n\n\n\n\n19 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\n  \n\n\n\n\nIntroducing qualpalr\n\n\n\n\n\nLet me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.\n\n\n\n\n\n\n15 October 2016\n\n\nJohan Larsson\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/introducing-eulerr/index.html",
@@ -133,15 +133,22 @@
     "text": "SLOPE 0.2.0\nSLOPE 0.2.0 is a new verison of the R package SLOPE featuring a range of improvements over the previous package. If you are completely new to the package, please start with the introductory vignette.\n\nMore model families\nPreviously, SLOPE only features ordinary least-squares regression. Now the package features logistic, Poisson, and multinomial regression on top of that. Just as in other similar packages, this is enabled simply by setting family = \"binomial\" for logistic regression, for instance.\n\nlibrary(SLOPE)\nfit <- SLOPE(wine$x, wine$y, family = \"multinomial\")\n\n\n\nRegularization path fitting\nBy default, SLOPE now fits a full regularization path instead of only a single penalty sequence at once. This behavior is now analogous with the default behavior in glmnet.\n\nplot(fit)\n\n\n\n\nCoefficients from the regularization path for a multinomial model.\n\n\n\n\n\n\nPredictor screening rules\nThe package now uses predictor screening rules to vastly improve performance in the p \\gg n domain. Screening rules are part of what makes other related packages such as glmnet so efficient. In SLOPE, we use a variant of the strong screening rules for the lasso (Tibshirani et al. 2012).\n\nxy <- SLOPE:::randomProblem(100, 1000)\nsystem.time({SLOPE(xy$x, xy$y, screen = TRUE)})\n\n   user  system elapsed \n  1.888   0.005   0.294 \n\nsystem.time({SLOPE(xy$x, xy$y, screen = FALSE)})\n\n   user  system elapsed \n  7.848   0.017   1.257 \n\n\n\n\nCross-validation and caret\nThere is now a function trainSLOPE(), which can be used to run cross-validation for optimal selection of sigma and q. Here, we run 8-fold cross-validation repeated 5 times.\n\n# 8-fold cross-validation repeated 5 times\ntune <- trainSLOPE(\n  subset(mtcars, select = c(\"mpg\", \"drat\", \"wt\")),\n  mtcars$hp,\n  q = c(0.1, 0.2),\n  number = 8,\n  repeats = 5\n)\nplot(tune)\n\n\n\n\nCross-validation with SLOPE.\n\n\n\n\nIn addition, the package now also features a function caretSLOPE() that can be used via the excellent caret package, which enables a swath of resampling methods and comparisons.\n\n\nC++ and ADMM\nAll of the performance-critical code for SLOPE has been rewritten in C++. In addition, the package now features an ADMM solver for family = \"gaussian\", enabled by setting solver = \"admm\" in the call to SLOPE(). Preliminary testing shows that this solver is faster for many designs, particularly when there is high correlation among predictors.\n\n\nSparse design matrices\nSLOPE now also allows sparse design matrcies of classes from the Matrix package.\n\n\nAnd much more…\nFor a full list of changes, please see the changelog."
   },
   {
-    "objectID": "software.html",
-    "href": "software.html",
+    "objectID": "publications/index.html",
+    "href": "publications/index.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n    \n      \n        Thomas Moreau, Mathurin Massias, Alexandre Gramfort, et al..\n        Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks.\n          In Advances in Neural Information Processing Systems,\n          New Orleans, US,\n        Nov. 2022,\n          vol. 35,\n          pp. TBA.\n      \n         arXiv\n         pypi\n    \n    \n      \n        Johan Larsson, Jonas Wallin.\n        The Hessian Screening Rule.\n          In Advances in Neural Information Processing Systems,\n          New Orleans, US,\n        Nov. 2022,\n          vol. 35,\n          pp. TBA.\n      \n         arXiv\n         code\n    \n    \n      \n        Johan Larsson, Quentin Klopfenstein, Mathurin Massias, Jonas Wallin.\n        Coordinate Descent for SLOPE.\n        Oct. 2022.\n      \n        DOI\n         arXiv\n         code\n    \n    \n      \n        Johan Larsson.\n        Look-Ahead Screening Rules for the Lasso.\n          In 22nd European Young Statisticians Meeting - Proceedings,\n          Athens, Greece (Virtual),\n        Jun. 2021,\n          vol. 35,\n          pp. 61-65.\n      \n       PDF\n         code\n    \n    \n      \n        Johan Larsson, Małgorzata Bogdan, Jonas Wallin.\n        The Strong Screening Rule for SLOPE.\n          In Advances in Neural Information Processing Systems,\n          Virtual,\n        Dec. 2020,\n          vol. 33,\n          pp. 14592-14603.\n      \n         link\n       PDF\n         code\n    \n    \n      \n        Johan Larsson.\n        A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr.\n          In Proceedings of International Workshop on Set Visualization and Reasoning,\n          Athens, Greece (Virtual),\n        Jun. 2018,\n          vol. 2116,\n          pp. 84-91.\n      \n       PDF\n         CRAN\n         code\n    \n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "software/index.html",
+    "href": "software/index.html",
     "title": "Software",
     "section": "",
     "text": "R\n\n\n  \n    \n      \n    \n    \n      eulerr\n        Area-proportional Euler diagrams with ellipses.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n  \n    \n      \n    \n    \n      qualpalr\n        Automatic generation of color palettes for qualitative data\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n      \n      \n        CRAN\n      \n      \n    \n  \n\nPython\n\n\n  \n    \n      \n    \n    \n      benchopt\n        BenchOpt is a benchmarking suite for optimization algorithms.\nIt is built for simplicity, transparency, and reproducibility.\n\n    \n    \n      \n      \n        \n      \n      \n      \n      \n        \n      \n      \n    \n  \n\n\nNo matching items"
   },
   {
-    "objectID": "talks.html",
-    "href": "talks.html",
+    "objectID": "talks/index.html",
+    "href": "talks/index.html",
     "title": "Talks",
     "section": "",
     "text": "The Strong Screening Rule for SLOPE\n\n\n\n\n\n\n\n\n\n8 May 2020\n\n\n\n\n\n\n\n\nNo matching items"
@@ -152,5 +159,47 @@
     "title": "The Strong Screening Rule for SLOPE",
     "section": "",
     "text": "This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.\n\n Slides  Paper"
+  },
+  {
+    "objectID": "publications/contents/benchopt/index.html",
+    "href": "publications/contents/benchopt/index.html",
+    "title": "Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks",
+    "section": "",
+    "text": "Numerical validation is at the core of machine learning research as it allows to assess the actual impact of new methods, and to confirm the agreement between theory and practice. Yet, the rapid development of the field poses several challenges: researchers are confronted with a profusion of methods to compare, limited transparency and consensus on best practices, as well as tedious re-implementation work. As a result, validation is often very partial, which can lead to wrong conclusions that slow down the progress of research. We propose Benchopt, a collaborative framework to automate, reproduce and publish optimization benchmarks in machine learning across programming languages and hardware architectures. Benchopt simplifies benchmarking for the community by providing an off-the-shelf tool for running, sharing and extending experiments. To demonstrate its broad usability, we showcase benchmarks on three standard learning tasks: \\ell_2-regularized logistic regression, Lasso, and ResNet18 training for image classification. These benchmarks highlight key practical findings that give a more nuanced view of the state-of-the-art for these problems, showing that for practical evaluation, the devil is in the details. We hope that Benchopt will foster collaborative work in the community hence improving the reproducibility of research findings."
+  },
+  {
+    "objectID": "publications/contents/case-study-eulerr/index.html",
+    "href": "publications/contents/case-study-eulerr/index.html",
+    "title": "A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr",
+    "section": "",
+    "text": "The lasso is a popular method to induce shrinkage and sparsity in the solution vector (coefficients) of regression problems, particularly when there are many predictors relative to the number of observations. Solving the lasso in this high-dimensional setting can, however, be computationally demanding. Fortunately, this demand can be alleviated via the use of screening rules that discard predictors prior to fitting the model, leading to a reduced problem to be solved. In this paper, we present a new screening strategy: look-ahead screening. Our method uses safe screening rules to find a range of penalty values for which a given predictor cannot enter the model, thereby screening predictors along the remainder of the path. In experiments we show that these look-ahead screening rules outperform the active warm-start version of the Gap Safe rules."
+  },
+  {
+    "objectID": "publications/contents/coordinate-descent-for-slope/index.html",
+    "href": "publications/contents/coordinate-descent-for-slope/index.html",
+    "title": "Coordinate Descent for SLOPE",
+    "section": "",
+    "text": "The lasso is the most famous sparse regression and feature selection method. One reason for its popularity is the speed at which the underlying optimization problem can be solved. Sorted L-One Penalized Estimation (SLOPE) is a generalization of the lasso with appealing statistical properties. In spite of this, the method has not yet reached widespread interest. A major reason for this is that current software packages that fit SLOPE rely on algorithms that perform poorly in high dimensions. To tackle this issue, we propose a new fast algorithm to solve the SLOPE optimization problem, which combines proximal gradient descent and proximal coordinate descent steps. We provide new results on the directional derivative of the SLOPE penalty and its related SLOPE thresholding operator, as well as provide convergence guarantees for our proposed solver. In extensive benchmarks on simulated and real data, we show that our method outperforms a long list of competing algorithms."
+  },
+  {
+    "objectID": "publications/contents/look-ahead-screening/index.html",
+    "href": "publications/contents/look-ahead-screening/index.html",
+    "title": "Look-Ahead Screening Rules for the Lasso",
+    "section": "",
+    "text": "The lasso is a popular method to induce shrinkage and sparsity in the solution vector (coefficients) of regression problems, particularly when there are many predictors relative to the number of observations. Solving the lasso in this high-dimensional setting can, however, be computationally demanding. Fortunately, this demand can be alleviated via the use of screening rules that discard predictors prior to fitting the model, leading to a reduced problem to be solved. In this paper, we present a new screening strategy: look-ahead screening. Our method uses safe screening rules to find a range of penalty values for which a given predictor cannot enter the model, thereby screening predictors along the remainder of the path. In experiments we show that these look-ahead screening rules outperform the active warm-start version of the Gap Safe rules."
+  },
+  {
+    "objectID": "publications/contents/the-hessian-screening-rule/index.html",
+    "href": "publications/contents/the-hessian-screening-rule/index.html",
+    "title": "The Hessian Screening Rule",
+    "section": "",
+    "text": "Predictor screening rules, which discard predictors from the design matrix before fitting a model, have had considerable impact on the speed with which l1-regularized regression problems, such as the lasso, can be solved. Current state-of-the-art screening rules, however, have difficulties in dealing with highly-correlated predictors, often becoming too conservative. In this paper, we present a new screening rule to deal with this issue: the Hessian Screening Rule. The rule uses second-order information from the model to provide more accurate screening as well as higher-quality warm starts. The proposed rule outperforms all studied alternatives on data sets with high correlation for both l1-regularized least-squares (the lasso) and logistic regression. It also performs best overall on the real data sets that we examine."
+  },
+  {
+    "objectID": "publications/contents/the-strong-screening-rule-for-slope/index.html",
+    "href": "publications/contents/the-strong-screening-rule-for-slope/index.html",
+    "title": "The Strong Screening Rule for SLOPE",
+    "section": "",
+    "text": "Extracting relevant features from data sets where the number of observations (n) is much smaller then the number of predictors (p) is a major challenge in modern statistics. Sorted L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is a promising method within this setting. Current numerical procedures for SLOPE, however, lack the efficiency that respective tools for the lasso enjoy, particularly in the context of estimating a complete regularization path. A key component in the efficiency of the lasso is predictor screening rules: rules that allow predictors to be discarded before estimating the model. This is the first paper to establish such a rule for SLOPE. We develop a screening rule for SLOPE by examining its subdifferential and show that this rule is a generalization of the strong rule for the lasso. Our rule is heuristic, which means that it may discard predictors erroneously. In our paper, however, we show that such situations are rare and easily safeguarded against by a simple check of the optimality conditions. Our numerical experiments show that the rule performs well in practice, leading to improvements by orders of magnitude for data in the (p >> n) domain, as well as incurring no additional computational overhead when (n > p)."
   }
 ]
