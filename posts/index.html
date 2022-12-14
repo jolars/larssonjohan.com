@@ -71,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -176,11 +176,11 @@ ga('send', {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="SLOPE">SLOPE <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data visualization">data visualization <span class="quarto-category-count">(3)</span></div><div class="category" data-category="euler diagrams">euler diagrams <span class="quarto-category-count">(1)</span></div><div class="category" data-category="eulerr">eulerr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geometry">geometry <span class="quarto-category-count">(2)</span></div><div class="category" data-category="polylabelr">polylabelr <span class="quarto-category-count">(1)</span></div><div class="category" data-category="qualpalr">qualpalr <span class="quarto-category-count">(2)</span></div><div class="category" data-category="r">r <span class="quarto-category-count">(5)</span></div><div class="category" data-category="statistics">statistics <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -231,7 +231,7 @@ ga('send', {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="r,regularization,SLOPE,statistics" data-listing-date-sort="1586822400000" data-listing-file-modified-sort="1670853998597" data-listing-reading-time-sort="2.7">
+<div class="quarto-post image-right" data-index="0" data-categories="r,SLOPE,statistics" data-listing-date-sort="1586822400000" data-listing-file-modified-sort="1671038526824" data-listing-reading-time-sort="2.7">
 <div class="thumbnail">
 <p><a href="../posts/slope-0-2-0/index.html"> <img src="../posts/slope-0-2-0/slope.svg" class="thumnail-image"> </a></p>
 </div>
@@ -243,6 +243,19 @@ SLOPE 0.2.0
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('SLOPE'); return false;">
+SLOPE
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('statistics'); return false;">
+statistics
+</div>
+</div>
+<a href="../posts/slope-0-2-0/index.html">
 <div class="listing-description">
 <p>A new update to the SLOPE package with many exciting features.</p>
 </div>
@@ -259,7 +272,7 @@ Johan Larsson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="r,euler diagrams,polygon,labeling,eulerr,polylabelr,geometry" data-listing-date-sort="1540771200000" data-listing-file-modified-sort="1670853998597" data-listing-reading-time-sort="2.79">
+<div class="quarto-post image-right" data-index="1" data-categories="r,geometry,polylabelr" data-listing-date-sort="1540771200000" data-listing-file-modified-sort="1671038526824" data-listing-reading-time-sort="2.79">
 <div class="thumbnail">
 <p><a href="../posts/polygon-labeling-with-polylabelr/index.html"> <img src="../posts/polygon-labeling-with-polylabelr/polylabelr.png" class="thumnail-image"> </a></p>
 </div>
@@ -271,6 +284,19 @@ Polygon Labeling with polylabelr
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('geometry'); return false;">
+geometry
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('polylabelr'); return false;">
+polylabelr
+</div>
+</div>
+<a href="../posts/polygon-labeling-with-polylabelr/index.html">
 <div class="listing-description">
 <p>A new package polylabelr can be used find visual centers of polygons and label Euler diagrams.</p>
 </div>
@@ -287,7 +313,7 @@ Johan Larsson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="r,qualpalr,data visualization" data-listing-date-sort="1477785600000" data-listing-file-modified-sort="1670853998597" data-listing-reading-time-sort="4.175">
+<div class="quarto-post image-right" data-index="2" data-categories="r,qualpalr,data visualization,geometry" data-listing-date-sort="1477785600000" data-listing-file-modified-sort="1671038526824" data-listing-reading-time-sort="4.175">
 <div class="thumbnail">
 <p><a href="../posts/farthest-points/index.html"> <img src="../posts/farthest-points/farthest-points.png" class="thumnail-image"> </a></p>
 </div>
@@ -299,6 +325,22 @@ Finding the Farthest Points in a Point Cloud
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('qualpalr'); return false;">
+qualpalr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('geometry'); return false;">
+geometry
+</div>
+</div>
+<a href="../posts/farthest-points/index.html">
 <div class="listing-description">
 <p>An algorithm for finding the most separated points in a cloud of points.</p>
 </div>
@@ -315,7 +357,7 @@ Johan Larsson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="r,eulerr,euler diagrams,data visualization" data-listing-date-sort="1476835200000" data-listing-file-modified-sort="1670853998597" data-listing-reading-time-sort="3.33">
+<div class="quarto-post image-right" data-index="3" data-categories="r,eulerr,euler diagrams,data visualization" data-listing-date-sort="1476835200000" data-listing-file-modified-sort="1671038526824" data-listing-reading-time-sort="3.33">
 <div class="thumbnail">
 <p><a href="../posts/introducing-eulerr/index.html"> <img src="../posts/introducing-eulerr/eulerr.png" class="thumnail-image"> </a></p>
 </div>
@@ -327,6 +369,22 @@ Introducing eulerr
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('eulerr'); return false;">
+eulerr
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('euler diagrams'); return false;">
+euler diagrams
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+</div>
+<a href="../posts/introducing-eulerr/index.html">
 <div class="listing-description">
 <p>This is an introduction to my new package, eulerr, an R package that computes and plots eulerr diagrams of set relationships.</p>
 </div>
@@ -343,7 +401,7 @@ Johan Larsson
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="r,data visualization,qualpalr" data-listing-date-sort="1476489600000" data-listing-file-modified-sort="1670853998597" data-listing-reading-time-sort="4.985">
+<div class="quarto-post image-right" data-index="4" data-categories="r,data visualization,qualpalr" data-listing-date-sort="1476489600000" data-listing-file-modified-sort="1671038526824" data-listing-reading-time-sort="4.985">
 <div class="thumbnail">
 <p><a href="../posts/introducing-qualpalr/index.html"> <img src="../posts/introducing-qualpalr/qualpalr.png" class="thumnail-image"> </a></p>
 </div>
@@ -355,6 +413,19 @@ Introducing qualpalr
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('r'); return false;">
+r
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('qualpalr'); return false;">
+qualpalr
+</div>
+</div>
+<a href="../posts/introducing-qualpalr/index.html">
 <div class="listing-description">
 <p>Let me introduce qualpalr: an R package that generates qualitative color palettes with distinct colors using color difference algorithms.</p>
 </div>

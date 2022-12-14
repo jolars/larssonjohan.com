@@ -240,12 +240,8 @@ ga('send', {
 <h1 class="title">Polygon Labeling with polylabelr</h1>
   <div class="quarto-categories">
     <div class="quarto-category">r</div>
-    <div class="quarto-category">euler diagrams</div>
-    <div class="quarto-category">polygon</div>
-    <div class="quarto-category">labeling</div>
-    <div class="quarto-category">eulerr</div>
-    <div class="quarto-category">polylabelr</div>
     <div class="quarto-category">geometry</div>
+    <div class="quarto-category">polylabelr</div>
   </div>
   </div>
 
@@ -313,7 +309,7 @@ ga('send', {
 <h2 class="anchored" data-anchor-id="the-promise-of-polygons">The promise of polygons</h2>
 <p>R has powerful functionality for plotting in general, but lacks capabilities for drawing ellipses using curves. High-resolution polygons are thankfully a readily available remedy for this and have since several version back been used also in <strong>eulerr</strong>.</p>
 <p>The upside of using polygons, however, are that they are usually much easier, even if sometimes inefficient, to work with. For instance, they make constructing separate shapes for each overlap a breeze using the polyclip package <span class="citation" data-cites="johnson2018">(<a href="#ref-johnson2018" role="doc-biblioref">Johnson and Baddeley 2018</a>)</span>.</p>
-<p>And because basically all shapes in digital maps are polygons, there happens to exist a multitude of other useful tools to deal with a wide variety of tasks related to polygons. One of these turned out to be precisely what I needed: polylabel <span class="citation" data-cites="mapbox2018a">(<a href="#ref-mapbox2018a" role="doc-biblioref"><strong>mapbox2018a?</strong></a>)</span> from the Mapbox suite. Because the details of the library <a href="https://blog.mapbox.com/a-new-algorithm-for-finding-a-visual-center-of-a-polygon-7c77e6492fbc">have already been explained elsewhere</a> I will spare you the details, but briefly put it uses quadtree binning to divide the polygon into square bins, pruning away dead-ends. It is inefficient and will, according to the authors, find a point that is “guaranteed to be a global optimum within the given precision”.</p>
+<p>And because basically all shapes in digital maps are polygons, there happens to exist a multitude of other useful tools to deal with a wide variety of tasks related to polygons. One of these turned out to be precisely what I needed: polylabel <span class="citation" data-cites="mapbox2018">(<a href="#ref-mapbox2018" role="doc-biblioref">Mapbox [2016] 2018</a>)</span> from the Mapbox suite. Because the details of the library <a href="https://blog.mapbox.com/a-new-algorithm-for-finding-a-visual-center-of-a-polygon-7c77e6492fbc">have already been explained elsewhere</a> I will spare you the details, but briefly put it uses quadtree binning to divide the polygon into square bins, pruning away dead-ends. It is inefficient and will, according to the authors, find a point that is “guaranteed to be a global optimum within the given precision”.</p>
 <p>Because it appeared to be such a valuable tool for R users, I decided to create a wrapper for the c++ header for polylabel and bundle it as a package for R users.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("polylabelr")</span></span>
@@ -375,6 +371,9 @@ Eberly, David. 2013. <span>“Distance from a Point to an Ellipse, an Ellipsoid,
 </div>
 <div id="ref-johnson2018" class="csl-entry" role="doc-biblioentry">
 Johnson, Angus, and Adrian Baddeley. 2018. <em>Polyclip: Polygon Clipping</em> (version 1.9-1). <a href="https://CRAN.R-project.org/package=polyclip">https://CRAN.R-project.org/package=polyclip</a>.
+</div>
+<div id="ref-mapbox2018" class="csl-entry" role="doc-biblioentry">
+Mapbox. (2016) 2018. <em>A Fast Algorithm for Finding the Pole of Inaccessibility of a Polygon (in <span>JavaScript</span> and <span>C</span>++): Mapbox/Polylabel</em> (version 1.0.3). <span>Mapbox</span>. <a href="https://github.com/mapbox/polylabel">https://github.com/mapbox/polylabel</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
