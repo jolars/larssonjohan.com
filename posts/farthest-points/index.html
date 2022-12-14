@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -158,7 +158,6 @@ ga('send', {
   'anonymizeIp': true,
 });
 </script>
-<!-- <link href='https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather' rel='stylesheet'> -->
 <script src="https://kit.fontawesome.com/0fba9333d8.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
@@ -276,7 +275,6 @@ points.">
 </header>
 
 <p>My R package <a href="https://github.com/jolars/qualpalr">qualpalr</a> selects qualitative colors by projecting a bunch of colors (as points) to the three-dimensional DIN99d color space wherein the distance between any pair colors approximate their differences in appearance. The package then tries to choose the <code>n</code> colors so that the minimal pairwise distance among them is maximized, that is, we want the most similar pair of colors to be as dissimilar as possible.</p>
-<p>Bla</p>
 <p>This turns out to be much less trivial that one would suspect, which posts on <a href="http://scicomp.stackexchange.com/questions/20030/selecting-most-scattered-points-from-a-set-of-points">Computational Science</a>, <a href="https://se.mathworks.com/matlabcentral/answers/42622-how-can-i-choose-a-subset-of-k-points-the-farthest-apart">MATLAB Central</a>, <a href="http://stackoverflow.com/questions/27971223/finding-largest-minimum-distance-among-k-objects-in-n-possible-distinct-position">Stack Overflow</a>, and and <a href="http://cs.stackexchange.com/questions/22767/choosing-a-subset-to-maximize-the-minimum-distance-between-points">Computer Science</a> can attest to.</p>
 <p>Up til now, qualpalr solved this problem with a greedy approach. If we, for instance, want to find <code>n</code> points we did the following.</p>
 <pre><code>M &lt;- Compute a distance matrix of all points in the sample
@@ -392,8 +390,8 @@ repeat
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: milliseconds
               expr      min       lq     mean   median       uq      max neval
- f_greedy(data, n) 1.300343 1.344726 1.642593 1.369852 1.453174 35.52794  1000
-    f_new(data, n) 1.613977 1.949968 2.467225 2.194345 2.549209 16.66794  1000
+ f_greedy(data, n) 1.309727 1.341213 1.637140 1.356876 1.402552 41.57244  1000
+    f_new(data, n) 1.619128 1.920996 2.423288 2.167553 2.470131 15.22376  1000
  cld
   a 
    b</code></pre>
