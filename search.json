@@ -144,7 +144,7 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "R\n  \n  \n    \n      \n      \n        \n      \n      \n      \n        eulerr\n          Area-proportional Euler diagrams with ellipses.\n\n      \n      \n        \n        \n          \n        \n        \n        \n        \n          \n        \n        \n        \n        \n          CRAN\n        \n        \n      \n    \n    \n      \n      \n        \n      \n      \n      \n        qualpalr\n          Automatic generation of color palettes for qualitative data\n\n      \n      \n        \n        \n          \n        \n        \n        \n        \n          \n        \n        \n        \n        \n          CRAN\n        \n        \n      \n    \n  \n  Python\n  \n  \n    \n      \n      \n        \n      \n      \n      \n        benchopt\n          BenchOpt is a benchmarking suite for optimization algorithms.\nIt is built for simplicity, transparency, and reproducibility.\n\n      \n      \n        \n        \n          \n        \n        \n        \n        \n          \n        \n        \n      \n    \n  \n\nNo matching items"
+    "text": "R\n  \n  \n    \n      \n        \n      \n      \n        \n          eulerr\n        \n          \n            Area-proportional Euler diagrams with ellipses.\n          \n        \n        \n           Docs\n        \n          \n             CRAN\n          \n          \n             Code\n          \n        \n      \n    \n    \n      \n        \n      \n      \n        \n          qualpalr\n        \n          \n            Automatic generation of color palettes for qualitative data\n          \n        \n        \n           Docs\n        \n          \n             CRAN\n          \n          \n             Code\n          \n        \n      \n    \n  \n  Python\n  \n  \n    \n      \n        \n      \n      \n        \n          benchopt\n        \n          \n            BenchOpt is a benchmarking suite for optimization algorithms.\nIt is built for simplicity, transparency, and reproducibility.\n          \n        \n        \n           Docs\n        \n          \n             pypi\n          \n          \n             Code\n          \n        \n      \n    \n  \n\nNo matching items"
   },
   {
     "objectID": "talks/index.html",
@@ -158,6 +158,6 @@
     "href": "talks/strong-screening-rule-for-slope/index.html",
     "title": "The Strong Screening Rule for SLOPE",
     "section": "",
-    "text": "This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.\n\n Slides  Paper"
+    "text": "This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.\n\n Slides  Preprint"
   }
 ]
