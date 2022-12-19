@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-format','listing-sidebar','listing-author-title','listing-title','listing-author','listing-date','listing-citation','listing-arxiv','listing-pypi','listing-categories','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-pdf','listing-github','listing-cran','listing-link','listing-abstract',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      valueNames: ['listing-format','listing-sidebar','listing-author-title','listing-title','listing-author','listing-abstract','listing-date','listing-citation','listing-arxiv','listing-pypi','listing-categories','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-pdf','listing-github','listing-cran','listing-link',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-details"],
     };
@@ -252,14 +252,11 @@ information.">
     </div>
 </div>
 <ul class="list publication-list" reversed="">
-    <li data-index="0" data-categories="Optimization,Python" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
+    <li data-index="0" data-categories="Optimization,Python" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
       <span class="listing-title fw-bold">Benchopt: Reproducible, Efficient and Collaborative Optimization Benchmarks</span><br>
       <p><span class="listing-author">Thomas Moreau, Mathurin Massias, Alexandre Gramfort, Pierre Ablin, Pierre-Antoine Bannier, Benjamin Charlier, Mathieu Dagréou, Tom Dupré la Tour, Ghislain Durif, Cassio F. Dantas, Quentin Klopfenstein, Johan Larsson, En Lai, Tanguy Lefort, Benoit Malézieux, Badr Moufad, Binh T. Nguyen, Alain Rakotomamonjy, Zaccharie Ramzi, Joseph Salmon, Samuel Vaiter</span><br>
-          In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems 35</span>,
-          <span class="listing-details">New Orleans, USA</span>,
-        <span class="listing-date">Nov. 2022</span>,
-          <span class="listing-publication-volume">vol.&nbsp;35</span>,
-          <span class="listing-publication-pages">pp.&nbsp;forthcoming</span>.
+          <span class="listing-archive fst-italic">arXiv</span>,
+        <span class="listing-date">Nov. 2022</span>.
       <br>
       <a href="../publications/benchopt/index.html" class="btn btn-primary btn-sm">
         <i class="bi bi-file-earmark-text"></i>&nbsp;Details
@@ -272,14 +269,28 @@ information.">
         </a>
       </p>
     </li>
-    <li data-index="1" data-categories="Lasso,Screening Rules" data-listing-date-sort="1669680000000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
+    <li data-index="1" data-categories="SLOPE,Optimization" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
+      <span class="listing-title fw-bold">Coordinate Descent for SLOPE</span><br>
+      <p><span class="listing-author">Johan Larsson, Quentin Klopfenstein, Mathurin Massias, Jonas Wallin</span><br>
+          <span class="listing-archive fst-italic">arXiv</span>,
+        <span class="listing-date">Oct. 2022</span>.
+      <br>
+      <a href="../publications/coordinate-descent-for-slope/index.html" class="btn btn-primary btn-sm">
+        <i class="bi bi-file-earmark-text"></i>&nbsp;Details
+      </a>
+        <a href="https://arxiv.org/abs/2210.1478" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
+        <a href="https://github.com/jolars/slopecd" class="btn btn-dark btn-sm">
+          <i class="fa fa-github"></i>&nbsp;Code
+        </a>
+      </p>
+    </li>
+    <li data-index="2" data-categories="Lasso,Screening Rules" data-listing-date-sort="1664841600000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
       <span class="listing-title fw-bold">The Hessian Screening Rule</span><br>
       <p><span class="listing-author">Johan Larsson, Jonas Wallin</span><br>
-          In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems 35</span>,
-          <span class="listing-details">New Orleans, USA</span>,
-        <span class="listing-date">Nov. 2022</span>,
-          <span class="listing-publication-volume">vol.&nbsp;35</span>,
-          <span class="listing-publication-pages">pp.&nbsp;forthcoming</span>.
+          <span class="listing-archive fst-italic">arXiv</span>,
+        <span class="listing-date">Oct. 2022</span>.
       <br>
       <a href="../publications/the-hessian-screening-rule/index.html" class="btn btn-primary btn-sm">
         <i class="bi bi-file-earmark-text"></i>&nbsp;Details
@@ -292,21 +303,7 @@ information.">
         </a>
       </p>
     </li>
-    <li data-index="2" data-categories="SLOPE,Optimization" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
-      <span class="listing-title fw-bold">Coordinate Descent for SLOPE</span><br>
-      <p><span class="listing-author">Johan Larsson, Quentin Klopfenstein, Mathurin Massias, Jonas Wallin</span><br>
-          <span class="listing-archive fst-italic">arXiv</span>,
-        <span class="listing-date">Oct. 2022</span>.
-      <br>
-      <a href="../publications/coordinate-descent-for-slope/index.html" class="btn btn-primary btn-sm">
-        <i class="bi bi-file-earmark-text"></i>&nbsp;Details
-      </a>
-        <a href="https://github.com/jolars/slopecd" class="btn btn-dark btn-sm">
-          <i class="fa fa-github"></i>&nbsp;Code
-        </a>
-      </p>
-    </li>
-    <li data-index="3" data-categories="Lasso,Screening Rules" data-listing-date-sort="1624924800000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
+    <li data-index="3" data-categories="Lasso,Screening Rules" data-listing-date-sort="1624924800000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
       <span class="listing-title fw-bold">Look-Ahead Screening Rules for the Lasso</span><br>
       <p><span class="listing-author">Johan Larsson</span><br>
           In <span class="listing-publication fst-italic">22nd European Young Statisticians Meeting - Proceedings</span>,
@@ -320,12 +317,15 @@ information.">
         <a href="https://www.eysm2021.panteion.gr/files/Proceedings_EYSM_2021.pdf" class="btn btn-warning btn-sm">
           <i class="fa-solid fa-file-pdf"></i>&nbsp;PDF
         </a>
+        <a href="https://arxiv.org/abs/2105.05648" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
         <a href="https://github.com/jolars/LookAheadScreening" class="btn btn-dark btn-sm">
           <i class="fa fa-github"></i>&nbsp;Code
         </a>
       </p>
     </li>
-    <li data-index="4" data-categories="SLOPE,Screening Rules" data-listing-date-sort="1607212800000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
+    <li data-index="4" data-categories="SLOPE,Screening Rules" data-listing-date-sort="1607212800000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
       <span class="listing-title fw-bold">The Strong Screening Rule for SLOPE</span><br>
       <p><span class="listing-author">Johan Larsson, Małgorzata Bogdan, Jonas Wallin</span><br>
           In <span class="listing-publication fst-italic">Advances in Neural Information Processing Systems 33</span>,
@@ -343,12 +343,15 @@ information.">
         <a href="https://proceedings.neurips.cc/paper/2020/file/a7d8ae4569120b5bec12e7b6e9648b86-Paper.pdf" class="btn btn-warning btn-sm">
           <i class="fa-solid fa-file-pdf"></i>&nbsp;PDF
         </a>
+        <a href="https://arxiv.org/abs/2005.03730" class="btn btn-danger btn-sm">
+          <i class="ai ai-arxiv"></i>&nbsp;arXiv
+        </a>
         <a href="https://github.com/jolars/slope-screening-code" class="btn btn-dark btn-sm">
           <i class="fa fa-github"></i>&nbsp;Code
         </a>
       </p>
     </li>
-    <li data-index="5" data-categories="R,Data Visualization,Euler Diagrams" data-listing-date-sort="1529280000000" data-listing-file-modified-sort="1671484164544" data-listing-reading-time-sort="0.005">
+    <li data-index="5" data-categories="R,Data Visualization,Euler Diagrams" data-listing-date-sort="1529280000000" data-listing-file-modified-sort="1671489106252" data-listing-reading-time-sort="0.005">
       <span class="listing-title fw-bold">A Case Study in Fitting Area-Proportional Euler Diagrams with Ellipses Using eulerr</span><br>
       <p><span class="listing-author">Johan Larsson, Peter Gustafsson</span><br>
           In <span class="listing-publication fst-italic">Proceedings of International Workshop on Set Visualization and Reasoning</span>,

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Johan Larsson">
 <meta name="author" content="Jonas Wallin">
-<meta name="dcterms.date" content="2022-11-29">
+<meta name="dcterms.date" content="2022-10-04">
 
 <title>Johan Larsson - The Hessian Screening Rule</title>
 <style>
@@ -91,8 +91,14 @@ ga('send', {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Johan Larsson - The Hessian Screening Rule">
+<meta property="og:description" content="Predictor screening rules, which discard predictors from the design matrix
+before fitting a model, have had considerable impact on the speed with which
+l1-regularized regression problems, such as…">
 <meta property="og:site-name" content="Johan Larsson">
 <meta name="twitter:title" content="Johan Larsson - The Hessian Screening Rule">
+<meta name="twitter:description" content="Predictor screening rules, which discard predictors from the design matrix
+before fitting a model, have had considerable impact on the speed with which
+l1-regularized regression problems, such as…">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -170,13 +176,19 @@ ga('send', {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">29 November 2022</p>
+      <p class="date">4 October 2022</p>
     </div>
   </div>
   
   
   </div>
 
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Predictor screening rules, which discard predictors from the design matrix before fitting a model, have had considerable impact on the speed with which l1-regularized regression problems, such as the lasso, can be solved. Current state-of-the-art screening rules, however, have difficulties in dealing with highly-correlated predictors, often becoming too conservative. In this paper, we present a new screening rule to deal with this issue: the Hessian Screening Rule. The rule uses second-order information from the model to provide more accurate screening as well as higher-quality warm starts. The proposed rule outperforms all studied alternatives on data sets with high correlation for both l1-regularized least-squares (the lasso) and logistic regression. It also performs best overall on the real data sets that we examine.</p>
+  </div>
+</div>
 
 
 
@@ -186,17 +198,15 @@ ga('send', {
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{larsson2022,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{larsson2022,
   author = {Johan Larsson and Jonas Wallin},
-  publisher = {Curran Associates, Inc.},
-  title = {The Hessian screening rule},
-  booktitle = {Advances in Neural Information Processing Systems 35},
-  volume = {35},
-  pages = {forthcoming},
-  date = {2022-11-29},
-  address = {New Orleans, USA},
-  url = {https://larssonjohan.com/publications/the-hessian-screening-rule},
-  langid = {English},
+  publisher = {arXiv},
+  title = {The {Hessian} Screening Rule},
+  number = {arXiv:2104.13026},
+  date = {2022-10-04},
+  url = {http://arxiv.org/abs/2104.13026},
+  doi = {10.48550/arXiv.2104.13026},
+  langid = {en},
   abstract = {Predictor screening rules, which discard predictors from
     the design matrix before fitting a model, have had considerable
     impact on the speed with which l1-regularized regression problems,
@@ -212,9 +222,8 @@ ga('send', {
     best overall on the real data sets that we examine.}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-larsson2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Johan Larsson, and Jonas Wallin. 2022. <span>“The Hessian screening
-rule.”</span> In <em>Advances in Neural Information Processing Systems
-35</em>, 35:forthcoming. New Orleans, USA: Curran Associates, Inc. <a href="https://larssonjohan.com/publications/the-hessian-screening-rule">https://larssonjohan.com/publications/the-hessian-screening-rule</a>.
+Johan Larsson, and Jonas Wallin. 2022. <span>“The Hessian Screening
+Rule.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2104.13026">https://doi.org/10.48550/arXiv.2104.13026</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
