@@ -6,9 +6,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Area-proportional Euler diagrams with ellipses.">
+<meta name="author" content="Johan Larsson">
+<meta name="author" content="Jonas Wallin">
+<meta name="author" content="Małgorzata Bogdan">
+<meta name="author" content="Ewout van den Berg">
+<meta name="author" content="Chiara Sabatti">
+<meta name="author" content="Emmanuel Candés">
+<meta name="author" content="Evan Patterson">
+<meta name="author" content="Weijie Su">
+<meta name="author" content="Jakub Kała">
+<meta name="author" content="Krystyna Grzesiak">
+<meta name="author" content="Michal Burdukiewicz">
+<meta name="author" content="Akarsh Goyal">
+<meta name="dcterms.date" content="2022-06-09">
+<meta name="description" content="SLOPE is a package for Sorted L-One Penalized Estimation">
 
-<title>Johan Larsson - eulerr</title>
+<title>Johan Larsson - SLOPE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,17 +98,13 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Johan Larsson - eulerr">
-<meta property="og:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta property="og:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
+<meta property="og:title" content="Johan Larsson - SLOPE">
+<meta property="og:description" content="SLOPE is a package for Sorted L-One Penalized Estimation">
+<meta property="og:image" content="https://larssonjohan.com/software/slope/slope.svg">
 <meta property="og:site-name" content="Johan Larsson">
-<meta property="og:image:height" content="300">
-<meta property="og:image:width" content="304">
-<meta name="twitter:title" content="Johan Larsson - eulerr">
-<meta name="twitter:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta name="twitter:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
-<meta name="twitter:image-height" content="300">
-<meta name="twitter:image-width" content="304">
+<meta name="twitter:title" content="Johan Larsson - SLOPE">
+<meta name="twitter:description" content="SLOPE is a package for Sorted L-One Penalized Estimation">
+<meta name="twitter:image" content="https://larssonjohan.com/software/slope/slope.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -149,7 +158,7 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">eulerr</h1>
+<h1 class="title">SLOPE</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
   </div>
@@ -157,20 +166,55 @@ ga('send', {
 
 <div>
   <div class="description">
-    <p>Area-proportional Euler diagrams with ellipses.</p>
+    <p>SLOPE is a package for Sorted L-One Penalized Estimation</p>
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+            <p>Johan Larsson 
+      </p>
+            <p>Jonas Wallin 
+      </p>
+            <p>Małgorzata Bogdan 
+      </p>
+            <p>Ewout van den Berg 
+      </p>
+            <p>Chiara Sabatti 
+      </p>
+            <p>Emmanuel Candés 
+      </p>
+            <p>Evan Patterson 
+      </p>
+            <p>Weijie Su 
+      </p>
+            <p>Jakub Kała 
+      </p>
+            <p>Krystyna Grzesiak 
+      </p>
+            <p>Michal Burdukiewicz 
+      </p>
+            <p>Akarsh Goyal 
+      </p>
+          </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">9 June 2022</p>
+    </div>
+  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Publication Details</div>
     <div class="quarto-title-meta-contents">
       <p>
-                  In <span class="fst-italic"></span>, Edinburgh, United Kingdom
+                  <span class="fst-italic"></span>
               </p>
     </div>
   </div>
@@ -181,10 +225,10 @@ ga('send', {
                           <a href="https://jolars.github.io/eulerr" class="btn btn-success btn-sm">
             <i class="fa-solid fa-link"></i>&nbsp;URL
           </a>
-                                          <a href="http://github.com/jolars/eulerr" class="btn btn-dark btn-sm">
+                                          <a href="http://github.com/jolars/slope" class="btn btn-dark btn-sm">
             <i class="fa fa-github"></i>&nbsp;Code
           </a>
-                                  <a href="https://CRAN.R-project.org/package=eulerr" class="btn btn-info btn-sm">
+                                  <a href="https://CRAN.R-project.org/package=SLOPE" class="btn btn-info btn-sm">
             <i class="fab fa-r-project"></i>&nbsp;CRAN
           </a>
                       </p>
@@ -203,35 +247,29 @@ ga('send', {
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{untitled,
-  author = {},
-  publisher = {CEUR Workshop Proceedings},
-  title = {A Case Study in Fitting Area-Proportional {Euler} Diagrams
-    with Ellipses Using Eulerr},
-  volume = {2116},
-  pages = {84-91},
-  address = {Edinburgh, United Kingdom},
-  url = {http://ceur-ws.org/Vol-2116/paper7.pdf},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{larsson2022,
+  author = {Johan Larsson and Jonas Wallin and Małgorzata Bogdan and
+    Ewout van den Berg and Chiara Sabatti and Emmanuel Candés and Evan
+    Patterson and Weijie Su and Jakub Kała and Krystyna Grzesiak and
+    Michal Burdukiewicz and Akarsh Goyal},
+  title = {SLOPE},
+  date = {2022-06-09},
+  url = {https://jolars.github.io/qualpalr},
   langid = {en},
-  abstract = {Euler diagrams are common and user-friendly visualizations
-    for set relationships. Most Euler diagrams use circles, but circles
-    do not always yield accurate diagrams. A promising alternative is
-    ellipses, which, in theory, enable accurate diagrams for a wider
-    range of input. Elliptical diagrams, however, have not yet been
-    implemented for more than three sets or three-set diagrams where
-    there are disjoint or subset relationships. The aim of this paper is
-    to present eulerr: a software package for elliptical Euler diagrams
-    for, in theory, any number of sets. It fits Euler diagrams using
-    numerical optimization and exact-area algorithms through a two-step
-    procedure, first generating an initial layout using pairwise
-    relationships and then finalizing this layout using all set
-    relationships. container-title: Proceedings of International
-    Workshop on Set Visualization and Reasoning}
+  abstract = {Efficient implementations for Sorted L-One Penalized
+    Estimation (SLOPE): generalized linear models regularized with the
+    sorted L1-norm (Bogdan et al. (2015) \textless
+    doi:10/gfgwzt\textgreater). Supported models include ordinary
+    least-squares regression, binomial regression, multinomial
+    regression, and Poisson regression. Both dense and sparse predictor
+    matrices are supported. In addition, the package features predictor
+    screening rules that enable fast and efficient solutions to
+    high-dimensional problems.}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-<span>“A Case Study in Fitting Area-Proportional Euler Diagrams with
-Ellipses Using Eulerr.”</span> n.d. In, 2116:84–91. Edinburgh, United
-Kingdom: CEUR Workshop Proceedings. <a href="http://ceur-ws.org/Vol-2116/paper7.pdf">http://ceur-ws.org/Vol-2116/paper7.pdf</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-larsson2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Johan Larsson, Jonas Wallin, Małgorzata Bogdan, Ewout van den Berg,
+Chiara Sabatti, Emmanuel Candés, Evan Patterson, et al. 2022.
+<span>“SLOPE.”</span> R. <a href="https://jolars.github.io/qualpalr">https://jolars.github.io/qualpalr</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

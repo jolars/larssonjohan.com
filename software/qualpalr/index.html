@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Area-proportional Euler diagrams with ellipses.">
+<meta name="author" content="Johan Larsson">
+<meta name="dcterms.date" content="2018-10-29">
+<meta name="description" content="Automatic generation of color palettes for qualitative data">
 
-<title>Johan Larsson - eulerr</title>
+<title>Johan Larsson - qualpalr</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,17 +87,17 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Johan Larsson - eulerr">
-<meta property="og:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta property="og:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
+<meta property="og:title" content="Johan Larsson - qualpalr">
+<meta property="og:description" content="Automatic generation of color palettes for qualitative data">
+<meta property="og:image" content="https://larssonjohan.com/software/qualpalr/qualpalr.png">
 <meta property="og:site-name" content="Johan Larsson">
-<meta property="og:image:height" content="300">
-<meta property="og:image:width" content="304">
-<meta name="twitter:title" content="Johan Larsson - eulerr">
-<meta name="twitter:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta name="twitter:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
-<meta name="twitter:image-height" content="300">
-<meta name="twitter:image-width" content="304">
+<meta property="og:image:height" content="239">
+<meta property="og:image:width" content="250">
+<meta name="twitter:title" content="Johan Larsson - qualpalr">
+<meta name="twitter:description" content="Automatic generation of color palettes for qualitative data">
+<meta name="twitter:image" content="https://larssonjohan.com/software/qualpalr/qualpalr.png">
+<meta name="twitter:image-height" content="239">
+<meta name="twitter:image-width" content="250">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -149,7 +151,7 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">eulerr</h1>
+<h1 class="title">qualpalr</h1>
   <div class="quarto-categories">
     <div class="quarto-category">R</div>
   </div>
@@ -157,20 +159,33 @@ ga('send', {
 
 <div>
   <div class="description">
-    <p>Area-proportional Euler diagrams with ellipses.</p>
+    <p>Automatic generation of color palettes for qualitative data</p>
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+            <p>Johan Larsson 
+      </p>
+          </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">29 October 2018</p>
+    </div>
+  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Publication Details</div>
     <div class="quarto-title-meta-contents">
       <p>
-                  In <span class="fst-italic"></span>, Edinburgh, United Kingdom
+                  <span class="fst-italic"></span>
               </p>
     </div>
   </div>
@@ -178,13 +193,13 @@ ga('send', {
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
       <p class="quarto-title-meta-buttons">
-                          <a href="https://jolars.github.io/eulerr" class="btn btn-success btn-sm">
+                          <a href="https://jolars.github.io/qualpalr" class="btn btn-success btn-sm">
             <i class="fa-solid fa-link"></i>&nbsp;URL
           </a>
-                                          <a href="http://github.com/jolars/eulerr" class="btn btn-dark btn-sm">
+                                          <a href="http://github.com/jolars/qualpalr" class="btn btn-dark btn-sm">
             <i class="fa fa-github"></i>&nbsp;Code
           </a>
-                                  <a href="https://CRAN.R-project.org/package=eulerr" class="btn btn-info btn-sm">
+                                  <a href="https://CRAN.R-project.org/package=qualpalr" class="btn btn-info btn-sm">
             <i class="fab fa-r-project"></i>&nbsp;CRAN
           </a>
                       </p>
@@ -203,35 +218,15 @@ ga('send', {
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{untitled,
-  author = {},
-  publisher = {CEUR Workshop Proceedings},
-  title = {A Case Study in Fitting Area-Proportional {Euler} Diagrams
-    with Ellipses Using Eulerr},
-  volume = {2116},
-  pages = {84-91},
-  address = {Edinburgh, United Kingdom},
-  url = {http://ceur-ws.org/Vol-2116/paper7.pdf},
-  langid = {en},
-  abstract = {Euler diagrams are common and user-friendly visualizations
-    for set relationships. Most Euler diagrams use circles, but circles
-    do not always yield accurate diagrams. A promising alternative is
-    ellipses, which, in theory, enable accurate diagrams for a wider
-    range of input. Elliptical diagrams, however, have not yet been
-    implemented for more than three sets or three-set diagrams where
-    there are disjoint or subset relationships. The aim of this paper is
-    to present eulerr: a software package for elliptical Euler diagrams
-    for, in theory, any number of sets. It fits Euler diagrams using
-    numerical optimization and exact-area algorithms through a two-step
-    procedure, first generating an initial layout using pairwise
-    relationships and then finalizing this layout using all set
-    relationships. container-title: Proceedings of International
-    Workshop on Set Visualization and Reasoning}
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{larsson2018,
+  author = {Johan Larsson},
+  title = {Qualpalr},
+  date = {2018-10-29},
+  url = {https://jolars.github.io/qualpalr},
+  langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-<span>“A Case Study in Fitting Area-Proportional Euler Diagrams with
-Ellipses Using Eulerr.”</span> n.d. In, 2116:84–91. Edinburgh, United
-Kingdom: CEUR Workshop Proceedings. <a href="http://ceur-ws.org/Vol-2116/paper7.pdf">http://ceur-ws.org/Vol-2116/paper7.pdf</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-larsson2018" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Johan Larsson. 2018. <span>“Qualpalr.”</span> R. <a href="https://jolars.github.io/qualpalr">https://jolars.github.io/qualpalr</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Area-proportional Euler diagrams with ellipses.">
+<meta name="dcterms.date" content="2022-11-29">
+<meta name="description" content="BenchOpt is a benchmarking suite for optimization algorithms. It is built for simplicity, transparency, and reproducibility.">
 
-<title>Johan Larsson - eulerr</title>
+<title>Johan Larsson - benchopt</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,19 +84,33 @@ ga('send', {
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Johan Larsson - eulerr">
-<meta property="og:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta property="og:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
+<meta property="og:title" content="Johan Larsson - benchopt">
+<meta property="og:description" content="BenchOpt is a benchmarking suite for optimization algorithms.
+It is built for simplicity, transparency, and reproducibility.">
+<meta property="og:image" content="https://larssonjohan.com/software/benchopt/benchopt.svg">
 <meta property="og:site-name" content="Johan Larsson">
-<meta property="og:image:height" content="300">
-<meta property="og:image:width" content="304">
-<meta name="twitter:title" content="Johan Larsson - eulerr">
-<meta name="twitter:description" content="Area-proportional Euler diagrams with ellipses.">
-<meta name="twitter:image" content="https://larssonjohan.com/software/eulerr/eulerr.png">
-<meta name="twitter:image-height" content="300">
-<meta name="twitter:image-width" content="304">
+<meta name="twitter:title" content="Johan Larsson - benchopt">
+<meta name="twitter:description" content="BenchOpt is a benchmarking suite for optimization algorithms.
+It is built for simplicity, transparency, and reproducibility.">
+<meta name="twitter:image" content="https://larssonjohan.com/software/benchopt/benchopt.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -149,15 +164,15 @@ ga('send', {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">eulerr</h1>
+<h1 class="title">benchopt</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">R</div>
+    <div class="quarto-category">Python</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    <p>Area-proportional Euler diagrams with ellipses.</p>
+    <p>BenchOpt is a benchmarking suite for optimization algorithms. It is built for simplicity, transparency, and reproducibility.</p>
   </div>
 </div>
 
@@ -165,12 +180,18 @@ ga('send', {
 <div class="quarto-title-meta">
 
   
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">29 November 2022</p>
+    </div>
+  </div>
   
     <div>
     <div class="quarto-title-meta-heading">Publication Details</div>
     <div class="quarto-title-meta-contents">
       <p>
-                  In <span class="fst-italic"></span>, Edinburgh, United Kingdom
+                  <span class="fst-italic">arXiv</span>
               </p>
     </div>
   </div>
@@ -178,16 +199,14 @@ ga('send', {
     <div class="quarto-title-meta-heading">Links</div>
     <div class="quarto-title-meta-contents">
       <p class="quarto-title-meta-buttons">
-                          <a href="https://jolars.github.io/eulerr" class="btn btn-success btn-sm">
+                          <a href="https://benchopt.github.io" class="btn btn-success btn-sm">
             <i class="fa-solid fa-link"></i>&nbsp;URL
           </a>
-                                          <a href="http://github.com/jolars/eulerr" class="btn btn-dark btn-sm">
+                                          <a href="http://github.com/benchopt/benchopt" class="btn btn-dark btn-sm">
             <i class="fa fa-github"></i>&nbsp;Code
           </a>
-                                  <a href="https://CRAN.R-project.org/package=eulerr" class="btn btn-info btn-sm">
-            <i class="fab fa-r-project"></i>&nbsp;CRAN
-          </a>
-                      </p>
+                                          <a href="https://pypi.org/project/benchopt" class="btn btn-info btn-sm"><i class="fa-brands fa-python"></i>&nbsp;pypi</a>
+              </p>
     </div>
 
   </div>
@@ -203,35 +222,42 @@ ga('send', {
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{untitled,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@misc{2022,
   author = {},
-  publisher = {CEUR Workshop Proceedings},
-  title = {A Case Study in Fitting Area-Proportional {Euler} Diagrams
-    with Ellipses Using Eulerr},
-  volume = {2116},
-  pages = {84-91},
-  address = {Edinburgh, United Kingdom},
-  url = {http://ceur-ws.org/Vol-2116/paper7.pdf},
+  publisher = {arXiv},
+  title = {Benchopt: Reproducible, Efficient and Collaborative
+    Optimization Benchmarks},
+  number = {arXiv:2206.13424},
+  date = {2022-06-28},
+  url = {http://arxiv.org/abs/2206.13424},
+  doi = {10.48550/arXiv.2206.13424},
   langid = {en},
-  abstract = {Euler diagrams are common and user-friendly visualizations
-    for set relationships. Most Euler diagrams use circles, but circles
-    do not always yield accurate diagrams. A promising alternative is
-    ellipses, which, in theory, enable accurate diagrams for a wider
-    range of input. Elliptical diagrams, however, have not yet been
-    implemented for more than three sets or three-set diagrams where
-    there are disjoint or subset relationships. The aim of this paper is
-    to present eulerr: a software package for elliptical Euler diagrams
-    for, in theory, any number of sets. It fits Euler diagrams using
-    numerical optimization and exact-area algorithms through a two-step
-    procedure, first generating an initial layout using pairwise
-    relationships and then finalizing this layout using all set
-    relationships. container-title: Proceedings of International
-    Workshop on Set Visualization and Reasoning}
+  abstract = {Numerical validation is at the core of machine learning
+    research as it allows to assess the actual impact of new methods,
+    and to confirm the agreement between theory and practice. Yet, the
+    rapid development of the field poses several challenges: researchers
+    are confronted with a profusion of methods to compare, limited
+    transparency and consensus on best practices, as well as tedious
+    re-implementation work. As a result, validation is often very
+    partial, which can lead to wrong conclusions that slow down the
+    progress of research. We propose Benchopt, a collaborative framework
+    to automate, reproduce and publish optimization benchmarks in
+    machine learning across programming languages and hardware
+    architectures. Benchopt simplifies benchmarking for the community by
+    providing an off-the-shelf tool for running, sharing and extending
+    experiments. To demonstrate its broad usability, we showcase
+    benchmarks on three standard learning tasks: \$\textbackslash
+    ell\_2\$-regularized logistic regression, Lasso, and ResNet18
+    training for image classification. These benchmarks highlight key
+    practical findings that give a more nuanced view of the
+    state-of-the-art for these problems, showing that for practical
+    evaluation, the devil is in the details. We hope that Benchopt will
+    foster collaborative work in the community hence improving the
+    reproducibility of research findings.}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-<span>“A Case Study in Fitting Area-Proportional Euler Diagrams with
-Ellipses Using Eulerr.”</span> n.d. In, 2116:84–91. Edinburgh, United
-Kingdom: CEUR Workshop Proceedings. <a href="http://ceur-ws.org/Vol-2116/paper7.pdf">http://ceur-ws.org/Vol-2116/paper7.pdf</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+<span>“Benchopt: Reproducible, Efficient and Collaborative Optimization
+Benchmarks.”</span> 2022. arXiv. <a href="https://doi.org/10.48550/arXiv.2206.13424">https://doi.org/10.48550/arXiv.2206.13424</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

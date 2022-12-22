@@ -22,7 +22,12 @@
   },
   {
     "listing": "/software/index.html",
-    "items": []
+    "items": [
+      "/software/slope/index.html",
+      "/software/benchopt/index.html",
+      "/software/eulerr/index.html",
+      "/software/qualpalr/index.html"
+    ]
   },
   {
     "listing": "/talks/index.html",
