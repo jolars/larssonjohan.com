@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Johan Larsson">
 <meta name="dcterms.date" content="2020-05-08">
 
 <title>Johan Larsson - The Strong Screening Rule for SLOPE</title>
@@ -83,14 +84,34 @@ ga('send', {
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="theme-color" content="#ffffff">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Johan Larsson - The Strong Screening Rule for SLOPE">
-<meta property="og:description" content="This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.">
+<meta property="og:description" content="Extracting relevant features from data sets where the number of observations
+($n$) is much smaller then the number of predictors ($p$) is a major
+challenge in modern statistics.">
 <meta property="og:image" content="https://larssonjohan.com/talks/strong-screening-rule-for-slope/strong-screening-rule-for-slope.jpg">
 <meta property="og:site-name" content="Johan Larsson">
 <meta name="twitter:title" content="Johan Larsson - The Strong Screening Rule for SLOPE">
-<meta name="twitter:description" content="This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.">
+<meta name="twitter:description" content="Extracting relevant features from data sets where the number of observations
+($n$) is much smaller then the number of predictors ($p$) is a major
+challenge in modern statistics.">
 <meta name="twitter:image" content="https://larssonjohan.com/talks/strong-screening-rule-for-slope/strong-screening-rule-for-slope.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -152,7 +173,14 @@ ga('send', {
 
 <div class="quarto-title-meta">
 
-    
+    <div>
+    <div class="quarto-title-meta-heading">Presenter</div>
+    <div class="quarto-title-meta-contents">
+            <p>Johan Larsson 
+      </p>
+          </div>
+  </div>
+  
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
@@ -160,19 +188,78 @@ ga('send', {
     </div>
   </div>
   
-    
+    <div>
+    <div class="quarto-title-meta-heading">Publication</div>
+    <div class="quarto-title-meta-contents">
+      <p>
+        Statistical Learning Seminars, Online
+      </p>
+    </div>
   </div>
-  
+  <div>
+    <div class="quarto-title-meta-heading">Links</div>
+    <div class="quarto-title-meta-contents">
+      <p class="quarto-title-meta-buttons">
+                          <a href="https://statistical-learning-seminars.github.io/slides/200508-johanlarsson.pdf" class="btn btn-warning btn-sm">
+            <i class="fa-solid fa-file-pdf"></i>&nbsp;Slides
+          </a>
+                                  <a href="https://arxiv.org/abs/2005.03730" class="btn btn-danger btn-sm">
+            <i class="ai ai-arxiv"></i>&nbsp;arXiv
+          </a>
+                                              </p>
+    </div>
 
+  </div>
+  </div>
+
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Extracting relevant features from data sets where the number of observations (<span class="math inline">n</span>) is much smaller then the number of predictors (<span class="math inline">p</span>) is a major challenge in modern statistics. Sorted L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is a promising method within this setting. Current numerical procedures for SLOPE, however, lack the efficiency that respective tools for the lasso enjoy, particularly in the context of estimating a complete regularization path. A key component in the efficiency of the lasso is predictor screening rules: rules that allow predictors to be discarded before estimating the model. This is the first paper to establish such a rule for SLOPE. We develop a screening rule for SLOPE by examining its subdifferential and show that this rule is a generalization of the strong rule for the lasso. Our rule is heuristic, which means that it may discard predictors erroneously. In our paper, however, we show that such situations are rare and easily safeguarded against by a simple check of the optimality conditions. Our numerical experiments show that the rule performs well in practice, leading to improvements by orders of magnitude for data in the (<span class="math inline">p \gg n</span>) domain, as well as incurring no additional computational overhead when (<span class="math inline">n &gt; p</span>).</p>
+  </div>
+</div>
+
+
+
+<p>&nbsp;</p>
 </header>
 
-<p>This was a talk for <a href="https://statistical-learning-seminars.github.io/">Statistical Learning Seminars</a>, where I talked about the strong screening rule for SLOPE.</p>
+
 <div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/oPqaZt0klMg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p><a href="https://statistical-learning-seminars.github.io/slides/200508-johanlarsson.pdf" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Slides</a> <a href="http://arxiv.org/abs/2005.03730" class="btn btn-dark"><i class="ai ai-arxiv"></i> Preprint</a></p>
 
 
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{larsson2020,
+  author = {Johan Larsson},
+  title = {The {Strong} {Screening} {Rule} for {SLOPE}},
+  date = {2020-05-08},
+  url = {https://youtu.be/oPqaZt0klMg},
+  langid = {en},
+  abstract = {Extracting relevant features from data sets where the
+    number of observations (\$n\$) is much smaller then the number of
+    predictors (\$p\$) is a major challenge in modern statistics. Sorted
+    L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is
+    a promising method within this setting. Current numerical procedures
+    for SLOPE, however, lack the efficiency that respective tools for
+    the lasso enjoy, particularly in the context of estimating a
+    complete regularization path. A key component in the efficiency of
+    the lasso is predictor screening rules: rules that allow predictors
+    to be discarded before estimating the model. This is the first paper
+    to establish such a rule for SLOPE. We develop a screening rule for
+    SLOPE by examining its subdifferential and show that this rule is a
+    generalization of the strong rule for the lasso. Our rule is
+    heuristic, which means that it may discard predictors erroneously.
+    In our paper, however, we show that such situations are rare and
+    easily safeguarded against by a simple check of the optimality
+    conditions. Our numerical experiments show that the rule performs
+    well in practice, leading to improvements by orders of magnitude for
+    data in the (\$p \textbackslash gg n\$) domain, as well as incurring
+    no additional computational overhead when (\$n \textgreater{} p\$).}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-larsson2020" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Johan Larsson. 2020. <span>“The Strong Screening Rule for SLOPE.”</span>
+Online, Online, May 8. <a href="https://youtu.be/oPqaZt0klMg">https://youtu.be/oPqaZt0klMg</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -328,6 +415,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
+
 
 
 

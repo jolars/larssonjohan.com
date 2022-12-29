@@ -221,13 +221,13 @@
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "The Strong Screening Rule for SLOPE\n\n\n\n\n\n\n\n\n\n8 May 2020\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "The Strong Screening Rule for SLOPE\n\n\nExtracting relevant features from data sets where the number of observations (n) is much smaller then the number of predictors (p) is a major challenge in modern…\n\n\n\nJohan Larsson\n\n\n8 May 2020\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/strong-screening-rule-for-slope/index.html",
     "href": "talks/strong-screening-rule-for-slope/index.html",
     "title": "The Strong Screening Rule for SLOPE",
     "section": "",
-    "text": "This was a talk for Statistical Learning Seminars, where I talked about the strong screening rule for SLOPE.\n\n Slides  Preprint"
+    "text": "CitationBibTeX citation:@unpublished{larsson2020,\n  author = {Johan Larsson},\n  title = {The {Strong} {Screening} {Rule} for {SLOPE}},\n  date = {2020-05-08},\n  url = {https://youtu.be/oPqaZt0klMg},\n  langid = {en},\n  abstract = {Extracting relevant features from data sets where the\n    number of observations (\\$n\\$) is much smaller then the number of\n    predictors (\\$p\\$) is a major challenge in modern statistics. Sorted\n    L-One Penalized Estimation (SLOPE)—a generalization of the lasso—is\n    a promising method within this setting. Current numerical procedures\n    for SLOPE, however, lack the efficiency that respective tools for\n    the lasso enjoy, particularly in the context of estimating a\n    complete regularization path. A key component in the efficiency of\n    the lasso is predictor screening rules: rules that allow predictors\n    to be discarded before estimating the model. This is the first paper\n    to establish such a rule for SLOPE. We develop a screening rule for\n    SLOPE by examining its subdifferential and show that this rule is a\n    generalization of the strong rule for the lasso. Our rule is\n    heuristic, which means that it may discard predictors erroneously.\n    In our paper, however, we show that such situations are rare and\n    easily safeguarded against by a simple check of the optimality\n    conditions. Our numerical experiments show that the rule performs\n    well in practice, leading to improvements by orders of magnitude for\n    data in the (\\$p \\textbackslash gg n\\$) domain, as well as incurring\n    no additional computational overhead when (\\$n \\textgreater{} p\\$).}\n}\nFor attribution, please cite this work as:\nJohan Larsson. 2020. “The Strong Screening Rule for SLOPE.”\nOnline, Online, May 8. https://youtu.be/oPqaZt0klMg."
   }
 ]
