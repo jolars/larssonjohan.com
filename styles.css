@@ -11,3 +11,8 @@ a {
 a {
   color: white !important;
 } 
+
+ul, .publication-list {
+  padding-left: 1rem;
+}
+
