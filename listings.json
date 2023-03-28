@@ -12,8 +12,8 @@
   {
     "listing": "/publications/index.html",
     "items": [
-      "/publications/the-hessian-screening-rule/index.html",
       "/publications/benchopt/index.html",
+      "/publications/the-hessian-screening-rule/index.html",
       "/publications/coordinate-descent-for-slope/index.html",
       "/publications/look-ahead-screening/index.html",
       "/publications/the-strong-screening-rule-for-slope/index.html",
