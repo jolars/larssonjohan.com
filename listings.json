@@ -32,6 +32,7 @@
   {
     "listing": "/talks/index.html",
     "items": [
+      "/talks/cd-for-slope-aistats/index.html",
       "/talks/strong-screening-rule-for-slope/index.html"
     ]
   }

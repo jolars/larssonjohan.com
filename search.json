@@ -217,11 +217,18 @@
     "text": "CitationBibTeX citation:@misc{larsson2022,\n  author = {Johan Larsson and Jonas Wallin and Małgorzata Bogdan and\n    Ewout van den Berg and Chiara Sabatti and Emmanuel Candés and Evan\n    Patterson and Weijie Su and Jakub Kała and Krystyna Grzesiak and\n    Michal Burdukiewicz and Akarsh Goyal},\n  title = {SLOPE},\n  date = {2022-06-09},\n  url = {https://jolars.github.io/qualpalr},\n  langid = {en},\n  abstract = {Efficient implementations for Sorted L-One Penalized\n    Estimation (SLOPE): generalized linear models regularized with the\n    sorted L1-norm (Bogdan et al. (2015) \\textless\n    doi:10/gfgwzt\\textgreater). Supported models include ordinary\n    least-squares regression, binomial regression, multinomial\n    regression, and Poisson regression. Both dense and sparse predictor\n    matrices are supported. In addition, the package features predictor\n    screening rules that enable fast and efficient solutions to\n    high-dimensional problems.}\n}\nFor attribution, please cite this work as:\nJohan Larsson, Jonas Wallin, Małgorzata Bogdan, Ewout van den Berg,\nChiara Sabatti, Emmanuel Candés, Evan Patterson, et al. 2022.\n“SLOPE.” R. https://jolars.github.io/qualpalr."
   },
   {
+    "objectID": "talks/cd-for-slope-aistats/index.html",
+    "href": "talks/cd-for-slope-aistats/index.html",
+    "title": "Coordinate Descent for SLOPE",
+    "section": "",
+    "text": "CitationBibTeX citation:@unpublished{larsson2022,\n  author = {Johan Larsson},\n  title = {Coordinate {Descent} for {SLOPE}},\n  date = {2022-03-31},\n  url = {https://youtu.be/Zq-jVFgHt5o},\n  langid = {en},\n  abstract = {The lasso is the most famous sparse regression and feature\n    selection method. One reason for its popularity is the speed at\n    which the underlying optimization problem can be solved. Sorted\n    L-One Penalized Estimation (SLOPE) is a generalization of the lasso\n    with appealing statistical properties. In spite of this, the method\n    has not yet reached widespread interest. A major reason for this is\n    that current software packages that fit SLOPE rely on algorithms\n    that perform poorly in high dimensions. To tackle this issue, we\n    propose a new fast algorithm to solve the SLOPE optimization\n    problem, which combines proximal gradient descent and proximal\n    coordinate descent steps. We provide new results on the directional\n    derivative of the SLOPE penalty and its related SLOPE thresholding\n    operator, as well as provide convergence guarantees for our proposed\n    solver. In extensive benchmarks on simulated and real data, we show\n    that our method outperforms a long list of competing algorithms.}\n}\nFor attribution, please cite this work as:\nJohan Larsson. 2022. “Coordinate Descent for SLOPE.”\nOnline, Online, March 31. https://youtu.be/Zq-jVFgHt5o."
+  },
+  {
     "objectID": "talks/index.html",
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "The Strong Screening Rule for SLOPE\n\n\nA talk for the Statistical Learning Seminar about me and Jonas Wallin’s work on screening rules for SLOPE.\n\n\n\nJohan Larsson\n\n\n8 May 2020\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Coordinate Descent for SLOPE\n\n\nAn online talk for AISTATS 2023 on our work on coordinate descent for SLOPE.\n\n\n\nJohan Larsson\n\n\n31 March 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe Strong Screening Rule for SLOPE\n\n\nA talk for the Statistical Learning Seminar about me and Jonas Wallin’s work on screening rules for SLOPE.\n\n\n\nJohan Larsson\n\n\n8 May 2020\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/strong-screening-rule-for-slope/index.html",
