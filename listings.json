@@ -12,9 +12,9 @@
   {
     "listing": "/publications/index.html",
     "items": [
+      "/publications/coordinate-descent-for-slope/index.html",
       "/publications/benchopt/index.html",
       "/publications/the-hessian-screening-rule/index.html",
-      "/publications/coordinate-descent-for-slope/index.html",
       "/publications/look-ahead-screening/index.html",
       "/publications/the-strong-screening-rule-for-slope/index.html",
       "/publications/case-study-eulerr/index.html"
