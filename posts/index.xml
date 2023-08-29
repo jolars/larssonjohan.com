@@ -1135,8 +1135,8 @@ font-style: inherit;">times =</span> 1000L</span>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: milliseconds
               expr      min       lq     mean   median       uq      max neval
- f_greedy(data, n) 1.282439 1.329496 1.594981 1.339126 1.363927 45.94741  1000
-    f_new(data, n) 1.570062 1.890765 2.392704 2.134552 2.403589 37.93555  1000
+ f_greedy(data, n) 1.299801 1.352480 1.707447 1.405463 1.601421 16.06815  1000
+    f_new(data, n) 1.618153 2.012054 2.597314 2.255840 2.666066 43.37420  1000
  cld
   a 
    b</code></pre>
